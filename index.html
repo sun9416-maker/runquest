@@ -407,6 +407,7 @@
   .snhint{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);background:rgba(255,255,255,.88);color:#14201E;border-radius:999px;padding:7px 14px;font-size:.78rem;font-weight:800;white-space:nowrap}
   .snapseg{margin:10px 0 0}
   .sncheck{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:2px 0 14px;width:100%}.duot{width:100%}.duot{display:flex;align-items:center;gap:11px;padding:14px 14px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(135deg,#FFE9E4,var(--gold-soft));color:var(--ink);font:inherit;text-align:left;min-width:0}.duot.rp{background:linear-gradient(135deg,#DDF3F1,var(--gold-soft))}.duot .de{font-size:1.7rem;line-height:1}.duot b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.2rem;line-height:1.1}.duot small{display:block;font-family:var(--f-mono);font-size:.56rem;font-weight:800;letter-spacing:.16em;color:var(--muted);margin-top:3px}.duot:active{transform:scale(.98)}
   .rpcard{background:linear-gradient(120deg,var(--teal-soft,#DDF3F1),var(--gold-soft))}.rpwrap{max-width:300px;margin-left:auto;margin-right:auto}.rpin{position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;margin:10px 0 12px;background:linear-gradient(160deg,#1B3A36,#0E1F1D);box-shadow:0 12px 26px rgba(20,32,30,.18)}.rpin canvas{width:100%;height:100%;display:block;cursor:pointer}
   .rowroute{position:relative;flex:none;width:54px;height:54px;border-radius:14px;background:linear-gradient(160deg,#1B3A36,#0E1F1D);overflow:hidden}.rowroute svg.route{width:100%;height:100%;display:block;background:none;border:0;margin:0;border-radius:0}.rowroute svg polyline{stroke:#5FE0D4;stroke-width:5}.rowroute span{position:absolute;right:4px;bottom:3px;color:#fff;font-size:.56rem;opacity:.85}
   .rpin-load{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.75);font-size:.82rem;font-weight:800;letter-spacing:.02em;pointer-events:none}
@@ -463,7 +464,8 @@
   .gobtn b{display:block;font-size:1.15rem;font-family:var(--f-display);font-weight:400}
   .gobtn small{display:block;font-size:.76rem;opacity:.92;margin-top:2px}
   .gobtn:active{transform:scale(.985)}
-  .quick{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}
+  .quick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+  details.more.hm{margin-top:8px}details.more.hm>summary{padding:11px 2px;font-size:.92rem}details.more.hm>summary::after{content:"›";font-size:1.15rem}details.more.hm[open]>summary::after{content:"⌄"}details.more.hm>.card,details.more.hm>.tapcard{border:0;padding-left:0;padding-right:0;margin:0 0 8px;background:none}
   .quick button{border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:10px 2px 8px;font-size:.72rem;font-weight:800;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:3px;min-height:64px}
   .quick button span{font-size:1.35rem;line-height:1.1}
   .quick button:active{background:var(--teal-soft)}
@@ -659,6 +661,7 @@
   .lookc .lk{width:86px;margin:0 auto;aspect-ratio:140/170}
   .lookc .lk svg{width:100%;height:100%;display:block}
   .lookc.lock .lk svg{filter:brightness(0);opacity:.22}
+  .lookc.lock.peek .lk svg{filter:none;opacity:1}
   .lookc b{display:block;font-weight:800;font-size:.88rem;margin-top:4px}
   .lookc .lr{font-family:var(--f-mono);font-size:.6rem;font-weight:800;color:var(--gold)}
   .lookc .la{font-size:.72rem;color:var(--muted);margin-top:4px;line-height:1.35}
@@ -739,12 +742,12 @@
       </div>
 
       <button class="gobtn" id="homeGo"><span class="go-ic">▶</span><span><b>지금 달리기</b><small id="homeGoSub">GPS로 기록하고, 그 순간 기분도 남겨요</small></span></button>
-      <div class="quick" id="quickRow"><button data-q="walk"><span>🐾</span>산책</button><button data-q="errand"><span>🛍️</span>심부름</button><button data-q="map"><span>🧭</span>코스 찾기</button><button data-q="snap"><span>📸</span>인증샷</button><button data-q="diary"><span>📝</span>일기</button></div>
+      <div class="quick" id="quickRow"><button data-q="walk"><span>🐾</span>산책</button><button data-q="errand"><span>🛍️</span>심부름</button><button data-q="map"><span>🧭</span>코스 찾기</button></div>
       <div class="weekcard" id="weekCard"></div>
       <div id="safeHome"></div>
-      <div class="sec-ttl">오늘</div>
-      <div class="card" id="todayCard"></div>
-      <details class="more" id="moreReport"><summary>📊 내 러너 리포트 · 능력치와 몸 컨디션</summary>
+      <div class="sec-ttl">더 보기</div>
+      <details class="more hm"><summary>💡 오늘의 추천 훈련</summary><div class="card" id="todayCard"></div></details>
+      <details class="more hm" id="moreReport"><summary>📊 러너 리포트 · 능력치·컨디션</summary>
       <div class="sec-ttl" style="margin-top:6px">능력치 <span class="r">골드 = 신발 보너스</span></div>
       <div class="card"><div class="statgrid" id="statGrid"></div></div>
       <div class="mini">
@@ -766,12 +769,10 @@
       <div class="card" id="bodyCard" hidden></div>
 
       <button class="tapcard gamecard errcard" id="errandHome" hidden><div class="gc-art" style="font-size:2.3rem;text-align:center">🛍️</div><div style="min-width:0;text-align:left"><div class="lbl" style="color:var(--teal)">차 대신 내 발로</div><div style="font-weight:800;font-size:1.05rem;margin-top:2px">걸어서 장보기 · 심부름런</div><div class="muted small" id="errandHomeTxt"></div></div><span style="margin-left:auto;color:var(--faint);font-size:1.2rem">›</span></button>
-      <button class="tapcard gamecard" id="openGame"><div class="gc-art" id="gameArt"></div><div style="min-width:0;text-align:left"><div class="lbl" style="color:var(--coral)">🎮 심심풀이 미니게임</div><div style="font-weight:800;font-size:1.05rem;margin-top:2px"><span class="app-ko">다다닥</span> 대시</div><div class="muted small" id="gameBest">내 캐릭터가 내 신발 신고 달려요</div></div><span style="margin-left:auto;color:var(--faint);font-size:1.2rem">›</span></button>
 
-      <div class="sec-ttl">반려견</div>
-      <div class="card" id="dogCard"></div>
+      <details class="more hm"><summary>🐶 반려견</summary><div class="card" id="dogCard"></div></details>
 
-      <div class="sec-ttl">신발장</div>
+      <details class="more hm"><summary>👟 신발장</summary>
       <button class="tapcard" id="openCloset">
         <div class="shoe-row">
           <div class="shoe-art" id="homeShoeArt"></div>
@@ -784,17 +785,18 @@
           <span class="chev">›</span>
         </div>
         <div id="homeShoeWarn"></div>
-      </button>
-
-      <div class="sec-ttl">현재 도전</div>
-      <div class="card" id="homeQuest"></div>
+      </button></details>
+      <details class="more hm"><summary>🏅 현재 도전</summary><div class="card" id="homeQuest"></div></details>
+      <details class="more hm"><summary>🎮 미니게임</summary>
+      <button class="tapcard gamecard" id="openGame"><div class="gc-art" id="gameArt"></div><div style="min-width:0;text-align:left"><div class="lbl" style="color:var(--coral)">🎮 심심풀이 미니게임</div><div style="font-weight:800;font-size:1.05rem;margin-top:2px"><span class="app-ko">다다닥</span> 대시</div><div class="muted small" id="gameBest">내 캐릭터가 내 신발 신고 달려요</div></div><span style="margin-left:auto;color:var(--faint);font-size:1.2rem">›</span></button>
+      </details>
     </section>
 
     <!-- ===== RUN ===== -->
     <section class="screen" id="s-run" hidden>
       <div class="topbar"><div><div class="sub">GPS RUN</div><h1>러닝</h1></div></div>
       <div class="seg" id="modeSeg"><button data-m="run" aria-pressed="true">🏃 러닝</button><button data-m="walk" aria-pressed="false">🐾 산책</button><button data-m="errand" aria-pressed="false">🛍️ 심부름</button></div>
-      <div class="card" style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
+      <div class="card" style="display:none">
         <div class="charbox" id="runChar" style="width:66px"></div><div class="dogbox" id="runDog" style="width:68px;margin-left:-22px;align-self:flex-end" hidden></div>
         <div style="min-width:0"><div class="lbl">출발 준비</div><div style="font-weight:800;margin-top:2px" id="runReady"></div>
           <div class="muted small" style="margin-top:2px">달리는 중에 💭 버튼으로 그 순간 기분을 남길 수 있어요</div></div>
@@ -1035,8 +1037,7 @@
     <!-- ===== LOG ===== -->
     <section class="screen" id="s-log" hidden>
       <div class="topbar"><div><div class="sub">DAILY LOG</div><h1>기록</h1></div></div>
-      <button class="tapcard gamecard snapcard" data-snap=""><div class="gc-art" style="font-size:2.2rem;text-align:center">📸</div><div style="min-width:0;text-align:left"><div class="lbl" style="color:var(--coral)">인스타 감성 공유</div><div style="font-weight:800;font-size:1.05rem;margin-top:2px">인증샷 만들기</div><div class="muted small">사진 위에 내 캐릭터와 오늘 기록을 쏙</div></div><span style="margin-left:auto;color:var(--faint);font-size:1.2rem">›</span></button>
-      <button class="tapcard gamecard snapcard rpcard" data-replay=""><div class="gc-art" style="font-size:2.2rem;text-align:center">🎬</div><div style="min-width:0;text-align:left"><div class="lbl" style="color:var(--teal)">지도 위 리플레이</div><div style="font-weight:800;font-size:1.05rem;margin-top:2px">달린 길 영상</div><div class="muted small">내가 달린 길이 지도 위에 그려지는 12초 영상</div></div><span style="margin-left:auto;color:var(--faint);font-size:1.2rem">›</span></button>
+      <div class="duo"><button class="duot" data-snap=""><span class="de">📸</span><span><b>스냅</b><small>SNAP</small></span></button><button class="duot rp" data-replay=""><span class="de">🎬</span><span><b>리플레이</b><small>REPLAY</small></span></button></div>
       <div class="seg" id="logSeg">
         <button data-p="feel" aria-pressed="true">💭 마음 일기</button>
         <button data-p="shoe" aria-pressed="false">👟 신발 느낌</button>
@@ -2681,7 +2682,7 @@ function showWalkResult(res){
   res.titles.forEach(function(t){h+='<div class="gotbox">'+t.ic+' 칭호 획득: '+esc(t.nm)+'</div>';});
   h+=errandSummary(w);h+=feelSummary(w,!!rpW);
   if(res.dog)h+='<div class="note" style="text-align:center">집에 오면 발바닥을 살펴보고 물을 챙겨 주세요.</div>';
-  h+='<div class="snbtns" style="margin-top:16px"><button class="bigbtn ghost" data-diary="'+esc(w.id)+'">📝 '+(w.diary?"일기 고치기":"일기 쓰기")+'</button><button class="bigbtn gold" data-snap="'+esc(w.id)+'">📸 인증샷</button></div><button class="bigbtn" id="resClose" style="margin-top:10px">확인</button>';
+  h+='<div class="snbtns" style="margin-top:16px"><button class="bigbtn ghost" data-diary="'+esc(w.id)+'">📝 '+(w.diary?"일기 고치기":"일기 쓰기")+'</button><button class="bigbtn gold" data-snap="'+esc(w.id)+'">📸 스냅</button></div><button class="bigbtn" id="resClose" style="margin-top:10px">확인</button>';
   openSheet(h,function(s){var b=s.querySelector("#resClose");b.addEventListener("click",function(){closeSheet();go("home");});b.focus();});
 }
 function showResult(res){
@@ -2702,7 +2703,7 @@ function showResult(res){
   res.titles.forEach(function(t){h+='<div class="gotbox">'+t.ic+' 칭호 획득: '+esc(t.nm)+'</div>';});
   h+=errandSummary(r);h+=feelSummary(r,!!rpR);
   res.warns.forEach(function(w){h+='<div class="warnbox">'+esc(w)+'</div>';});
-  h+='<div class="snbtns" style="margin-top:16px"><button class="bigbtn ghost" data-diary="'+esc(r.id)+'">📝 '+(r.diary?"일기 고치기":"일기 쓰기")+'</button><button class="bigbtn gold" data-snap="'+esc(r.id)+'">📸 인증샷</button></div><button class="bigbtn" id="resClose" style="margin-top:10px">확인</button>';
+  h+='<div class="snbtns" style="margin-top:16px"><button class="bigbtn ghost" data-diary="'+esc(r.id)+'">📝 '+(r.diary?"일기 고치기":"일기 쓰기")+'</button><button class="bigbtn gold" data-snap="'+esc(r.id)+'">📸 스냅</button></div><button class="bigbtn" id="resClose" style="margin-top:10px">확인</button>';
   openSheet(h,function(s){var b=s.querySelector("#resClose");b.addEventListener("click",function(){closeSheet();go("home");});b.focus();});
 }
 var closetBrand="all";
@@ -2806,11 +2807,11 @@ function openProfile(){
 function openLooks(){
   var cur=myLook(),ach=myAch();
   var h='<div class="sheet-h"><h2>레벨 & 외형 도감</h2><button class="iconbtn" id="lkx">닫기</button></div>'+
-    '<p class="muted small" style="margin:0 0 12px">외형은 레벨과 꾸준함 조건을 함께 채우면 열려요. 빨리 달리지 않아도 꾸준하면 모두 열 수 있어요. 지금은 <b style="color:var(--ink)">LV.'+S.level+' '+esc(cur.nm)+'</b>예요.</p><div class="looks">';
-  LOOKS.forEach(function(L){var ok=lookOk(L),isCur=L===cur;
+    '<p class="muted small" style="margin:0 0 12px">외형은 레벨과 꾸준함 조건을 함께 채우면 열려요. 동네 러너까지는 미리 볼 수 있고, 그 뒤는 열릴 때 공개돼요. 빨리 달리지 않아도 꾸준하면 모두 열 수 있어요. 지금은 <b style="color:var(--ink)">LV.'+S.level+' '+esc(cur.nm)+'</b>예요.</p><div class="looks">';
+  LOOKS.forEach(function(L,li){var ok=lookOk(L),isCur=L===cur;
     var reqs=['<span style="color:'+(S.level>=L.lv?"var(--good)":"var(--faint)")+'">'+(S.level>=L.lv?"✓":"○")+' LV.'+L.lv+'</span>'].concat(L.req.map(function(r){var m=reqMet(r);return '<span style="color:'+(m?"var(--good)":"var(--faint)")+'">'+(m?"✓":"○")+' '+esc(reqText(r))+'</span>';}));
-    h+='<div class="lookc'+(ok?"":" lock")+(isCur?" cur":"")+'"><div class="lk">'+myChar({look:L,lv:L.lv})+'</div>'+
-      '<div class="lr">'+(isCur?"지금":ok?"해금":"잠김")+'</div><b>'+esc(L.nm)+'</b>'+
+    h+='<div class="lookc'+(ok?"":" lock")+(!ok&&li<3?" peek":"")+(isCur?" cur":"")+'"><div class="lk">'+myChar({look:L,lv:L.lv})+'</div>'+
+      '<div class="lr">'+(isCur?"지금":ok?"해금":li<3?"미리보기":"잠김")+'</div><b>'+esc(L.nm)+'</b>'+
       '<div class="la">'+esc(L.d)+'</div><div class="la" style="display:flex;flex-direction:column;gap:1px;font-weight:700">'+reqs.join("")+'</div></div>';});
   h+='</div><div class="sec-ttl">업적 장식</div><div class="card"><p class="muted small" style="margin:0 0 8px">외형과 상관없이, 실제 기록을 세우면 캐릭터에 붙어요.</p>'+
     ACH.map(function(a){return '<div class="move"><div class="mn">'+(ach[a.k]?"✓":"○")+'</div><div><b>'+esc(a.nm)+'</b><p>'+esc(a.d)+'</p></div><div class="ms">'+(ach[a.k]?"획득":"")+'</div></div>';}).join("")+'</div>';
@@ -3074,7 +3075,7 @@ function renderFeel(){
   P.innerHTML=h;
   $$("#feelList .feelrow").forEach(function(b){b.addEventListener("click",function(){var x=acts[+b.dataset.fi];
     openSheet('<div class="sheet-h"><h2>'+new Date(x.r.ts).toLocaleDateString("ko-KR",{month:"long",day:"numeric",weekday:"short"})+' '+(x.run?"러닝":"산책")+'</h2><button class="iconbtn" id="fdx">닫기</button></div>'+
-      '<div class="muted small" style="margin-bottom:10px">'+fmt(x.r.km,2)+'km · '+hms(x.r.min*60)+'</div>'+diaryBlock(x.r)+feelSummary(x.r)+'<div class="snbtns" style="margin-top:14px"><button class="bigbtn ghost" data-diary="'+esc(x.r.id)+'">📝 '+(x.r.diary?"일기 고치기":"일기 쓰기")+'</button><button class="bigbtn gold" data-snap="'+esc(x.r.id)+'">📸 인증샷</button></div>',function(s){s.querySelector("#fdx").addEventListener("click",closeSheet);});});});
+      '<div class="muted small" style="margin-bottom:10px">'+fmt(x.r.km,2)+'km · '+hms(x.r.min*60)+'</div>'+diaryBlock(x.r)+feelSummary(x.r)+'<div class="snbtns" style="margin-top:14px"><button class="bigbtn ghost" data-diary="'+esc(x.r.id)+'">📝 '+(x.r.diary?"일기 고치기":"일기 쓰기")+'</button><button class="bigbtn gold" data-snap="'+esc(x.r.id)+'">📸 스냅</button></div>',function(s){s.querySelector("#fdx").addEventListener("click",closeSheet);});});});
 }
 
 /* 백업 */
@@ -3454,7 +3455,7 @@ function openSnap(id){
   SNAP.act=(id&&findAct(id))||acts[0];SNAP.img=null;
   var opts=acts.slice(0,12).map(function(a){var r=a.r;return '<option value="'+esc(r.id)+'"'+(r.id===SNAP.act.r.id?" selected":"")+'>'+new Date(r.ts).toLocaleDateString("ko-KR",{month:"short",day:"numeric"})+' · '+(r.errand?"심부름":a.k==="run"?"러닝":"산책")+' '+fmt(r.km,2)+'km</option>';}).join("");
   var seg=function(id,items,cur){return '<div class="seg snapseg" id="'+id+'">'+items.map(function(x){return '<button data-v="'+x[0]+'" aria-pressed="'+(x[0]===cur)+'">'+x[1]+'</button>';}).join("")+'</div>';};
-  openSheet('<div class="sheet-h"><h2>📸 인증샷 만들기</h2><button class="iconbtn" id="snx">닫기</button></div>'+
+  openSheet('<div class="sheet-h"><h2>📸 스냅</h2><button class="iconbtn" id="snx">닫기</button></div>'+
     '<select id="snAct" class="snsel">'+opts+'</select>'+
     '<div class="snbtns"><label class="bigbtn snpick">📷 사진 찍기 · 고르기<input type="file" accept="image/*" id="snFile" hidden></label><button class="bigbtn ghost" id="snNo">사진 없이</button></div>'+
     '<div class="snwrap"><canvas id="snCv"></canvas><div class="snhint" id="snHint">사진을 고르면 내 캐릭터와 기록이 함께 박혀요</div></div>'+
@@ -3463,7 +3464,7 @@ function openSnap(id){
     seg("snSide",[["left","캐릭터 왼쪽"],["right","캐릭터 오른쪽"]],SNAP.side)+
     '<div class="sncheck"><label class="check"><input type="checkbox" id="snRoute"'+(SNAP.route?" checked":"")+'> 경로</label><label class="check"><input type="checkbox" id="snMood"'+(SNAP.mood?" checked":"")+'> 기분</label><label class="check"><input type="checkbox" id="snTags"'+(SNAP.tags?" checked":"")+'> 해시태그</label><label class="check"><input type="checkbox" id="snDiary"'+(SNAP.diary?" checked":"")+'> 일기 한 줄</label></div>'+
     '<div class="snbtns" style="margin-top:12px"><button class="bigbtn gold" id="snShare">📤 공유하기</button><button class="bigbtn ghost" id="snSave">💾 저장</button></div>'+
-    '<img id="snOut" alt="완성된 인증샷" hidden><p class="note" id="snNote" style="text-align:center;margin:8px 0 0">사진은 폰 밖으로 보내지지 않고, 이 화면에서만 합성돼요.</p>',function(s){
+    '<img id="snOut" alt="완성된 스냅" hidden><p class="note" id="snNote" style="text-align:center;margin:8px 0 0">사진은 폰 밖으로 보내지지 않고, 이 화면에서만 합성돼요.</p>',function(s){
     s.querySelector("#snx").addEventListener("click",closeSheet);
     s.querySelector("#snAct").addEventListener("change",function(){SNAP.act=findAct(this.value)||SNAP.act;drawSnap();});
     s.querySelector("#snFile").addEventListener("change",function(){var f=this.files&&this.files[0];if(!f)return;var u=URL.createObjectURL(f),im=new Image();
@@ -3651,7 +3652,7 @@ function showSnapImg(b){var o=$("#snOut");if(!o||!b)return;if(SNAP.url)URL.revok
   var n=$("#snNote");if(n)n.textContent="위 이미지를 길게 눌러 사진첩에 저장할 수도 있어요.";o.scrollIntoView({block:"nearest"});}
 function shareSnap(){snapBlob().then(function(b){if(!b)return;
   try{var f=new File([b],snapName(),{type:"image/jpeg"});
-    if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:APP_KO+" 인증샷"}).catch(function(){});return;}}catch(e){}
+    if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:APP_KO+" 스냅"}).catch(function(){});return;}}catch(e){}
   showSnapImg(b);toast("이 화면에선 바로 공유가 안 돼요. 이미지를 길게 눌러 저장해 주세요");});}
 function isIOS(){return /iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);}
 function saveSnap(){if(isIOS()&&!inClaudePreview()&&navigator.canShare){shareSnap();return;}snapBlob().then(function(b){if(!b)return;
@@ -3673,7 +3674,7 @@ function openReplay(id){
   if(!a&&!id)a=rpLatest();if(!a)a=rpDemoAct();
   var r=a.r,acts=snapActs().filter(function(x){return x.r.path&&x.r.path.length>1;}).slice(0,12);
   var opts=acts.map(function(x){var q=x.r;return '<option value="'+esc(q.id)+'"'+(q.id===r.id?" selected":"")+'>'+new Date(q.ts).toLocaleDateString("ko-KR",{month:"short",day:"numeric"})+' · '+(q.errand?"심부름":x.k==="run"?"러닝":"산책")+' '+fmt(q.km,2)+'km</option>';}).join("");
-  openSheet('<div class="sheet-h"><h2>🎬 달린 길 영상</h2><button class="iconbtn" id="rpx">닫기</button></div>'+
+  openSheet('<div class="sheet-h"><h2>🎬 리플레이</h2><button class="iconbtn" id="rpx">닫기</button></div>'+
     (a.demo?'<div class="note" style="margin:0 0 10px">아직 GPS로 기록한 길이 없어서 <b>예시 코스</b>로 보여드려요. 폰에서 GPS로 달리면 내 길이 이렇게 영상이 돼요.</div>':(acts.length>1?'<select id="rpAct" class="snsel">'+opts+'</select>':''))+
     '<div class="snwrap rpwrap"><canvas id="rpCv" width="720" height="1280"></canvas><div class="snhint" id="rpHint">지도를 불러오는 중…</div></div>'+
     '<div class="snbtns"><button class="bigbtn ghost" id="rpAgain">▶ 다시 보기</button><button class="bigbtn gold" id="rpRec">🎬 영상으로 만들기</button></div>'+
