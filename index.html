@@ -340,6 +340,15 @@
   #feelPanel{width:min(340px,92vw);background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px;margin-top:10px;text-align:left}
   .feelnote{display:flex;gap:6px;margin-top:8px}
   .feelnote input{flex:1;min-width:0;border:1px solid var(--line);border-radius:10px;padding:9px 10px;background:var(--paper);color:var(--ink);font-size:.9rem}
+  .lvbtns #rdCancel{flex:1 1 0;min-width:0;width:auto}.lvbtns #rdGo{flex:2.4 1 0!important;min-width:0;width:auto;white-space:nowrap;padding-top:18px;padding-bottom:18px}
+  .lvmap:empty{display:none}
+  .safebtn.lockbtn{right:auto;left:12px}
+  .rdbox{width:min(320px,88vw);margin-top:12px;padding:12px 14px;border-radius:14px;background:var(--gold-soft);text-align:left}.rdbox b{display:block;font-size:.95rem}.rdbox span{display:block;font-size:.76rem;color:var(--muted);margin-top:3px;line-height:1.5}
+  #pocket{position:fixed;inset:0;z-index:999;background:#000;color:#6F7C7A;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;text-align:center;padding:24px}
+  #pocket .pk-t{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.2em}#pocket .pk-km{font-size:4.6rem;line-height:1;color:#9AA7A4;font-weight:800}#pocket .pk-km small{font-size:1rem;margin-left:6px}#pocket .pk-sub{font-size:1rem;color:#7F8C89}
+  #pkHold{margin-top:34px;position:relative;overflow:hidden;border:1px solid #2E3836;background:#0D1211;color:#93A19E;font:inherit;font-weight:800;font-size:.9rem;padding:16px 26px;border-radius:999px;touch-action:none}#pkHold i{position:absolute;inset:0;background:#1BA8A0;opacity:.45;transform:scaleX(0);transform-origin:left}#pkHold.on i{transform:scaleX(1);transition:transform 1.1s linear}#pkHold span{position:relative}
+  #pocket .pk-n{font-size:.68rem;line-height:1.6;color:#4E5957;margin-top:10px}
+  .minchart{width:100%;height:auto;display:block;margin-top:8px}.minmore{margin-top:8px}.minmore summary{font-size:.8rem;font-weight:800;color:var(--teal);cursor:pointer;padding:6px 0}.mintbl{width:100%;border-collapse:collapse;font-family:var(--f-mono);font-size:.74rem}.mintbl th{font-family:var(--f-body);font-size:.66rem;color:var(--muted);text-align:right;padding:4px 6px;border-bottom:1px solid var(--line)}.mintbl td{text-align:right;padding:5px 6px;border-bottom:1px solid var(--line)}.mintbl th:first-child,.mintbl td:first-child{text-align:left}.mintbl tr.best td{color:#B97E00;font-weight:800}.mintbl small{color:var(--faint)}
   .lvbtns{display:flex;gap:10px;width:min(320px,88vw);margin-top:14px}
   .lvbtns .bigbtn{padding:13px 8px;font-size:.92rem}
   .route{width:100%;height:auto;display:block;background:var(--surface-2);border-radius:14px}
@@ -1711,6 +1720,7 @@ function cleanMoods(m){if(!Array.isArray(m))return null;var o=[];m.forEach(funct
   if(typeof x.n==="string"&&x.n.trim())y.n=x.n.trim().slice(0,80);if(isFinite(+x.la)&&isFinite(+x.lo)&&x.la!=null&&x.lo!=null){y.la=Math.round(+x.la*1e5)/1e5;y.lo=Math.round(+x.lo*1e5)/1e5;}o.push(y);}});return o.length?o.slice(0,40):null;}
 function addFeel(dst,src){
   var p=cleanPath(src.path),m=cleanMoods(src.moods);if(p)dst.path=p;if(m)dst.moods=m;
+  if(Array.isArray(src.mins)&&src.mins.length){var mn=src.mins.slice(0,720).map(function(x){return Math.max(0,Math.round(+x)||0);});dst.mins=mn;}
   if(EMO_BY[src.pre])dst.pre=src.pre;if(EMO_BY[src.post])dst.post=src.post;if(["fresh","ok","tired","period","pain"].indexOf(src.body)>=0)dst.body=src.body;
   if(src.src==="gps")dst.src="gps";var er=cleanErrand(src.errand);if(er)dst.errand=er;if(typeof src.diary==="string"&&src.diary.trim()){dst.diary=src.diary.slice(0,1000);if(+src.diaryAt>0)dst.diaryAt=+src.diaryAt;}return dst;
 }
@@ -2680,7 +2690,7 @@ function showWalkResult(res){
   if(res.dog)h+='<div class="dogbox" style="width:120px;margin:6px auto 0">'+dogSVG({breed:res.dog.breed})+'</div><div class="muted small" style="text-align:center">'+esc(josa(res.dog.name,"와","과"))+' 함께 · 친밀도 <span class="hearts">'+hearts(bondLevel(S.bond[res.dog.id]))+'</span>'+(res.bondUp?' · 친밀도 레벨 업!':'')+' · XP ×1.2</div>';
   h+='<div class="res-stats"><div><div class="v">'+fmt(w.km,2)+'</div><div class="k">KM</div></div><div><div class="v">'+hms(w.min*60)+'</div><div class="k">시간</div></div><div><div class="v">'+Math.round(w.min)+'</div><div class="k">건강 활동 분</div></div>'+(kcalOf(w.km,true)?'<div><div class="v">'+kcalOf(w.km,true)+'</div><div class="k">약 KCAL</div></div>':'')+'</div>';
   res.titles.forEach(function(t){h+='<div class="gotbox">'+t.ic+' 칭호 획득: '+esc(t.nm)+'</div>';});
-  h+=errandSummary(w);h+=feelSummary(w,!!rpW);
+  h+=minBlock(w);h+=errandSummary(w);h+=feelSummary(w,!!rpW);
   if(res.dog)h+='<div class="note" style="text-align:center">집에 오면 발바닥을 살펴보고 물을 챙겨 주세요.</div>';
   h+='<div class="snbtns" style="margin-top:16px"><button class="bigbtn ghost" data-diary="'+esc(w.id)+'">📝 '+(w.diary?"일기 고치기":"일기 쓰기")+'</button><button class="bigbtn gold" data-snap="'+esc(w.id)+'">📸 스냅</button></div><button class="bigbtn" id="resClose" style="margin-top:10px">확인</button>';
   openSheet(h,function(s){var b=s.querySelector("#resClose");b.addEventListener("click",function(){closeSheet();go("home");});b.focus();});
@@ -2701,7 +2711,7 @@ function showResult(res){
   res.ach.forEach(function(a){h+='<div class="gotbox">✨ 업적 장식 획득: '+esc(a.nm)+'</div>';});
   if(res.qj)h+='<div class="gotbox" style="background:var(--coral-soft);color:var(--coral)">🎯 거리 퀘스트 달성! 다음 도전이 열렸어요</div>';
   res.titles.forEach(function(t){h+='<div class="gotbox">'+t.ic+' 칭호 획득: '+esc(t.nm)+'</div>';});
-  h+=errandSummary(r);h+=feelSummary(r,!!rpR);
+  h+=minBlock(r);h+=errandSummary(r);h+=feelSummary(r,!!rpR);
   res.warns.forEach(function(w){h+='<div class="warnbox">'+esc(w)+'</div>';});
   h+='<div class="snbtns" style="margin-top:16px"><button class="bigbtn ghost" data-diary="'+esc(r.id)+'">📝 '+(r.diary?"일기 고치기":"일기 쓰기")+'</button><button class="bigbtn gold" data-snap="'+esc(r.id)+'">📸 스냅</button></div><button class="bigbtn" id="resClose" style="margin-top:10px">확인</button>';
   openSheet(h,function(s){var b=s.querySelector("#resClose");b.addEventListener("click",function(){closeSheet();go("home");});b.focus();});
@@ -2860,15 +2870,18 @@ function hav(a,b){var R=6371000,t=Math.PI/180,dLa=(b[0]-a[0])*t,dLo=(b[1]-a[1])*
   var h=x*x+Math.cos(a[0]*t)*Math.cos(b[0]*t)*y*y;return 2*R*Math.asin(Math.min(1,Math.sqrt(h)));}
 
 /* 세션 상태 */
-var LIVE=null,geoWatch=null,liveTick=null,wakeLock=null,liveSaveAt=0;
+var LIVE=null,geoWatch=null,liveTick=null,numTick=null,wakeLock=null,liveSaveAt=0,hiddenAt=0;
 function inClaudePreview(){try{return window.self!==window.top&&!!window.claude;}catch(e){return true;}}
 function liveElapsed(){if(!LIVE)return 0;return LIVE.activeMs+(LIVE.paused?0:Date.now()-LIVE.resumeAt);}
-function persistLive(force){if(!LIVE)return;var n=Date.now();if(!force&&n-liveSaveAt<4000)return;liveSaveAt=n;
+function persistLive(force){if(!LIVE||LIVE.ready)return;var n=Date.now();if(!force&&n-liveSaveAt<4000)return;liveSaveAt=n;
   var o=Object.assign({},LIVE,{activeMs:liveElapsed(),resumeAt:n,savedAt:n});try{localStorage.setItem("rq-live",JSON.stringify(o));}catch(e){}}
 function clearLive(){try{localStorage.removeItem("rq-live");}catch(e){}}
 function requestWake(){try{if(navigator.wakeLock&&document.visibilityState==="visible")navigator.wakeLock.request("screen").then(function(l){wakeLock=l;paintWake();l.addEventListener("release",function(){wakeLock=null;paintWake();});}).catch(function(){paintWake();});}catch(e){}}
-function paintWake(){var w=$("#lvWake");if(w)w.textContent=wakeLock?"🔆 화면 켜짐 유지 중":"화면이 꺼지면 기록이 멈출 수 있어요. 화면을 켜 둔 채로 넣어 주세요.";}
-document.addEventListener("visibilitychange",function(){if(LIVE&&document.visibilityState==="visible"){if(!wakeLock&&!LIVE.paused)requestWake();persistLive(true);}});
+function paintWake(){var w=$("#lvWake");if(w)w.textContent=wakeLock?"🔆 화면 켜짐 유지 중 · 주머니에 넣을 땐 🔒 잠금을 눌러요":"⚠️ 화면이 꺼지면 기록이 멈춰요. 화면을 켠 채 🔒 잠금을 눌러 넣어 주세요.";}
+document.addEventListener("visibilitychange",function(){if(!LIVE)return;
+  if(document.visibilityState!=="visible"){hiddenAt=Date.now();persistLive(true);return;}
+  if(!wakeLock)requestWake();persistLive(true);
+  if(hiddenAt&&!LIVE.paused&&!LIVE.ready&&Date.now()-hiddenAt>15000){var g=Math.round((Date.now()-hiddenAt)/1000);toast("화면이 꺼져 있던 "+(g>=90?Math.round(g/60)+"분":g+"초")+" 동안은 위치를 못 받았어요. 그 구간은 직선으로 이어요");}hiddenAt=0;});
 
 /* 시작: 출발 전 기분 → GPS */
 function startGps(){
@@ -2877,8 +2890,8 @@ function startGps(){
   var walk=isWalkMode();
   openSheet('<div class="sheet-h"><h2>'+(curMode==="errand"?"심부름":walk?"산책":"러닝")+' 출발 전 기분은?</h2><button class="iconbtn" id="pmx">닫기</button></div>'+
     '<div class="lbl" style="margin-bottom:6px">오늘 몸 상태 (선택)</div><div class="bodychips" id="bodyChips">'+BODY_ST.map(function(b){return '<button data-b="'+b[0]+'" aria-pressed="'+(BODYSEL===b[0])+'">'+b[1]+'</button>';}).join("")+'</div><div class="bodytip" id="bodyTip" hidden></div>'+
-    '<div class="lbl" style="margin-bottom:6px">지금 마음</div><p class="muted small" style="margin:0 0 10px">골라 두면 다녀온 뒤 기분 변화를 보여 드려요. 고르면 바로 출발해요.</p>'+emoGrid("pre")+
-    '<button class="bigbtn ghost" id="pmSkip" style="margin-top:14px">건너뛰고 출발</button>',function(s){
+    '<div class="lbl" style="margin-bottom:6px">지금 마음</div><p class="muted small" style="margin:0 0 10px">골라 두면 다녀온 뒤 기분 변화를 보여 드려요. 고르면 준비 화면으로 넘어가요.</p>'+emoGrid("pre")+
+    '<button class="bigbtn ghost" id="pmSkip" style="margin-top:14px">건너뛰기</button>',function(s){
     s.querySelector("#pmx").addEventListener("click",function(){NAVPEND=null;closeSheet();});
     s.querySelector("#pmSkip").addEventListener("click",function(){closeSheet();beginTracking(null);});
     function tip(){var t=$("#bodyTip",s)||s.querySelector("#bodyTip");var m=BODYSEL==="pain"?"통증이 있으면 오늘은 걷기로 바꾸거나 쉬어요. 아픈 채로 달리면 부상이 길어져요.":BODYSEL==="tired"?"피곤한 날은 대화할 수 있는 속도로 짧게. 그것도 훌륭한 훈련이에요.":"";t.hidden=!m;t.textContent=m;}
@@ -2888,15 +2901,27 @@ function startGps(){
 function beginTracking(pre){
   var walk=isWalkMode(),d=activeDog(),dogOn=!!(d&&withDog&&(walk||dogRunStatus(d).ok));
   LIVE={v:1,body:BODYSEL,nav:NAVPEND,errand:errandStart(),mode:walk?"walk":"run",int:curIntent,dog:dogOn?d.id:null,course:selCourse&&curMode!=="errand"?{id:selCourse.id,nm:selCourse.nm,km:selCourse.km}:null,
-    startTs:Date.now(),pts:[],km:0,activeMs:0,resumeAt:Date.now(),paused:false,moods:[],pre:pre,acc:null,last:null,recent:[]};
-  NAVPEND=null;persistLive(true);openLiveOverlay();watchGeo();requestWake();
+    startTs:Date.now(),pts:[],km:0,activeMs:0,resumeAt:Date.now(),paused:true,ready:true,mins:[],moods:[],pre:pre,acc:null,last:null,recent:[]};
+  NAVPEND=null;openLiveOverlay();watchGeo();requestWake();
 }
+/* 준비 화면에서 ▶ 시작하기를 눌러야 시간이 흐른다 */
+function goLive(){
+  if(!LIVE||!LIVE.ready)return;var n=Date.now();
+  LIVE.ready=false;LIVE.paused=false;LIVE.startTs=n;LIVE.resumeAt=n;LIVE.activeMs=0;LIVE.km=0;LIVE.pts=[];LIVE.last=null;LIVE.recent=[];LIVE.mins=[];LIVE.pS=null;LIVE.dk=0;
+  try{if(navigator.vibrate)navigator.vibrate(120);}catch(e){}
+  persistLive(true);openLiveOverlay();requestWake();
+}
+function cancelReady(){if(!LIVE||!LIVE.ready)return;stopGeo();LIVE=null;clearLive();var ov=$("#liveOv");if(ov)ov.remove();}
+/* 위치 떨림을 줄이는 필터 (정확도가 나쁠수록 덜 믿는다) */
+function kfStep(L,la,lo,acc,t){acc=Math.max(acc,3);var k=L.kf;if(!k||t-k.t>120000){L.kf={la:la,lo:lo,v:acc*acc,t:t};return [la,lo];}
+  var dt=Math.max(0,(t-k.t)/1000),q=L.mode==="walk"?2.2:3.6;k.v+=dt*q*q;k.t=t;var K=k.v/(k.v+acc*acc);k.la+=K*(la-k.la);k.lo+=K*(lo-k.lo);k.v=(1-K)*k.v;return [k.la,k.lo];}
 function watchGeo(){
   if(geoWatch!=null)return;
   geoWatch=navigator.geolocation.watchPosition(onFix,onGeoErr,{enableHighAccuracy:true,maximumAge:0,timeout:30000});
   if(!liveTick)liveTick=setInterval(paintLive,1000);
+  if(!numTick)numTick=setInterval(paintNums,200);
 }
-function stopGeo(){if(geoWatch!=null){navigator.geolocation.clearWatch(geoWatch);geoWatch=null;}if(liveTick){clearInterval(liveTick);liveTick=null;}if(wakeLock){try{wakeLock.release();}catch(e){}wakeLock=null;}}
+function stopGeo(){if(geoWatch!=null){navigator.geolocation.clearWatch(geoWatch);geoWatch=null;}if(liveTick){clearInterval(liveTick);liveTick=null;}if(numTick){clearInterval(numTick);numTick=null;}closePocket();if(wakeLock){try{wakeLock.release();}catch(e){}wakeLock=null;}}
 function onGeoErr(err){
   var st=$("#lvGps");if(!st)return;
   if(err&&err.code===1){
@@ -2904,32 +2929,55 @@ function onGeoErr(err){
   }else st.textContent="GPS 신호를 찾는 중… 하늘이 보이는 곳에서 잠시 기다려 주세요";
 }
 function onFix(pos){
-  if(!LIVE)return;var c=pos.coords,now=Date.now(),p=[c.latitude,c.longitude,now];
-  LIVE.acc=Math.round(c.accuracy||0);LIVE.lastFixAt=now;LIVE.here=[c.latitude,c.longitude];
-  if(c.accuracy<=50){if(LIVE.nav&&!LIVE.paused)navTick(LIVE.here);var EE=LIVE.errand;if(EE&&!LIVE.nav&&!EE.navTried&&EE.phase==="go"&&EE.store&&EE.store.la!=null&&!inClaudePreview()){EE.navTried=true;navForErrand([EE.store.la,EE.store.lo],EE.store.nm);}}
-  if(LIVE.paused){paintLive();return;}
-  if(c.accuracy>40){paintLive();return;} /* 너무 부정확한 점은 버린다 */
-  var last=LIVE.last;
-  if(!last){LIVE.last=p;LIVE.pts.push([p[0],p[1]]);paintLive();persistLive(true);return;}
-  var d=hav(last,p),dt=Math.max(1,(now-last[2])/1000),v=d/dt,vmax=LIVE.mode==="walk"?4.5:9;
-  if(d<Math.max(4,c.accuracy*0.4)){paintLive();return;} /* 제자리 흔들림 */
-  if(v>vmax&&dt<60){paintLive();return;} /* 튀는 점 */
-  if(v>vmax*1.4){LIVE.last=p;paintLive();return;} /* 화면 꺼짐 뒤 차량 이동 등: 거리 제외 */
+  if(!LIVE)return;var c=pos.coords,now=Date.now(),acc=c.accuracy||999,raw=[c.latitude,c.longitude];
+  LIVE.acc=Math.round(acc);LIVE.lastFixAt=now;
+  if(acc>50&&LIVE.here){paintLive();return;} /* 너무 부정확한 점은 버린다 */
+  var lr=LIVE.rawLast,vmax=LIVE.mode==="walk"?4.5:9;
+  if(lr){var rd=hav(lr,raw),rdt=Math.max(.5,(now-lr[2])/1000);if(rd/rdt>vmax*1.3&&rdt<20&&rd>acc){paintLive();return;}} /* 순간적으로 튀는 점 */
+  LIVE.rawLast=[raw[0],raw[1],now];
+  var f=kfStep(LIVE,raw[0],raw[1],acc,now);LIVE.here=[f[0],f[1]];
+  if(acc<=50){if(LIVE.nav&&!LIVE.paused)navTick(LIVE.here);var EE=LIVE.errand;if(EE&&!LIVE.nav&&!EE.navTried&&EE.phase==="go"&&EE.store&&EE.store.la!=null&&!inClaudePreview()){EE.navTried=true;navForErrand([EE.store.la,EE.store.lo],EE.store.nm);}}
+  if(LIVE.paused||acc>35){paintLive();return;}
+  var p=[f[0],f[1],now],last=LIVE.last;
+  if(!last){LIVE.last=p;LIVE.pts.push([Math.round(p[0]*1e5)/1e5,Math.round(p[1]*1e5)/1e5]);paintLive();persistLive(true);return;}
+  var d=hav(last,p),dt=Math.max(1,(now-last[2])/1000),v=d/dt;
+  var still=typeof c.speed==="number"&&c.speed>=0&&c.speed<0.3&&dt<30;
+  if(still||d<Math.max(3,acc*0.2)){paintLive();return;} /* 제자리 흔들림 */
+  if(v>vmax*1.4){LIVE.last=p;paintLive();return;} /* 차량 이동 등: 거리 제외 */
   LIVE.km+=d/1000;LIVE.last=p;
-  var lp=LIVE.pts[LIVE.pts.length-1];if(!lp||hav(lp,p)>=12)LIVE.pts.push([Math.round(p[0]*1e5)/1e5,Math.round(p[1]*1e5)/1e5]);
+  var lp=LIVE.pts[LIVE.pts.length-1];if(!lp||hav(lp,p)>=8)LIVE.pts.push([Math.round(p[0]*1e5)/1e5,Math.round(p[1]*1e5)/1e5]);
   if(LIVE.pts.length>1200)LIVE.pts=LIVE.pts.filter(function(_,i){return i%2===0;});
-  LIVE.recent.push([now,LIVE.km]);while(LIVE.recent.length&&now-LIVE.recent[0][0]>45000)LIVE.recent.shift();
+  LIVE.recent.push([now,LIVE.km]);while(LIVE.recent.length&&now-LIVE.recent[0][0]>40000)LIVE.recent.shift();
   if(LIVE.course&&LIVE.km>=LIVE.course.km&&!LIVE.goalHit){LIVE.goalHit=true;toast("🎯 코스 거리("+LIVE.course.km+"km)에 도착했어요!");}
   paintLive();persistLive();
 }
-function curPace(){if(!LIVE||LIVE.recent.length<2)return null;var a=LIVE.recent[0],b=LIVE.recent[LIVE.recent.length-1],dk=b[1]-a[1],dm=(b[0]-a[0])/60000;if(dk<0.02||dm<0.2)return null;return dm/dk;}
+function curPace(){if(!LIVE||LIVE.recent.length<2)return null;var a=LIVE.recent[0],b=LIVE.recent[LIVE.recent.length-1],dk=b[1]-a[1],dm=(b[0]-a[0])/60000;if(dk<0.03||dm<0.2)return LIVE.pS||null;
+  if(Date.now()-b[0]>12000){LIVE.pS=null;return null;}var cp=dm/dk;LIVE.pS=LIVE.pS?LIVE.pS*.6+cp*.4:cp;return LIVE.pS;}
+/* 숫자만 부드럽게 (0.2초마다): 거리·시간·분 단위 기록 */
+function paintNums(){
+  if(!LIVE)return;var ms=liveElapsed();
+  if(!LIVE.ready&&!LIVE.paused){var mi=Math.floor(ms/60000);if(!LIVE.mins)LIVE.mins=[];while(LIVE.mins.length<mi&&LIVE.mins.length<720)LIVE.mins.push(Math.round(LIVE.km*1000));}
+  var dk=LIVE.dk==null?LIVE.km:LIVE.dk;dk+=(LIVE.km-dk)*.3;if(Math.abs(LIVE.km-dk)<.002)dk=LIVE.km;LIVE.dk=dk;
+  var k=$("#lvKm");if(k){k.textContent=fmt(dk,2);$("#lvTime").textContent=hms(ms/1000);}
+  var pk=$("#pkKm");if(pk){pk.textContent=fmt(dk,2);$("#pkSub").textContent=hms(ms/1000)+(LIVE.paused?" · 일시정지":LIVE.km>=.05?" · 평균 "+hms(ms/60000/LIVE.km*60)+"/km":"");}
+}
+/* 🔒 잠금: 화면을 켠 채 주머니·암밴드에 넣어도 눌리지 않게 */
+function openPocket(){if($("#pocket")||!LIVE)return;var d=document.createElement("div");d.id="pocket";
+  d.innerHTML='<div class="pk-t">'+APP_EN+' · 기록 중</div><div class="pk-km mono"><span id="pkKm">0.00</span><small>km</small></div><div class="pk-sub mono" id="pkSub"></div><button id="pkHold"><i></i><span>길게 눌러 잠금 해제</span></button><div class="pk-n">화면은 켜 둔 채로 넣어 주세요.<br>아이폰은 화면이 꺼지면 위치 기록이 멈춰요.</div>';
+  document.body.appendChild(d);var b=d.querySelector("#pkHold"),t=null;
+  function up(){clearTimeout(t);t=null;b.classList.remove("on");}
+  b.addEventListener("pointerdown",function(e){e.preventDefault();b.classList.add("on");t=setTimeout(closePocket,1100);});
+  ["pointerup","pointercancel","pointerleave"].forEach(function(n){b.addEventListener(n,up);});
+  d.addEventListener("contextmenu",function(e){e.preventDefault();});requestWake();paintNums();}
+function closePocket(){var d=$("#pocket");if(d)d.remove();}
 
 /* 라이브 화면 */
 function openLiveOverlay(){
   var old=$("#liveOv");if(old)old.remove();if(!LIVE)return;
   var walk=LIVE.mode==="walk",d=LIVE.dog&&dogById(LIVE.dog);
   var ov=document.createElement("div");ov.className="live gpslive";ov.id="liveOv";
-  ov.innerHTML='<button class="safebtn" id="safeBtn">🛡️ 안심</button><div class="state" id="lvState"><span class="gpsdot"></span>'+(walk?"산책 중":"러닝 중 · "+INT_NM[LIVE.int])+(d?" · 🐶 "+esc(d.name):"")+(LIVE.course?" · "+esc(LIVE.course.nm):"")+'</div>'+
+  var RD=!!LIVE.ready;
+  ov.innerHTML='<button class="safebtn" id="safeBtn">🛡️ 안심</button>'+(RD?'':'<button class="safebtn lockbtn" id="lockBtn">🔒 잠금</button>')+'<div class="state" id="lvState"><span class="gpsdot"></span>'+(RD?(walk?"산책 준비":"러닝 준비 · "+INT_NM[LIVE.int]):walk?"산책 중":"러닝 중 · "+INT_NM[LIVE.int])+(d?" · 🐶 "+esc(d.name):"")+(LIVE.course?" · "+esc(LIVE.course.nm):"")+'</div>'+
     '<div class="mono" id="lvGps" style="font-size:.66rem;color:var(--faint);margin-top:4px;min-height:1.2em">GPS 신호를 찾는 중…</div>'+
     '<div class="duo" style="margin-top:2px"><div class="runner" id="lvRunner" style="width:min(104px,28vw)">'+myChar({run:true,walk:walk,st:walk?1.05:.7})+'</div>'+(d?'<div class="dogbox" id="lvDog" style="width:min(92px,24vw)">'+dogSVG({breed:d.breed,run:true,walk:walk,ds:walk?.65:.45})+'</div>':'')+'</div>'+
     '<div class="dist mono"><span id="lvKm">0.00</span><small> km</small></div>'+
@@ -2937,25 +2985,29 @@ function openLiveOverlay(){
     (LIVE.course?'<div class="prog"><i id="lvProg"></i></div>':'')+
     navLiveHTML()+'<div id="lvMap" class="lvmap"'+(LIVE.nav?' hidden':'')+'></div>'+
     errandLiveHTML()+'<div class="lvmoods" id="lvMoods"></div>'+
-    '<button class="feelbtn" id="feelBtn">💭 지금 이 순간 기분 남기기</button>'+
+    (RD?'<div class="rdbox"><b>준비되면 시작하기를 눌러요</b><span>누르는 순간부터 시간과 거리를 재요. GPS가 잡힐 때까지 잠깐 기다리면 더 정확해요.</span></div>'+
+      '<div class="lvbtns"><button class="bigbtn ghost" id="rdCancel">취소</button><button class="bigbtn" id="rdGo" style="flex:2.2;font-size:1.1rem">▶ 시작하기</button></div>'
+    :'<button class="feelbtn" id="feelBtn">💭 지금 이 순간 기분 남기기</button>'+
     '<div id="feelPanel" hidden></div>'+
-    '<div class="lvbtns"><button class="bigbtn ghost" id="pauseBtn">⏸ 일시정지</button><button class="bigbtn coral" id="stopBtn">■ 끝내기</button></div>'+
+    '<div class="lvbtns"><button class="bigbtn ghost" id="pauseBtn">⏸ 일시정지</button><button class="bigbtn coral" id="stopBtn">■ 끝내기</button></div>')+
     '<div class="mono" id="lvWake" style="font-size:.6rem;color:var(--faint);margin-top:10px;line-height:1.6"></div>'+
     '<div class="mono" style="font-size:.58rem;color:var(--faint);line-height:1.6">가슴 통증·어지럼이 느껴지면 즉시 멈추세요</div>';
   $("#s-run").appendChild(ov);
-  $("#feelBtn").addEventListener("click",openFeelPanel);bindErrandLive();$("#safeBtn").addEventListener("click",openSafety);
-  $("#pauseBtn").addEventListener("click",togglePause);
+  bindErrandLive();$("#safeBtn").addEventListener("click",openSafety);
+  if(RD){$("#rdGo").addEventListener("click",goLive);$("#rdCancel").addEventListener("click",cancelReady);mountLiveMap();paintWake();paintLive();return;}
+  $("#feelBtn").addEventListener("click",openFeelPanel);$("#lockBtn").addEventListener("click",openPocket);
+  $("#pauseBtn").addEventListener("click",togglePause);if(LIVE.paused)$("#pauseBtn").textContent="▶ 다시 시작";
   $("#stopBtn").addEventListener("click",function(){var b=this;if(b.dataset.c!=="1"){b.dataset.c="1";b.textContent="한 번 더 누르면 끝내요";setTimeout(function(){if(b.isConnected){b.dataset.c="";b.textContent="■ 끝내기";}},3500);return;}finishGps();});
   mountLiveMap();paintWake();paintLive();
 }
 function paintLive(){
   if(!LIVE||!$("#liveOv"))return;
   var ms=liveElapsed(),min=ms/60000,cp=curPace(),walk=LIVE.mode==="walk";
-  $("#lvKm").textContent=fmt(LIVE.km,2);$("#lvTime").textContent=hms(ms/1000);
-  $("#lvPace").textContent=LIVE.paused?"정지":cp&&cp<40?hms(cp*60):"—";
+  paintNums();
+  $("#lvPace").textContent=LIVE.ready?"—":LIVE.paused?"정지":cp&&cp<40?hms(Math.round(cp*12)*5):"—";
   $("#lvAvg").textContent=LIVE.km>=0.05?hms(min/LIVE.km*60):"—";
   var g=$("#lvGps");if(g&&LIVE.acc!=null&&!/권한/.test(g.textContent)){var age=(Date.now()-(LIVE.lastFixAt||0))/1000;
-    g.textContent=LIVE.paused?(LIVE.resumed?"앱이 다시 열려 일시정지했어요 · ▶ 다시 시작을 눌러 이어 가요":"일시정지 중 · 거리를 세지 않아요"):age>20?"GPS 신호가 약해요 (마지막 수신 "+Math.round(age)+"초 전)":"GPS 정확도 ±"+LIVE.acc+"m"+(LIVE.acc>40?" · 신호가 약해요":"");}
+    g.textContent=LIVE.ready?(age>20?"GPS 신호를 찾는 중… 하늘이 보이는 곳에서 기다려 주세요":LIVE.acc<=20?"✅ GPS 준비 완료 (±"+LIVE.acc+"m)":"GPS 잡는 중 (±"+LIVE.acc+"m) · 조금 기다리면 더 정확해져요"):LIVE.paused?(LIVE.resumed?"앱이 다시 열려 일시정지했어요 · ▶ 다시 시작을 눌러 이어 가요":"일시정지 중 · 거리를 세지 않아요"):age>20?"GPS 신호가 약해요 (마지막 수신 "+Math.round(age)+"초 전)":"GPS 정확도 ±"+LIVE.acc+"m"+(LIVE.acc>40?" · 신호가 약해요":"");}
   var pg=$("#lvProg");if(pg)pg.style.width=Math.min(100,LIVE.km/LIVE.course.km*100)+"%";
   if(LIVE.nav)paintNav();
   var m=$("#lvMap");if(m&&!LIVE.nav){var pts=LIVE.pts.slice();if(LIVE.here&&pts.length)pts.push(LIVE.here);m.innerHTML=pts.length>=2?routeSVG(pts,LIVE.moods,{w:300,h:120,pad:14,live:true}):"";}
@@ -2965,7 +3017,8 @@ function paintLive(){
 }
 function togglePause(){
   if(!LIVE||(LIVE.errand&&LIVE.errand.phase==="shop"))return;var b=$("#pauseBtn");
-  if(LIVE.paused){LIVE.paused=false;LIVE.resumed=false;LIVE.resumeAt=Date.now();LIVE.last=null;LIVE.recent=[];requestWake();b.textContent="⏸ 일시정지";}
+  if(LIVE.ready)return;
+  if(LIVE.paused){LIVE.paused=false;LIVE.resumed=false;LIVE.resumeAt=Date.now();LIVE.last=null;LIVE.recent=[];LIVE.pS=null;LIVE.kf=null;requestWake();b.textContent="⏸ 일시정지";}
   else{LIVE.activeMs=liveElapsed();LIVE.paused=true;b.textContent="▶ 다시 시작";}
   persistLive(true);paintLive();
 }
@@ -2986,7 +3039,7 @@ function openFeelPanel(){
   });});
 }
 function finishGps(){
-  if(!LIVE)return;
+  if(!LIVE)return;if(LIVE.ready){cancelReady();return;}paintNums();
   if(!LIVE.paused)LIVE.activeMs=liveElapsed();LIVE.paused=true;stopGeo();persistLive(true);
   var walk=LIVE.mode==="walk",min=LIVE.activeMs/60000;
   if(LIVE.km<0.05||min<1){
@@ -3016,12 +3069,27 @@ function openFinishRecord(o,done){
 function saveGps(post,diary){
   closeSheet();BODYSEL=null;var L=LIVE;if(!L)return;LIVE=null;clearLive();var ov=$("#liveOv");if(ov)ov.remove();
   var min=L.activeMs/60000,path=simplifyPath(L.pts),c=L.course?(BUILTIN_COURSES&&findCourse(L.course.id))||L.course:null;
-  var base={ts:L.startTs,km:L.km,min:min,dog:L.dog,body:L.body,src:"gps",diary:diary||undefined,diaryAt:diary?Date.now():undefined,path:path,moods:L.moods,pre:L.pre,post:post,errand:errandForSave(L.errand)};if(L.errand){errDraft.store=null;errDraft.memo="";saveErrDraft();}
+  var base={ts:L.startTs,km:L.km,min:min,dog:L.dog,body:L.body,src:"gps",diary:diary||undefined,diaryAt:diary?Date.now():undefined,path:path,mins:L.mins&&L.mins.length?L.mins.slice(0,720):undefined,moods:L.moods,pre:L.pre,post:post,errand:errandForSave(L.errand)};if(L.errand){errDraft.store=null;errDraft.memo="";saveErrDraft();}
   selCourse=null;
   if(L.mode==="walk"){var wr=addWalk(base,c);renderAll();showWalkResult(wr);return;}
   base.int=L.int;base.h=new Date(L.startTs).getHours();
   var res=addRun(base,c);renderAll();showResult(res);
 }
+/* ⏱ 분 단위 기록 */
+function minRows(r){var m=r&&r.mins;if(!m||!m.length)return null;var rows=[],prev=0,tot=Math.round(r.km*1000),n=m.length,i;
+  for(i=0;i<n;i++){var c=Math.min(Math.max(m[i],prev),tot);rows.push({n:i+1,d:c-prev,s:60,cum:c});prev=c;}
+  var rest=r.min*60-n*60;if(rest>=5&&tot-prev>0)rows.push({n:n+1,d:tot-prev,s:rest,cum:tot,part:true});return rows;}
+function minPace(x){if(x.d<12*x.s/60)return null;return (x.s/60)/(x.d/1000);}
+function minBlock(r){var rows=minRows(r);if(!rows||rows.length<2)return "";
+  var sp=rows.map(function(x){return x.d/x.s;}),mx=Math.max.apply(null,sp)||1,best=sp.indexOf(mx),W=320,H=86,n=rows.length,bw=W/n,gap=n>40?.6:n>20?1.2:2.2;
+  var bars=rows.map(function(x,i){var h=Math.max(2,sp[i]/mx*(H-18));return '<rect x="'+(i*bw+gap/2).toFixed(1)+'" y="'+(H-14-h).toFixed(1)+'" width="'+Math.max(1,bw-gap).toFixed(1)+'" height="'+h.toFixed(1)+'" rx="'+Math.min(3,bw/3).toFixed(1)+'" fill="'+(i===best?"#F2A900":minPace(x)==null?"#C9D2CF":"#1BA8A0")+'"/>';}).join("");
+  var step=n<=12?1:n<=30?5:n<=70?10:30,lab="";for(var i=0;i<n;i++)if((i+1)%step===0||i===0)lab+='<text x="'+((i+.5)*bw).toFixed(1)+'" y="'+(H-2)+'" text-anchor="middle" font-size="9" fill="#8A9896" font-family="monospace">'+(i+1)+'</text>';
+  var bp=minPace(rows[best]);
+  var h='<div class="feelcard minblk"><div class="lbl">⏱ 분 단위 기록</div><svg viewBox="0 0 '+W+' '+H+'" class="minchart" role="img" aria-label="분마다 달린 속도 막대 그래프">'+bars+lab+'</svg>'+
+    '<div class="muted small" style="margin-top:4px">막대가 높을수록 빨랐어요'+(bp?' · 가장 빠른 1분은 <b style="color:var(--ink)">'+(best+1)+'분째 '+hms(bp*60)+'/km</b>':'')+'</div>'+
+    '<details class="minmore"><summary>분별로 자세히 보기</summary><table class="mintbl"><thead><tr><th>분</th><th>이 1분</th><th>페이스</th><th>누적</th></tr></thead><tbody>'+
+    rows.map(function(x,i){var p=minPace(x);return '<tr'+(i===best?' class="best"':'')+'><td>'+x.n+(x.part?'<small> ('+Math.round(x.s)+'초)</small>':'')+'</td><td>'+x.d+'m</td><td>'+(p?hms(p*60)+'/km':'멈춤')+'</td><td>'+fmt(x.cum/1000,2)+'km</td></tr>';}).join("")+'</tbody></table></details></div>';
+  return h;}
 function findCourse(id){var f=null;for(var k in BUILTIN_COURSES)(BUILTIN_COURSES[k]||[]).forEach(function(x){if(x.id===id)f=x;});return f;}
 function simplifyPath(pts){if(!pts||pts.length<2)return null;var n=pts.length,max=240;if(n<=max)return pts.slice();var o=[],step=(n-1)/(max-1);for(var i=0;i<max;i++)o.push(pts[Math.round(i*step)]);return o;}
 
@@ -3030,7 +3098,7 @@ function resumeLiveIfAny(){
   var raw=null;try{raw=localStorage.getItem("rq-live");}catch(e){}if(!raw)return;
   var o=null;try{o=JSON.parse(raw);}catch(e){}if(!o||!o.startTs||!Array.isArray(o.pts)){clearLive();return;}
   var gap=Date.now()-(o.savedAt||o.startTs);
-  if(gap>6*3600000){clearLive();return;}
+  if(gap>6*3600000||o.ready){clearLive();return;}
   o.paused=true;o.resumed=true;o.recent=[];o.last=null;LIVE=o;
   go("run");openLiveOverlay();
   var g=$("#lvGps");if(g)g.textContent="앱이 닫혀서 일시정지했어요 · 이어서 하려면 ▶ 다시 시작";
@@ -3075,7 +3143,7 @@ function renderFeel(){
   P.innerHTML=h;
   $$("#feelList .feelrow").forEach(function(b){b.addEventListener("click",function(){var x=acts[+b.dataset.fi];
     openSheet('<div class="sheet-h"><h2>'+new Date(x.r.ts).toLocaleDateString("ko-KR",{month:"long",day:"numeric",weekday:"short"})+' '+(x.run?"러닝":"산책")+'</h2><button class="iconbtn" id="fdx">닫기</button></div>'+
-      '<div class="muted small" style="margin-bottom:10px">'+fmt(x.r.km,2)+'km · '+hms(x.r.min*60)+'</div>'+diaryBlock(x.r)+feelSummary(x.r)+'<div class="snbtns" style="margin-top:14px"><button class="bigbtn ghost" data-diary="'+esc(x.r.id)+'">📝 '+(x.r.diary?"일기 고치기":"일기 쓰기")+'</button><button class="bigbtn gold" data-snap="'+esc(x.r.id)+'">📸 스냅</button></div>',function(s){s.querySelector("#fdx").addEventListener("click",closeSheet);});});});
+      '<div class="muted small" style="margin-bottom:10px">'+fmt(x.r.km,2)+'km · '+hms(x.r.min*60)+'</div>'+diaryBlock(x.r)+feelSummary(x.r)+minBlock(x.r)+'<div class="snbtns" style="margin-top:14px"><button class="bigbtn ghost" data-diary="'+esc(x.r.id)+'">📝 '+(x.r.diary?"일기 고치기":"일기 쓰기")+'</button><button class="bigbtn gold" data-snap="'+esc(x.r.id)+'">📸 스냅</button></div>',function(s){s.querySelector("#fdx").addEventListener("click",closeSheet);});});});
 }
 
 /* 백업 */
