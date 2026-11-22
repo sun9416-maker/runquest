@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>도도도</title>
+<title>다다닥</title>
 <meta name="color-scheme" content="light dark">
-<link rel="apple-touch-icon" href="icon.png"><link rel="icon" type="image/png" href="icon.png"><link rel="manifest" href="manifest.json"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="도도도"><meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="icon.png"><link rel="icon" type="image/png" href="icon.png"><link rel="manifest" href="manifest.json"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="다다닥"><meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="theme-color" content="#F6FBFA">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,6 +80,10 @@
   .topbar h1{font-family:var(--f-display);font-weight:400;font-size:1.5rem;margin:0;letter-spacing:-.01em}
   .topbar .sub{font-family:var(--f-mono);font-size:.62rem;font-weight:700;letter-spacing:.14em;
     text-transform:uppercase;color:var(--teal)}
+  .topbar .wordmark{font-family:var(--f-display);font-weight:400;font-size:clamp(1.9rem,9vw,2.4rem);letter-spacing:.02em;line-height:1;text-transform:none}
+  .topbar h1.hi{font-family:var(--f-body);font-weight:800;font-size:.95rem;margin-top:5px;color:var(--muted);letter-spacing:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .wxpill{display:flex;align-items:center;gap:8px;width:100%;margin:0 0 10px;padding:9px 13px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-size:.8rem;font-weight:700;text-align:left}.wxpill b{font-family:var(--f-mono)}.wxpill .g{margin-left:auto;font-weight:800}.wxpill .m{color:var(--muted);font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .wxauto{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.wxauto span{font-size:.72rem;font-weight:700;padding:5px 9px;border-radius:999px;background:var(--surface-2);color:var(--ink)}
   .iconbtn{background:var(--surface);border:1px solid var(--line);color:var(--muted);
     border-radius:10px;padding:8px 10px;font-family:var(--f-mono);font-size:.62rem;font-weight:700}
 
@@ -708,9 +712,10 @@
     <!-- ===== HOME ===== -->
     <section class="screen" id="s-home">
       <div class="topbar">
-        <div style="min-width:0"><div class="sub app-en">DODODO</div><h1 id="homeHi">내 러너</h1></div>
+        <div style="min-width:0"><div class="sub app-en wordmark">DADADAK</div><h1 id="homeHi" class="hi">내 러너</h1></div>
         <button class="iconbtn avatarbtn" id="homeProfile" aria-label="프로필 열기">👤</button><button id="resetBtn" hidden>초기화</button>
       </div>
+      <button class="wxpill" id="homeWx" hidden></button>
       <div class="hero-card">
         <div class="hero-main">
           <button class="charbox" id="heroChar" aria-label="외형 도감 열기"></button>
@@ -761,7 +766,7 @@
       <div class="card" id="bodyCard" hidden></div>
 
       <button class="tapcard gamecard errcard" id="errandHome" hidden><div class="gc-art" style="font-size:2.3rem;text-align:center">🛍️</div><div style="min-width:0;text-align:left"><div class="lbl" style="color:var(--teal)">차 대신 내 발로</div><div style="font-weight:800;font-size:1.05rem;margin-top:2px">걸어서 장보기 · 심부름런</div><div class="muted small" id="errandHomeTxt"></div></div><span style="margin-left:auto;color:var(--faint);font-size:1.2rem">›</span></button>
-      <button class="tapcard gamecard" id="openGame"><div class="gc-art" id="gameArt"></div><div style="min-width:0;text-align:left"><div class="lbl" style="color:var(--coral)">🎮 심심풀이 미니게임</div><div style="font-weight:800;font-size:1.05rem;margin-top:2px"><span class="app-ko">도도도</span> 대시</div><div class="muted small" id="gameBest">내 캐릭터가 내 신발 신고 달려요</div></div><span style="margin-left:auto;color:var(--faint);font-size:1.2rem">›</span></button>
+      <button class="tapcard gamecard" id="openGame"><div class="gc-art" id="gameArt"></div><div style="min-width:0;text-align:left"><div class="lbl" style="color:var(--coral)">🎮 심심풀이 미니게임</div><div style="font-weight:800;font-size:1.05rem;margin-top:2px"><span class="app-ko">다다닥</span> 대시</div><div class="muted small" id="gameBest">내 캐릭터가 내 신발 신고 달려요</div></div><span style="margin-left:auto;color:var(--faint);font-size:1.2rem">›</span></button>
 
       <div class="sec-ttl">반려견</div>
       <div class="card" id="dogCard"></div>
@@ -985,7 +990,9 @@
             <button class="chip" data-d="bad" aria-pressed="false">나쁨</button>
             <button class="chip" data-d="worst" aria-pressed="false">매우나쁨</button>
           </div>
-          <p class="note" style="margin-left:0">지금은 오늘 날씨를 직접 맞춰 주세요. 정식 앱은 기상청 API로 지역 날씨를 자동으로 가져옵니다. 실제 예보: <a href="https://www.weather.go.kr" target="_blank" rel="noopener" style="color:var(--teal)">기상청 날씨누리</a></p>
+          <div class="wxauto" id="wxAuto" hidden></div>
+          <button class="bigbtn ghost" id="wxLoad" style="margin-top:12px">📍 지금 내 위치 날씨 불러오기</button>
+          <p class="note" style="margin-left:0">실시간 날씨·미세먼지는 무료 공개 예보 <a href="https://open-meteo.com" target="_blank" rel="noopener" style="color:var(--teal)">Open-Meteo</a>에서 가져와요. 위치는 약 1km 단위로만 보내요. 값이 다르면 위에서 직접 고칠 수 있어요. 공식 예보: <a href="https://www.weather.go.kr" target="_blank" rel="noopener" style="color:var(--teal)">기상청 날씨누리</a></p>
         </div>
         <div class="sec-ttl">오늘의 러닝 가이드</div>
         <div class="card"><div class="advice" id="wxAdvice"></div></div>
@@ -1080,7 +1087,7 @@
 </div>
 
 <script>
-var APP_KO="도도도",APP_EN="DODODO",APP_TAG="도도도런",APP_LINE="오늘은 어디까지 도도도?";try{document.title=APP_KO;document.addEventListener("DOMContentLoaded",brandFill);}catch(e){}
+var APP_KO="다다닥",APP_EN="DADADAK",APP_TAG="다다닥런",APP_LINE="오늘은 어디까지 다다닥?";try{document.title=APP_KO;document.addEventListener("DOMContentLoaded",brandFill);}catch(e){}
 function brandFill(){document.querySelectorAll(".app-ko").forEach(function(e){e.textContent=APP_KO;});document.querySelectorAll(".app-en").forEach(function(e){e.textContent=APP_EN;});}
 
 (function(){
@@ -2421,7 +2428,9 @@ function feelsLike(t,h){if(t>=20)return t+(h==="high"?4:h==="low"?-1:1);return t
 function renderWx(){
   $("#wxTemp").value=WX.t;$("#wxTv").textContent=WX.t+"°C";$("#wxT").textContent=WX.t+"°";
   $("#wxIc").textContent={sun:"☀️",cloud:"☁️",rain:"🌧️",snow:"❄️"}[WX.c]||"☀️";
-  $("#wxPlace").textContent=regionName(curRegion)+" · 직접 설정";
+  var au=WXA&&WXA.on&&Date.now()-WXA.ts<3*3600000;
+  $("#wxPlace").textContent=au?"내 위치 · "+wxTime(WXA.ts)+" 기준":regionName(curRegion)+" · 직접 설정";
+  var bx=$("#wxAuto");if(bx){bx.hidden=!au;if(au)bx.innerHTML=[WXA.feel!=null?"체감 "+WXA.feel+"°":"",WXA.hum!=null?"습도 "+WXA.hum+"%":"",WXA.wind!=null?"바람 "+WXA.wind+"m/s":"",WXA.pop!=null?"강수확률 "+WXA.pop+"%":"",WXA.pm25!=null?"초미세 "+WXA.pm25:"",WXA.pm10!=null?"미세 "+WXA.pm10:""].filter(Boolean).map(function(x){return "<span>"+esc(x)+"</span>";}).join("");}
   $$("#wxCond .chip").forEach(function(c){c.setAttribute("aria-pressed",String(c.dataset.c===WX.c));});
   $$("#wxDust .chip").forEach(function(c){c.setAttribute("aria-pressed",String(c.dataset.d===WX.d));});
   $$("#wxHum .chip").forEach(function(c){c.setAttribute("aria-pressed",String(c.dataset.h===WX.h));});
@@ -2432,7 +2441,8 @@ function renderWx(){
   if(WX.d==="bad")score=Math.min(score,1);if(WX.d==="worst")score=0;
   var SN=["실내 권장","주의","보통","좋음"],col=["var(--crit)","var(--warn)","var(--teal)","var(--good)"];
   $("#wxScore").textContent=SN[score];$("#wxScore").style.color=col[score];
-  if(fl!==t)$("#wxPlace").textContent=regionName(curRegion)+" · 체감 약 "+fl+"°C";
+  if(fl!==t&&!au)$("#wxPlace").textContent=regionName(curRegion)+" · 체감 약 "+fl+"°C";
+  var hw=$("#homeWx");if(hw){hw.hidden=!au;if(au)hw.innerHTML='<span>'+({sun:"☀️",cloud:"☁️",rain:"🌧️",snow:"❄️"}[WX.c])+'</span><b>'+WX.t+'°</b><span class="m">'+(WXA.feel!=null?"체감 "+WXA.feel+"° · ":"")+"미세먼지 "+({good:"좋음",mid:"보통",bad:"나쁨",worst:"매우나쁨"}[WX.d])+'</span><span class="g" style="color:'+col[score]+'">러닝 '+SN[score]+'</span>';}
   var feel=t+8,wear;
   if(feel>=24)wear="민소매나 반팔 + 쇼츠. 모자와 선크림을 챙기세요.";
   else if(feel>=17)wear="반팔 + 쇼츠. 처음 1km는 쌀쌀해도 금방 더워져요.";
@@ -2452,11 +2462,40 @@ function renderWx(){
   adv.push(["💧","수분","달리기 2시간 전쯤 물 한두 컵, 달리는 중엔 갈증 날 때 몇 모금. 너무 많이 마시는 것도 위험해요."+(fl>=24?" 1시간 넘게 달리면 이온음료로 전해질도 챙기세요.":"")]);
   $("#wxAdvice").innerHTML=adv.map(function(a){return '<div class="adv"><div class="ai">'+a[0]+'</div><div><b>'+esc(a[1])+'</b><p>'+esc(a[2])+'</p></div></div>';}).join("");
 }
-function saveWx(){lsSet("rq-wx",JSON.stringify(WX));renderWx();}
-$("#wxTemp").addEventListener("input",function(){WX.t=+this.value;saveWx();});
-$$("#wxCond .chip").forEach(function(c){c.addEventListener("click",function(){WX.c=c.dataset.c;saveWx();});});
-$$("#wxDust .chip").forEach(function(c){c.addEventListener("click",function(){WX.d=c.dataset.d;saveWx();});});
-$$("#wxHum .chip").forEach(function(c){c.addEventListener("click",function(){WX.h=c.dataset.h;saveWx();});});
+function saveWx(manual){if(manual&&WXA){WXA.on=false;lsSet("rq-wxa",JSON.stringify(WXA));}lsSet("rq-wx",JSON.stringify(WX));renderWx();}
+/* 실시간 날씨: Open-Meteo (무료·키 없음) */
+var WXA=null;try{WXA=JSON.parse(lsGet("rq-wxa")||"null");}catch(e){}
+function wxTime(ts){var d=new Date(ts);return d.getHours()+":"+String(d.getMinutes()).padStart(2,"0");}
+function wxLastCoord(){var a=snapActs();for(var i=0;i<a.length;i++){var p=a[i].r.path;if(p&&p.length)return [p[p.length-1][0],p[p.length-1][1]];}return null;}
+function wxGrade(v,a,b,c){return v==null?-1:v<=a?0:v<=b?1:v<=c?2:3;}
+function wxFetch(la,lo){la=Math.round(la*100)/100;lo=Math.round(lo*100)/100;var q="latitude="+la+"&longitude="+lo+"&timezone=auto";
+  function j(u){return fetch(u).then(function(r){if(!r.ok)throw new Error("http");return r.json();});}
+  return Promise.all([j("https://api.open-meteo.com/v1/forecast?"+q+"&current=temperature_2m,apparent_temperature,relative_humidity_2m,precipitation,weather_code,wind_speed_10m&hourly=precipitation_probability&forecast_days=2&wind_speed_unit=ms"),
+    j("https://air-quality-api.open-meteo.com/v1/air-quality?"+q+"&current=pm10,pm2_5").catch(function(){return null;})]).then(function(v){
+    var c=v[0]&&v[0].current;if(!c||typeof c.temperature_2m!=="number")throw new Error("data");var code=c.weather_code|0,aq=v[1]&&v[1].current,pop=null;
+    try{var hs=v[0].hourly,now=Date.now(),mx=-1;hs.time.forEach(function(t,i){var d=new Date(t).getTime()-now;if(d>-3600000&&d<3*3600000&&hs.precipitation_probability[i]!=null)mx=Math.max(mx,hs.precipitation_probability[i]);});if(mx>=0)pop=mx;}catch(e){}
+    WX.t=Math.max(-15,Math.min(38,Math.round(c.temperature_2m)));
+    WX.c=(code>=71&&code<=77)||code===85||code===86?"snow":(code>=51&&code<=67)||(code>=80&&code<=82)||code>=95||c.precipitation>0.1?"rain":code>=2?"cloud":"sun";
+    var h=c.relative_humidity_2m;WX.h=h==null?"mid":h<40?"low":h>70?"high":"mid";
+    var g=Math.max(wxGrade(aq&&aq.pm2_5,15,35,75),wxGrade(aq&&aq.pm10,30,80,150));if(g>=0)WX.d=["good","mid","bad","worst"][g];
+    WXA={on:true,ts:Date.now(),la:la,lo:lo,feel:c.apparent_temperature!=null?Math.round(c.apparent_temperature):null,hum:h!=null?Math.round(h):null,wind:c.wind_speed_10m!=null?Math.round(c.wind_speed_10m*10)/10:null,pop:pop,pm25:aq&&aq.pm2_5!=null?Math.round(aq.pm2_5):null,pm10:aq&&aq.pm10!=null?Math.round(aq.pm10):null};
+    lsSet("rq-wxa",JSON.stringify(WXA));saveWx();return WXA;});}
+function wxLoad(ask){var btn=$("#wxLoad");
+  function go(p){if(!p){if(ask)toast("위치를 알 수 없어요. 위치 권한을 허용하거나 한 번 달린 뒤 다시 눌러 주세요");return;}
+    if(btn&&ask){btn.disabled=true;btn.textContent="불러오는 중…";}
+    wxFetch(p[0],p[1]).then(function(){if(ask)toast("지금 날씨를 불러왔어요 ☀️");}).catch(function(){if(ask)toast(inClaudePreview()?"미리보기 화면에선 날씨를 못 불러와요. 깃허브 주소로 연 앱에서 돼요":"날씨를 불러오지 못했어요. 인터넷 연결을 확인해 주세요");})
+      .then(function(){if(btn){btn.disabled=false;btn.textContent="📍 지금 내 위치 날씨 불러오기";}});}
+  var known=(WXA&&WXA.la!=null)?[WXA.la,WXA.lo]:wxLastCoord();
+  if(ask&&navigator.geolocation&&!inClaudePreview()){var done=false,tm=setTimeout(function(){if(!done){done=true;go(known);}},9000);
+    navigator.geolocation.getCurrentPosition(function(g){if(done)return;done=true;clearTimeout(tm);go([g.coords.latitude,g.coords.longitude]);},function(){if(done)return;done=true;clearTimeout(tm);go(known);},{enableHighAccuracy:false,maximumAge:600000,timeout:8000});}
+  else go(known);}
+$("#wxLoad").addEventListener("click",function(){wxLoad(true);});
+$("#homeWx").addEventListener("click",function(){var b=document.querySelector('[data-go=info]');if(b)b.click();});
+setTimeout(function(){if(WXA&&WXA.on!==false&&Date.now()-WXA.ts>30*60000||(!WXA&&wxLastCoord()))wxLoad(false);},1500);
+$("#wxTemp").addEventListener("input",function(){WX.t=+this.value;saveWx(true);});
+$$("#wxCond .chip").forEach(function(c){c.addEventListener("click",function(){WX.c=c.dataset.c;saveWx(true);});});
+$$("#wxDust .chip").forEach(function(c){c.addEventListener("click",function(){WX.d=c.dataset.d;saveWx(true);});});
+$$("#wxHum .chip").forEach(function(c){c.addEventListener("click",function(){WX.h=c.dataset.h;saveWx(true);});});
 
 function renderWarm(){
   $("#warmList").innerHTML=WARM.map(function(m,i){return '<div class="move" data-i="'+i+'"><div class="mn">'+(i+1)+'</div><div><b>'+esc(m.n)+'</b><p>'+esc(m.d)+'</p></div><div class="ms">'+m.s+'초</div></div>';}).join("");
@@ -2838,13 +2877,11 @@ function startGps(){
   openSheet('<div class="sheet-h"><h2>'+(curMode==="errand"?"심부름":walk?"산책":"러닝")+' 출발 전 기분은?</h2><button class="iconbtn" id="pmx">닫기</button></div>'+
     '<div class="lbl" style="margin-bottom:6px">오늘 몸 상태 (선택)</div><div class="bodychips" id="bodyChips">'+BODY_ST.map(function(b){return '<button data-b="'+b[0]+'" aria-pressed="'+(BODYSEL===b[0])+'">'+b[1]+'</button>';}).join("")+'</div><div class="bodytip" id="bodyTip" hidden></div>'+
     '<div class="lbl" style="margin-bottom:6px">지금 마음</div><p class="muted small" style="margin:0 0 10px">골라 두면 다녀온 뒤 기분 변화를 보여 드려요. 고르면 바로 출발해요.</p>'+emoGrid("pre")+
-    '<div class="notice-row"><button class="bigbtn ghost" id="pmNotice">💌 친구에게 출발 알리기</button></div>'+
     '<button class="bigbtn ghost" id="pmSkip" style="margin-top:14px">건너뛰고 출발</button>',function(s){
     s.querySelector("#pmx").addEventListener("click",function(){NAVPEND=null;closeSheet();});
     s.querySelector("#pmSkip").addEventListener("click",function(){closeSheet();beginTracking(null);});
-    function tip(){var t=$("#bodyTip",s)||s.querySelector("#bodyTip");var m=BODYSEL==="period"?"생리 중엔 컨디션 따라 가볍게! 이지런이나 걷기도 충분해요. 아랫배·허리 통증이 심하면 쉬어 가요.":BODYSEL==="pain"?"통증이 있으면 오늘은 걷기로 바꾸거나 쉬어요. 아픈 채로 달리면 부상이 길어져요.":BODYSEL==="tired"?"피곤한 날은 대화할 수 있는 속도로 짧게. 그것도 훌륭한 훈련이에요.":"";t.hidden=!m;t.textContent=m;}
+    function tip(){var t=$("#bodyTip",s)||s.querySelector("#bodyTip");var m=BODYSEL==="pain"?"통증이 있으면 오늘은 걷기로 바꾸거나 쉬어요. 아픈 채로 달리면 부상이 길어져요.":BODYSEL==="tired"?"피곤한 날은 대화할 수 있는 속도로 짧게. 그것도 훌륭한 훈련이에요.":"";t.hidden=!m;t.textContent=m;}
     $$("#bodyChips button",s).forEach(function(b){b.addEventListener("click",function(){BODYSEL=BODYSEL===b.dataset.b?null:b.dataset.b;$$("#bodyChips button",s).forEach(function(x){x.setAttribute("aria-pressed",String(x.dataset.b===BODYSEL));});tip();});});tip();
-    s.querySelector("#pmNotice").addEventListener("click",function(){shareText(startNotice(walk));});
     $$(".emob.pre",s).forEach(function(b){b.addEventListener("click",function(){closeSheet();beginTracking(b.dataset.e);});});});
 }
 function beginTracking(pre){
@@ -3058,7 +3095,7 @@ function loadBackup(file){
 function backupAgeText(){var t=+lsGet("rq-backupAt")||0;if(!t)return "아직 백업한 적이 없어요";var d=Math.floor((Date.now()-t)/DAY);return "마지막 백업: "+(d<1?"오늘":d+"일 전");}
 try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist();}catch(e){}
 
-/* ================= 미니게임: 도도도 대시 ================= */
+/* ================= 미니게임: 다다닥 대시 ================= */
 /* 내 캐릭터(DOM SVG)가 캔버스 위를 달린다. 신발 종류에 따라 스킬이 달라지고, 반려견은 커플 운동화를 신고 따라온다. */
 var SHOE_SKILL={
   daily:{nm:"밸런스",d:"하트 3개 · 무난하게 오래 달려요",hearts:3,jump:1,boost:1,mult:1},
@@ -3609,7 +3646,7 @@ function openDiary(id){
 function diaryBlock(r){if(!r.diary)return "";return '<div class="diarypaper"><div class="dp-k">📝 그날의 일기</div><div class="dp-t">'+esc(r.diary)+'</div></div>';}
 
 function snapBlob(){return new Promise(function(res){var cv=$("#snCv");if(!cv)return res(null);cv.toBlob(function(b){res(b);},"image/jpeg",.92);});}
-function snapName(){var r=SNAP.act.r,d=new Date(r.ts);return "dododo-"+d.getFullYear()+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0")+".jpg";}
+function snapName(){var r=SNAP.act.r,d=new Date(r.ts);return "dadadak-"+d.getFullYear()+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0")+".jpg";}
 function showSnapImg(b){var o=$("#snOut");if(!o||!b)return;if(SNAP.url)URL.revokeObjectURL(SNAP.url);SNAP.url=URL.createObjectURL(b);o.src=SNAP.url;o.hidden=false;
   var n=$("#snNote");if(n)n.textContent="위 이미지를 길게 눌러 사진첩에 저장할 수도 있어요.";o.scrollIntoView({block:"nearest"});}
 function shareSnap(){snapBlob().then(function(b){if(!b)return;
@@ -3746,7 +3783,7 @@ function rpFrame(R,t){
   /* 시작 · 끝 자막 */
   if(t<T1+250){var al=t<T1-150?Math.min(1,t/250):Math.max(0,1-(t-(T1-150))/400);c.globalAlpha=al;c.fillStyle="rgba(10,16,18,.3)";c.fillRect(0,0,W,H);T(c,"오늘의 길",W/2,H*.4,"400 96px "+FD,"#fff","center","rgba(0,0,0,.4)");T(c,APP_LINE,W/2,H*.4+64,"700 30px "+FB,"rgba(255,255,255,.92)","center","rgba(0,0,0,.4)");c.globalAlpha=1;}
   if(t>T3-300){var a2=ez((t-(T3-300))/600),yy=H*.195-18*(1-a2);c.globalAlpha=a2;
-    var msg=r.errand?"차 대신 두 발로 다녀왔어요":R.a.k==="walk"?"오늘도 한 바퀴, 잘 걸었어요":"오늘도 도도도, 완주!";
+    var msg=r.errand?"차 대신 두 발로 다녀왔어요":R.a.k==="walk"?"오늘도 한 바퀴, 잘 걸었어요":"오늘도 다다닥, 완주!";
     c.font="400 62px "+FD;var mw=c.measureText(msg).width+72;c.fillStyle="rgba(255,255,255,.94)";rr(c,(W-mw)/2,yy-70,mw,104,52);c.fill();T(c,msg,W/2,yy+2,"400 62px "+FD,"#14201E","center");
     T(c,"#"+APP_TAG,W/2,yy+86,"800 32px "+FB,"#FFD166","center","rgba(0,0,0,.7)");
     if(r.diary){var dq2=String(r.diary).replace(/\s+/g," ").slice(0,24)+(r.diary.length>24?"…":"");T(c,"“"+dq2+"”",W/2,yy+136,"600 28px "+FB,"#fff","center","rgba(0,0,0,.6)");}
@@ -3769,7 +3806,7 @@ function rpRecord(){var R=RP;if(!R||!R.ready||R.recording)return;
   try{rec.start();}catch(e){R.recording=false;if(btn){btn.disabled=false;btn.textContent="🎬 영상으로 만들기";}if(ag)ag.disabled=false;toast("영상 만들기를 시작하지 못했어요");return;}
   rpStart(R,function(){setTimeout(function(){try{if(rec.state!=="inactive")rec.stop();}catch(e){}},250);});
 }
-function rpName(){var d=new Date(RP.r.ts);return "dododo-"+d.getFullYear()+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0")+"."+RP.ext;}
+function rpName(){var d=new Date(RP.r.ts);return "dadadak-"+d.getFullYear()+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0")+"."+RP.ext;}
 function rpShare(){if(!RP||!RP.blob)return;
   try{var f=new File([RP.blob],rpName(),{type:RP.blob.type});if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:APP_KO+" 달린 길"}).catch(function(){});return;}}catch(e){}
   toast("이 화면에선 바로 공유가 안 돼요. 저장한 뒤 올려 주세요");}
@@ -3792,8 +3829,8 @@ try{new MutationObserver(function(){clearTimeout(rpInScan.t);rpInScan.t=setTimeo
 document.addEventListener("click",function(e){var c=e.target.closest&&e.target.closest(".rpin canvas");if(c){var R=c.parentNode._rp;if(R&&R.ready)rpStart(R);}});
 
 /* ================= 지도 · 코스 추천 · 길 안내 ================= */
-/* 무료 지도: OpenStreetMap 데이터 + CARTO 지도 이미지. 경로: OpenStreetMap 독일 지부(FOSSGIS)의 보행자 경로 서버. 검색: Nominatim */
-var TILE_URL="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png",TILE_SUBS="abcd",TILE_ATTR="© OpenStreetMap 기여자 · © CARTO";
+/* 무료 지도: OpenStreetMap 데이터 + OpenStreetMap 기본 지도 이미지(키 불필요). 경로: OpenStreetMap 독일 지부(FOSSGIS)의 보행자 경로 서버. 검색: Nominatim */
+var TILE_URL="https://tile.openstreetmap.org/{z}/{x}/{y}.png",TILE_SUBS="abcd",TILE_ATTR="© OpenStreetMap 기여자";
 var ROUTER="https://routing.openstreetmap.de/routed-foot/route/v1/foot/",GEOCODER="https://nominatim.openstreetmap.org/search";
 function lon2x(l,z){return (l+180)/360*Math.pow(2,z)*256;}
 function lat2y(a,z){var r=a*Math.PI/180;return (1-Math.log(Math.tan(r)+1/Math.cos(r))/Math.PI)/2*Math.pow(2,z)*256;}
@@ -3986,7 +4023,7 @@ function startPlanned(){
 var NAVPEND=null;
 
 /* ================= 홈 · 안심 · 컨디션 (UX 개편) ================= */
-var BODY_ST=[["fresh","가뿐해요"],["ok","보통이에요"],["tired","피곤해요"],["period","생리 중이에요"],["pain","아픈 곳 있어요"]];
+var BODY_ST=[["fresh","가뿐해요"],["ok","보통이에요"],["tired","피곤해요"],["pain","아픈 곳 있어요"]];
 var BODYSEL=null;
 function weekStart(){var d=new Date();d.setHours(0,0,0,0);var w=(d.getDay()+6)%7;return d.getTime()-w*DAY;}
 function weekKm(){var t=weekStart();return S.runs.concat(S.walks).filter(function(r){return r.ts>=t;}).reduce(function(a,r){return a+r.km;},0);}
@@ -3994,7 +4031,7 @@ function streakDays(){var days={};S.runs.concat(S.walks).forEach(function(r){var
   var d=new Date();d.setHours(0,0,0,0);var t=d.getTime();if(!days[t])t-=DAY;var n=0;while(days[t]){n++;t-=DAY;}return n;}
 function isNight(){var h=new Date().getHours();return h>=19||h<6;}
 function greet(){var h=new Date().getHours(),n=S.nick||"러너";
-  return h<6?n+"님, 아직 새벽이에요 🌙":h<11?n+"님, 좋은 아침이에요 ☀️":h<17?n+"님, 오늘도 도도도 할까요?":h<21?n+"님, 저녁 바람 어때요? 🌇":n+"님, 오늘 하루 수고했어요 🌙";}
+  return h<6?n+"님, 아직 새벽이에요 🌙":h<11?n+"님, 좋은 아침이에요 ☀️":h<17?n+"님, 오늘도 다다닥 할까요?":h<21?n+"님, 저녁 바람 어때요? 🌇":n+"님, 오늘 하루 수고했어요 🌙";}
 function renderHomeTop(){
   var hc=$(".hero-card"),db=$("#devBadge");if(hc&&!db){db=document.createElement("button");db.id="devBadge";db.className="devbadge";db.textContent="🛠 개발자 · 전체 캐릭터";db.addEventListener("click",function(e){e.stopPropagation();openDevGallery();});hc.appendChild(db);}if(db)db.hidden=!DEV;
   renderErrandHome();$("#gameArt").innerHTML=myChar({run:true,st:.55});var gb=S.game&&S.game.best;$("#gameBest").textContent=gb?"최고 기록 "+gb.toLocaleString("ko-KR")+"점 · 한 판 더?":(activeDog()?"내 신발 신고, "+josa(activeDog().name,"와","과")+" 커플 운동화로 달려요":"내 캐릭터가 내 신발 신고 달려요");
@@ -4237,7 +4274,7 @@ function renderLogin(force){
   var h='<div class="login-in">';
   if(loginStep==="welcome"){
     var back=!!S.nick;
-    h+='<div class="brand">'+APP_EN+'</div><h1 class="logo">'+APP_KO+'</h1>'+
+    h+='<div class="brand" style="font-family:var(--f-display);font-size:1.05rem;letter-spacing:.2em;font-weight:400">'+APP_KO+'</div><h1 class="logo" style="letter-spacing:.01em">'+APP_EN+'</h1>'+
       '<div class="tagl">'+(back?'다시 오셨네요, <b style="color:var(--ink)">'+esc(S.nick)+'</b>!':APP_LINE)+'</div>'+
       '<div class="stage">'+(back?myChar({run:true,st:.62}):charSVG({lv:1,sex:"f",skin:0,shoe:"#1BA8C9",run:true,st:.62}))+'</div>';
     if(!CAP.ready){
