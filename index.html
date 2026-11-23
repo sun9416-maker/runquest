@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>다다닥</title>
+<title>런닝구</title>
 <meta name="color-scheme" content="light dark">
-<link rel="apple-touch-icon" href="icon.png"><link rel="icon" type="image/png" href="icon.png"><link rel="manifest" href="manifest.json"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="다다닥"><meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="icon.png"><link rel="icon" type="image/png" href="icon.png"><link rel="manifest" href="manifest.json"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="런닝구"><meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="theme-color" content="#F6FBFA">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,7 +80,7 @@
   .topbar h1{font-family:var(--f-display);font-weight:400;font-size:1.5rem;margin:0;letter-spacing:-.01em}
   .topbar .sub{font-family:var(--f-mono);font-size:.62rem;font-weight:700;letter-spacing:.14em;
     text-transform:uppercase;color:var(--teal)}
-  .topbar .wordmark{font-family:var(--f-display);font-weight:400;font-size:clamp(1.9rem,9vw,2.4rem);letter-spacing:.02em;line-height:1;text-transform:none}
+  .topbar .wordmark{font-family:var(--f-display);font-weight:400;font-size:clamp(1.7rem,8vw,2.2rem);letter-spacing:.02em;line-height:1;text-transform:none}
   .topbar h1.hi{font-family:var(--f-body);font-weight:800;font-size:.95rem;margin-top:5px;color:var(--muted);letter-spacing:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .wxpill{display:flex;align-items:center;gap:8px;width:100%;margin:0 0 10px;padding:9px 13px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-size:.8rem;font-weight:700;text-align:left}.wxpill b{font-family:var(--f-mono)}.wxpill .g{margin-left:auto;font-weight:800}.wxpill .m{color:var(--muted);font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .wxauto{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.wxauto span{font-size:.72rem;font-weight:700;padding:5px 9px;border-radius:999px;background:var(--surface-2);color:var(--ink)}
@@ -342,7 +342,10 @@
   .feelnote input{flex:1;min-width:0;border:1px solid var(--line);border-radius:10px;padding:9px 10px;background:var(--paper);color:var(--ink);font-size:.9rem}
   .lvbtns #rdCancel{flex:1 1 0;min-width:0;width:auto}.lvbtns #rdGo{flex:2.4 1 0!important;min-width:0;width:auto;white-space:nowrap;padding-top:18px;padding-bottom:18px}
   .lvmap:empty{display:none}
+  .agree{display:flex;gap:9px;align-items:flex-start;margin:12px 0 10px;font-size:.86rem;font-weight:700;text-align:left;line-height:1.45}.agree input{width:20px;height:20px;flex:none;margin-top:1px;accent-color:var(--teal)}.agree small{color:var(--muted);font-weight:600}
+  .locul{margin:4px 0 0;padding-left:18px;font-size:.82rem;line-height:1.6;color:var(--ink)}.locul li{margin:3px 0}.locul b{margin-right:4px}
   .safebtn.lockbtn{right:auto;left:12px}
+  .gpslive .state{padding:0 86px;line-height:1.35}
   .rdbox{width:min(320px,88vw);margin-top:12px;padding:12px 14px;border-radius:14px;background:var(--gold-soft);text-align:left}.rdbox b{display:block;font-size:.95rem}.rdbox span{display:block;font-size:.76rem;color:var(--muted);margin-top:3px;line-height:1.5}
   #pocket{position:fixed;inset:0;z-index:999;background:#000;color:#6F7C7A;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;text-align:center;padding:24px}
   #pocket .pk-t{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.2em}#pocket .pk-km{font-size:4.6rem;line-height:1;color:#9AA7A4;font-weight:800}#pocket .pk-km small{font-size:1rem;margin-left:6px}#pocket .pk-sub{font-size:1rem;color:#7F8C89}
@@ -507,6 +510,8 @@
   .finsum{display:flex;justify-content:space-around;background:var(--surface-2);border-radius:14px;padding:12px 8px;text-align:center}
   .finsum b{display:block;font-size:1.4rem;font-weight:800}
   .finsum small{font-size:.66rem;color:var(--faint);font-weight:700}
+  #dgPose{flex-wrap:wrap}#dgPose button{flex:1 0 22%;font-size:.72rem}
+  #dgCt{flex-wrap:wrap}#dgCt button{flex:1 0 30%;font-size:.74rem}
   .devseg{margin:8px 0 0}
   .devach{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:10px;font-size:.82rem}
   .devnow{background:var(--gold-soft);border-radius:12px;padding:8px 12px;margin-top:10px;font-size:.84rem;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
@@ -624,10 +629,30 @@
   .setup button{margin-left:auto;flex:none}
   .chr{--st:.62s;overflow:visible}
   .chr .lean,.chr .th,.chr .sh,.chr .ua,.chr .pt,.chr .bob{transform-box:view-box}
-  .chr .lean{transform-origin:70px 116px}
+  .chr .lean{transform-origin:70px 106px}
   .chr.run .lean{transform:rotate(6deg)}
-  .chr .th{transform-origin:70px 116px} .chr .sh{transform-origin:70px 130px}
-  .chr .ua{transform-origin:72px 90px} .chr .pt{transform-origin:47px 33px}
+  .chr .th{transform-origin:70px 106px} .chr .sh{transform-origin:70px 130px}
+  .chr .ua{transform-origin:72px 74px} .chr .pt{transform-origin:58px 35px}
+  .chr.glow .am .ua{transform:none!important}
+  .chr.glow .lg.near .th{transform:rotate(-13deg)!important} .chr.glow .lg.far .th{transform:rotate(15deg)!important} .chr.glow .lean{transform:rotate(-4deg)}
+  .chr.glow .bob{animation:glowhop .9s ease-in-out infinite!important} .chr.glow .tw{transform-box:fill-box;transform-origin:center;animation:twk 1.1s ease-in-out infinite alternate} .chr.glow .tw:nth-of-type(2n){animation-delay:-.5s}
+  @keyframes glowhop{0%,100%{transform:translateY(0)}45%{transform:translateY(-7px)}} @keyframes twk{from{transform:scale(.55);opacity:.5}to{transform:scale(1.1);opacity:1}}
+  .chr.m-lazy .bob{animation:none!important;transform:translateY(23px)} .chr.m-lazy .lean{transform:rotate(-17deg)}
+  .chr.m-lazy .lg .th{transform:rotate(-80deg)!important} .chr.m-lazy .lg.far .th{transform:rotate(-66deg)!important} .chr.m-lazy .sh{transform:rotate(74deg)} .chr.m-lazy .am .ua{transform:rotate(16deg)!important}
+  .chr.m-hot .am.near .ua{transform:rotate(-128deg)!important} .chr.m-cold .am.near .ua{transform:rotate(-46deg)!important} .chr.m-cold .am.far .ua{transform:rotate(-30deg)!important}
+  .chr.m-cold .bob{animation:shiver .16s linear infinite!important} @keyframes shiver{0%,100%{transform:translateX(-.9px)}50%{transform:translateX(.9px)}}
+  .chr.m-fire .am.near .ua{transform:rotate(-96deg)!important} .chr.m-fire .lean{transform:rotate(5deg)}
+  .chr .tw{transform-box:fill-box;transform-origin:center;animation:twk 1.1s ease-in-out infinite alternate} .chr .rn{animation:rainf .7s linear infinite} .chr .rn:nth-of-type(2n){animation-delay:-.35s}
+  @keyframes rainf{from{transform:translate(4px,-12px);opacity:0}30%{opacity:1}to{transform:translate(-5px,14px);opacity:0}}
+  .saybub{position:relative;margin-top:8px;padding:8px 11px;border-radius:14px 14px 14px 4px;background:var(--surface-2);font-size:.82rem;font-weight:700;line-height:1.4;color:var(--ink)}
+  .afsec{margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}.afsec .lbl{margin-bottom:8px}.afl{font-size:.72rem;font-weight:800;color:var(--muted);margin:2px 0 5px}.afrow{margin-bottom:9px}
+  .afttl{font-size:.8rem;font-weight:800;margin:8px 0 5px}.afchips{display:flex;flex-wrap:wrap;gap:5px}.afchips span{font-size:.74rem;font-weight:700;padding:5px 9px;border-radius:999px;background:var(--surface-2)}
+  .rvcard-btn{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:18px;padding:13px 15px;margin:0 0 14px;font:inherit;color:var(--ink)}
+  .rv-h{display:flex;align-items:flex-end;justify-content:space-between;gap:10px}.rv-h b{font-family:var(--f-display);font-weight:400;font-size:1.2rem}.rv-n{font-size:.78rem;font-weight:800;color:var(--teal);white-space:nowrap}.rv-p{margin-top:7px;font-size:.84rem;font-weight:700;color:var(--muted);line-height:1.45}
+  .rvcard{padding:4px 14px}.rvi{display:flex;gap:11px;padding:12px 0;border-bottom:1px solid var(--line)}.rvi:last-child{border-bottom:0}.rv-ic{font-size:1.35rem;line-height:1.2;flex:none}.rvi b{font-size:.92rem;line-height:1.4;display:block}.rvi p{margin:3px 0 0;font-size:.8rem;color:var(--muted);line-height:1.55}.rvi.warn b{color:var(--crit)}
+  .rv-q{margin-top:6px;font-size:.78rem;line-height:1.5}.rv-q .mono,.rvnote .mono{font-size:.64rem;color:var(--faint);margin-right:4px}
+  .rvnote{display:block;width:100%;text-align:left;border:0;background:none;font:inherit;color:var(--ink);padding:11px 0;border-bottom:1px solid var(--line);font-size:.84rem;line-height:1.5}.rvnote:last-child{border-bottom:0}
+  .afterme{display:flex;align-items:center;gap:12px;margin:8px 0 2px;padding:10px 14px;border-radius:18px;background:linear-gradient(120deg,var(--gold-soft),#FFE9E1)}.afterme .am-c{width:92px;flex:none}.afterme .am-c svg{width:100%;height:auto;display:block}.afterme b{display:block;font-size:1rem}.afterme span{display:block;font-size:.78rem;color:var(--muted);margin-top:3px;line-height:1.45}
   .chr .eyes{transform-box:view-box;transform-origin:90px 57.5px;animation:wink 4.2s infinite}
   .chr .swt{opacity:0}
   .chr.run .swt{animation:swt 1.3s ease-in infinite}
@@ -675,6 +700,7 @@
   .lookc .lr{font-family:var(--f-mono);font-size:.6rem;font-weight:800;color:var(--gold)}
   .lookc .la{font-size:.72rem;color:var(--muted);margin-top:4px;line-height:1.35}
   .swatches{display:flex;gap:10px}
+  .ctpick{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.ctpick button{border:1.5px solid var(--line);background:var(--surface);border-radius:14px;padding:6px 2px 6px;font:inherit;color:var(--ink);min-width:0}.ctpick button[aria-pressed="true"]{border-color:var(--teal);background:var(--teal-soft,#DDF3F1);box-shadow:0 0 0 2px var(--teal) inset}.ctpick svg{width:100%;height:auto;display:block}.ctpick span{display:block;font-size:.62rem;font-weight:800;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .sw{width:38px;height:38px;border-radius:50%;border:2px solid var(--line)}
   .sw[aria-pressed="true"]{border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-soft)}
   .pfprev{width:96px;margin:0 auto;aspect-ratio:140/170}
@@ -724,7 +750,7 @@
     <!-- ===== HOME ===== -->
     <section class="screen" id="s-home">
       <div class="topbar">
-        <div style="min-width:0"><div class="sub app-en wordmark">DADADAK</div><h1 id="homeHi" class="hi">내 러너</h1></div>
+        <div style="min-width:0"><div class="sub app-en wordmark">RUNNINGGU</div><h1 id="homeHi" class="hi">내 러너</h1></div>
         <button class="iconbtn avatarbtn" id="homeProfile" aria-label="프로필 열기">👤</button><button id="resetBtn" hidden>초기화</button>
       </div>
       <button class="wxpill" id="homeWx" hidden></button>
@@ -735,8 +761,9 @@
             <div class="nm" id="runnerName">러너</div>
             <div class="lv mono" id="runnerLv">LV.1</div>
             <div class="ttl" id="runnerTitle" hidden></div>
+            <div class="saybub" id="heroSay"></div>
             <div style="margin-top:9px;display:flex;gap:6px;flex-wrap:wrap">
-              <button class="editbtn" id="editProfile">✏️ 프로필</button>
+              <button class="editbtn" id="editProfile" hidden>✏️ 프로필</button>
               <button class="editbtn" id="openLooks">👕 외형 도감</button>
             </div>
           </div>
@@ -755,8 +782,8 @@
       <div class="weekcard" id="weekCard"></div>
       <div id="safeHome"></div>
       <div class="sec-ttl">더 보기</div>
-      <details class="more hm"><summary>💡 오늘의 추천 훈련</summary><div class="card" id="todayCard"></div></details>
-      <details class="more hm" id="moreReport"><summary>📊 러너 리포트 · 능력치·컨디션</summary>
+      <details class="more hm"><summary>💡 오늘의 런</summary><div class="card" id="todayCard"></div></details>
+      <details class="more hm" id="moreReport"><summary>📊 내 상태</summary>
       <div class="sec-ttl" style="margin-top:6px">능력치 <span class="r">골드 = 신발 보너스</span></div>
       <div class="card"><div class="statgrid" id="statGrid"></div></div>
       <div class="mini">
@@ -797,7 +824,7 @@
       </button></details>
       <details class="more hm"><summary>🏅 현재 도전</summary><div class="card" id="homeQuest"></div></details>
       <details class="more hm"><summary>🎮 미니게임</summary>
-      <button class="tapcard gamecard" id="openGame"><div class="gc-art" id="gameArt"></div><div style="min-width:0;text-align:left"><div class="lbl" style="color:var(--coral)">🎮 심심풀이 미니게임</div><div style="font-weight:800;font-size:1.05rem;margin-top:2px"><span class="app-ko">다다닥</span> 대시</div><div class="muted small" id="gameBest">내 캐릭터가 내 신발 신고 달려요</div></div><span style="margin-left:auto;color:var(--faint);font-size:1.2rem">›</span></button>
+      <button class="tapcard gamecard" id="openGame"><div class="gc-art" id="gameArt"></div><div style="min-width:0;text-align:left"><div class="lbl" style="color:var(--coral)">🎮 심심풀이 미니게임</div><div style="font-weight:800;font-size:1.05rem;margin-top:2px"><span class="app-ko">런닝구</span> 대시</div><div class="muted small" id="gameBest">내 캐릭터가 내 신발 신고 달려요</div></div><span style="margin-left:auto;color:var(--faint);font-size:1.2rem">›</span></button>
       </details>
     </section>
 
@@ -983,7 +1010,10 @@
             <div><div class="wx-t mono" id="wxT">14°</div><div class="muted small" id="wxPlace">아산 · 직접 설정</div></div>
             <div class="wx-score"><div class="lbl">러닝 지수</div><div class="v" id="wxScore">좋음</div></div>
           </div>
-          <div class="slider-row" style="margin-top:16px"><div class="sl-top"><span>기온</span><b id="wxTv">14°C</b></div>
+          <div class="wxauto" id="wxAuto" hidden></div>
+          <button class="bigbtn ghost" id="wxLoad" style="margin-top:12px">📍 지금 내 위치 날씨 불러오기</button>
+          <details class="more hm" style="margin-top:10px"><summary>직접 설정</summary>
+          <div class="slider-row" style="margin-top:6px"><div class="sl-top"><span>기온</span><b id="wxTv">14°C</b></div>
             <input type="range" id="wxTemp" min="-15" max="38" value="14" aria-label="기온"></div>
           <div class="lbl" style="margin-top:12px">하늘</div>
           <div class="chips" id="wxCond" style="margin-top:6px">
@@ -1001,9 +1031,8 @@
             <button class="chip" data-d="bad" aria-pressed="false">나쁨</button>
             <button class="chip" data-d="worst" aria-pressed="false">매우나쁨</button>
           </div>
-          <div class="wxauto" id="wxAuto" hidden></div>
-          <button class="bigbtn ghost" id="wxLoad" style="margin-top:12px">📍 지금 내 위치 날씨 불러오기</button>
-          <p class="note" style="margin-left:0">실시간 날씨·미세먼지는 무료 공개 예보 <a href="https://open-meteo.com" target="_blank" rel="noopener" style="color:var(--teal)">Open-Meteo</a>에서 가져와요. 위치는 약 1km 단위로만 보내요. 값이 다르면 위에서 직접 고칠 수 있어요. 공식 예보: <a href="https://www.weather.go.kr" target="_blank" rel="noopener" style="color:var(--teal)">기상청 날씨누리</a></p>
+          </details>
+          <p class="note" style="margin-left:0">실시간 날씨·미세먼지는 무료 공개 예보 <a href="https://open-meteo.com" target="_blank" rel="noopener" style="color:var(--teal)">Open-Meteo</a>에서 가져와요. 위치는 약 1km 단위로만 보내요. 값이 다르면 직접 설정에서 고칠 수 있어요. 공식 예보: <a href="https://www.weather.go.kr" target="_blank" rel="noopener" style="color:var(--teal)">기상청 날씨누리</a></p>
         </div>
         <div class="sec-ttl">오늘의 러닝 가이드</div>
         <div class="card"><div class="advice" id="wxAdvice"></div></div>
@@ -1033,11 +1062,9 @@
         <div class="sec-ttl" style="margin-top:4px">다가오는 대회</div>
         <div class="chips" id="raceFilt" style="margin-bottom:10px"></div>
         <div id="raceUp"></div>
-        <div class="sec-ttl">국내 메이저 마라톤</div>
-        <div id="raceKr"></div>
-        <div class="sec-ttl">세계 메이저 마라톤</div>
-        <p class="muted small" id="majorsNote" style="margin:0 2px"></p>
-        <div id="raceWorld"></div>
+        <div class="sec-ttl">메이저 대회</div>
+        <details class="more hm"><summary>🇰🇷 국내 메이저</summary><div id="raceKr"></div></details>
+        <details class="more hm"><summary>🌍 세계 메이저</summary><p class="muted small" id="majorsNote" style="margin:0 2px"></p><div id="raceWorld"></div></details>
         <p class="note">일정·참가비·접수 방식은 해마다 바뀌어요. 신청 전에 공식 사이트에서 꼭 확인하세요.</p>
       </div>
 
@@ -1047,6 +1074,7 @@
     <section class="screen" id="s-log" hidden>
       <div class="topbar"><div><div class="sub">DAILY LOG</div><h1>기록</h1></div></div>
       <div class="duo"><button class="duot" data-snap=""><span class="de">📸</span><span><b>스냅</b><small>SNAP</small></span></button><button class="duot rp" data-replay=""><span class="de">🎬</span><span><b>리플레이</b><small>REPLAY</small></span></button></div>
+      <button class="rvcard-btn" id="reviewCard"></button>
       <div class="seg" id="logSeg">
         <button data-p="feel" aria-pressed="true">💭 마음 일기</button>
         <button data-p="shoe" aria-pressed="false">👟 신발 느낌</button>
@@ -1097,7 +1125,7 @@
 </div>
 
 <script>
-var APP_KO="다다닥",APP_EN="DADADAK",APP_TAG="다다닥런",APP_LINE="오늘은 어디까지 다다닥?";try{document.title=APP_KO;document.addEventListener("DOMContentLoaded",brandFill);}catch(e){}
+var APP_KO="런닝구",APP_EN="RUNNINGGU",APP_TAG="런닝구",APP_LINE="일단 런닝구 입고 나가자";try{document.title=APP_KO;document.addEventListener("DOMContentLoaded",brandFill);}catch(e){}
 function brandFill(){document.querySelectorAll(".app-ko").forEach(function(e){e.textContent=APP_KO;});document.querySelectorAll(".app-en").forEach(function(e){e.textContent=APP_EN;});}
 
 (function(){
@@ -1173,12 +1201,12 @@ function shoeSVG(sh){
 
 /* 캐릭터 외형: 레벨 + 꾸준함 조건으로 해금 (기록형·건강형 모두 도달 가능) */
 var LOOKS=[
-  {lv:1,nm:"새싹 러너",top:"#EFEBE3",bot:"#26282B",ac:"#26282B",hat:"#26282B",acc:["socks"],sleeve:true,d:"오프화이트 러닝 티, 블랙 스플릿 쇼츠, 크루 삭스. 모든 러너의 시작",req:[]},
-  {lv:3,nm:"꾸준 러너",top:"#9FB08E",bot:"#2B2D2F",ac:"#F4F1EA",hat:"#F3EEE4",band:"#9FB08E",patch:"#E2774A",acc:["cap5","socks"],sleeve:true,d:"세이지 티셔츠와 크림색 5패널 캡, 작은 하트 자수",req:[["runs",3]]},
-  {lv:6,nm:"동네 러너",top:"#E2774A",bot:"#CDBFA6",ac:"#F4F1EA",hat:"#F3EEE4",band:"#E2774A",patch:"#E2774A",gog:["#FFB347","#FF5E8A"],acc:["bucket","goggle","watch","socks"],sleeve:false,d:"워시드 오렌지 싱글렛, 샌드 쇼츠, 크림 버킷햇, 선셋 미러 러닝 고글",req:[["km",30],["stat","STA",35]]},
-  {lv:10,nm:"베테랑 러너",top:"#7E95A8",bot:"#1E2023",ac:"#F4F1EA",hat:"#F3EEE4",band:"#7E95A8",patch:"#7E95A8",gog:["#8FD3FF","#8A7BFF"],acc:["visor","goggle","watch","vest","socks"],sleeve:false,d:"더스티 블루 싱글렛, 러닝 베스트, 바이저, 아이스 블루 러닝 고글",req:[["title","month"],["stat","STA",45]]},
-  {lv:15,nm:"마스터 러너",top:"#1C1D1F",bot:"#1C1D1F",ac:"#C9F24A",hat:"#1C1D1F",band:"#C9F24A",patch:"#C9F24A",gog:["#C9F24A","#19C6B0"],acc:["cap5","goggle","watch","sleeves","vest","aura"],sleeve:false,d:"올블랙 테크 킷에 볼트 포인트, 볼트 미러 고글, 집중의 오라",req:[["km",300],["stat","STA",60],["stat","VO2",40]]},
-  {lv:22,nm:"레전드 러너",top:"#E6DFD1",bot:"#1C1D1F",ac:"#C99A2E",hat:"#FAF6EC",band:"#C99A2E",patch:"#C99A2E",gog:["#FFD166","#FF7A3D"],acc:["bucket","goggle","watch","sleeves","vest","socks","aura"],sleeve:false,d:"샌드 레전드 킷과 골드 포인트, 골드 미러 고글. 꾸준함이 만든 전설",req:[["km",800],["titles",8]]}
+  {lv:1,nm:"새싹 러너",top:"#EFEBE3",bot:"#26282B",ac:"#26282B",hat:"#26282B",acc:[],sleeve:true,d:"말랑한 시작. 배가 좀 나와도 괜찮아요",req:[]},
+  {lv:3,nm:"꾸준 러너",top:"#9FB08E",bot:"#2B2D2F",ac:"#F4F1EA",hat:"#1C1D1F",band:"#9FB08E",patch:"#E2774A",acc:["watch"],sleeve:true,d:"숨이 덜 차요. GPS 워치를 찼어요",req:[["runs",3]]},
+  {lv:6,nm:"동네 러너",top:"#E2774A",bot:"#CDBFA6",ac:"#F4F1EA",hat:"#1C1D1F",band:"#E2774A",patch:"#E2774A",gog:["#FFB347","#FF5E8A"],acc:["watch","vest"],sleeve:false,d:"배가 들어가기 시작. 러닝 베스트 장착",req:[["km",30],["stat","STA",35]]},
+  {lv:10,nm:"베테랑 러너",top:"#7E95A8",bot:"#1E2023",ac:"#F4F1EA",hat:"#1C1D1F",band:"#7E95A8",patch:"#7E95A8",gog:["#8FD3FF","#8A7BFF"],acc:["watch","vest","sleeves"],sleeve:false,d:"다리에 힘이 붙었어요. 암슬리브 추가",req:[["title","month"],["stat","STA",45]]},
+  {lv:15,nm:"마스터 러너",top:"#1C1D1F",bot:"#1C1D1F",ac:"#C9F24A",hat:"#1C1D1F",band:"#C9F24A",patch:"#C9F24A",gog:["#C9F24A","#19C6B0"],acc:["watch","vest","sleeves","csocks","aura"],sleeve:false,d:"탄탄한 몸에 컴프레션 삭스, 집중의 오라",req:[["km",300],["stat","STA",60],["stat","VO2",40]]},
+  {lv:22,nm:"레전드 러너",top:"#E6DFD1",bot:"#1C1D1F",ac:"#C99A2E",hat:"#1C1D1F",band:"#C99A2E",patch:"#C99A2E",gog:["#FFD166","#FF7A3D"],acc:["watch","vest","sleeves","csocks","aura"],sleeve:false,d:"골드 포인트와 황금 오라. 꾸준함이 만든 전설",req:[["km",800],["titles",8]]}
 ];
 /* 업적 장식: 외형과 별개로, 실제 기록으로만 붙는다 */
 var ACH=[
@@ -1187,7 +1215,7 @@ var ACH=[
   {k:"fullmedal",nm:"풀코스 메달",d:"풀코스 대회 기록 등록"},
   {k:"laurel",nm:"월계관",d:"어느 거리든 플래티넘 등급 이상"}
 ];
-var ACC_KO={band:"헤어밴드",cap:"러닝캡",cap5:"5패널 캡",bucket:"버킷햇",watch:"GPS 워치",visor:"바이저",glasses:"선글라스",goggle:"러닝 고글",shades:"랩 선글라스",sleeves:"암슬리브",vest:"러닝 베스트",socks:"크루 삭스",aura:"오라"};
+var ACC_KO={band:"헤어밴드",cap:"러닝캡",cap5:"5패널 캡",bucket:"버킷햇",watch:"GPS 워치",visor:"바이저",glasses:"선글라스",goggle:"러닝 고글",shades:"랩 선글라스",sleeves:"암슬리브",vest:"러닝 베스트",socks:"크루 삭스",csocks:"컴프레션 삭스",aura:"오라"};
 var SKINS=["#F3CDA6","#D9A57A","#A06D47"],HAIRS=["#2B1F19","#3A281E","#16110E"];
 function reqText(r){
   if(r[0]==="runs")return "러닝 "+r[1]+"회";if(r[0]==="km")return "누적 "+r[1]+"km";
@@ -1212,92 +1240,143 @@ function myAch(){
     laurel:DISTS.some(function(d){return tierOf(d.k,bestFor(d).sec)>=4;})};
 }
 var CHARN=0;
+/* ================= 새 캐릭터: 5가지 유형 × 성별 × 6단계 ================= */
+var OLC="#1B1B1F";
+var CTYPES=(function(){
+  var OL=OLC;
+  var E=function(x,y,r){return '<circle cx="'+x+'" cy="'+y+'" r="'+(r||3.6)+'" fill="'+OL+'"/>';};
+  var L=function(d,w){return '<path d="'+d+'" stroke="'+OL+'" stroke-width="'+(w||4)+'" fill="none" stroke-linecap="round" stroke-linejoin="round"/>';};
+  function drop(x,y,a,s){s=s||1;return '<g class="swt" transform="translate('+x+' '+y+') rotate('+a+') scale('+s+')"><path d="M0 -11 Q8 0 6 6 Q4 12 0 12 Q-4 12 -6 6 Q-8 0 0 -11Z" fill="#8FD6FF" stroke="'+OL+'" stroke-width="3"/></g>';}
+  var CH=[
+{k:"TYPE 1",n:"덤덤이",bg:"linear-gradient(160deg,#FFE9DF,#FFF6DA)",
+ d:"무슨 일이 있어도 무표정. 폼은 국가대표인데 얼굴은 월요일 아침이에요.",g:"<b>성장</b> 표정은 끝까지 그대로, 몸과 장비만 달라져요. 레벨이 오를수록 무표정이 더 웃겨요.",
+ o:{top:"#fff",bot:"#1B1B1F",shoe:"#E2573A",lash:1,hairF:'<path d="M93 60 Q88 18 128 18 Q168 18 164 54 Q152 38 128 38 Q110 38 103 52 L101 80 Q90 76 93 60Z" fill="#1B1B1F"/><path d="M96 44 Q128 30 162 44" stroke="#E2573A" stroke-width="5" fill="none"/>',
+  topExtra:'<rect x="103" y="104" width="26" height="22" rx="3" fill="#FFE27A" stroke="#1B1B1F" stroke-width="3"/><path d="M112 110 h9 l-6 12" stroke="#1B1B1F" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
+  hair:'<path d="M96 50 Q94 20 128 20 Q162 20 161 50 Q150 38 128 38 Q106 38 96 50Z" fill="#1B1B1F"/><path d="M96 44 Q128 30 161 44" stroke="#E2573A" stroke-width="5" fill="none"/>',
+  face:E(120,58)+E(150,58)+L("M128 74 h14")+L("M112 49 h12",3.5)+L("M144 49 h12",3.5),
+  fx:drop(92,40,-30,.9)}},
+{k:"TYPE 2",n:"헐떡이",bg:"linear-gradient(160deg,#DFF3FF,#FFF1C9)",
+ d:"출발 1분 만에 이미 한계. 그래도 절대 안 멈춰요. 제일 응원하고 싶은 타입이에요.",g:"<b>성장</b> 헐떡임이 줄고 혀가 들어가요. 처음의 엉망인 폼이 점점 잡히는 게 성장 스토리예요.",
+ o:{top:"#FFD23F",bot:"#3D7BFF",shoe:"#fff",faceIdle:E(118,58)+E(150,58)+L("M110 48 q8 -5 15 -1",3.5)+L("M143 47 q8 -4 15 1",3.5)+'<path d="M127 72 Q135 68 143 72 Q143 82 135 82 Q127 82 127 72Z" fill="#7A2331" stroke="#1B1B1F" stroke-width="3.5" stroke-linejoin="round"/>',hairBackF:'<path d="M100 44 Q74 30 60 44 Q50 56 62 68 Q60 52 74 54 Q66 66 76 78 Q78 60 100 60Z" fill="#6B3F22" stroke="#1B1B1F" stroke-width="4" stroke-linejoin="round"/>',armFar:"M132 100 Q164 92 176 62",hFar:[178,58],armNear:"M104 102 Q74 100 58 74",hNear:[56,70],
+  hair:'<path d="M100 40 Q96 14 118 22 Q120 8 136 18 Q150 8 152 26 Q166 26 158 44 Q144 30 128 32 Q112 32 100 40Z" fill="#6B3F22" stroke="#1B1B1F" stroke-width="4" stroke-linejoin="round"/>',
+  face:L("M112 52 l10 5 l-10 5")+L("M156 52 l-10 5 l10 5")+'<path d="M124 70 Q136 66 148 70 Q150 90 136 90 Q122 90 124 70Z" fill="#7A2331" stroke="#1B1B1F" stroke-width="4" stroke-linejoin="round"/><path d="M130 80 Q136 76 143 80 Q146 98 137 99 Q128 98 130 80Z" fill="#FF8FA0" stroke="#1B1B1F" stroke-width="3.5"/>',
+  fx:drop(84,36,-40)+drop(72,62,-60,.8)+drop(176,30,35,.85)+drop(98,14,-15,.7)}},
+{k:"TYPE 3",n:"과몰입",bg:"linear-gradient(160deg,#E9E4FF,#DFF7EC)",
+ d:"동네 한 바퀴도 올림픽 결승처럼. 장비는 풀세트, 기록은 비밀이에요.",g:"<b>성장</b> 단계마다 장비가 하나씩 늘어요. 고글 → 암슬리브 → 불꽃 효과. 과할수록 재미있어요.",
+ o:{top:"#1B1B1F",bot:"#1B1B1F",shoe:"#C9F24A",hairBackF:'<path d="M100 56 Q80 70 72 100 Q70 112 80 110 Q84 88 106 72Z" fill="#1B1B1F" stroke="#1B1B1F" stroke-width="3" stroke-linejoin="round"/><path d="M98 44 Q70 36 58 52 Q74 50 80 58 Q64 62 60 76 Q82 66 98 60Z" fill="#E2573A" stroke="#1B1B1F" stroke-width="4" stroke-linejoin="round"/>',
+  topExtra:'<path d="M98 112 L134 104" stroke="#C9F24A" stroke-width="6" stroke-linecap="round"/>',botExtra:'<path d="M96 158 l14 6" stroke="#C9F24A" stroke-width="4" stroke-linecap="round"/>',
+  hairBack:'<path d="M98 44 Q70 36 58 52 Q74 50 80 58 Q64 62 60 76 Q82 66 98 60Z" fill="#E2573A" stroke="#1B1B1F" stroke-width="4" stroke-linejoin="round"/>',
+  hair:'<path d="M96 46 Q98 22 128 22 Q158 22 160 46 Q128 34 96 46Z" fill="#E2573A" stroke="#1B1B1F" stroke-width="4" stroke-linejoin="round"/>',
+  face:'<defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF9A3D"/><stop offset="1" stop-color="#FF4F8B"/></linearGradient></defs><path d="M102 50 Q130 42 162 50 Q164 64 156 68 Q146 72 138 65 Q134 62 130 65 Q118 74 106 67 Q100 60 102 50Z" fill="url(#gg)" stroke="#1B1B1F" stroke-width="4" stroke-linejoin="round"/><path d="M110 54 q10-4 20-3" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" opacity=".9"/>'+
+   '<rect x="122" y="74" width="24" height="11" rx="3" fill="#fff" stroke="#1B1B1F" stroke-width="3.5"/><path d="M130 74v11M138 74v11" stroke="#1B1B1F" stroke-width="2.5"/>'}},
+{k:"TYPE 4",n:"동네 아재",bg:"linear-gradient(160deg,#DDF3F1,#FFEFD9)",
+ d:"목에 수건, 발목까지 올린 양말. 새벽 다섯 시 공원의 진짜 고수예요.",g:"<b>성장</b> 배가 들어가고 다리가 굵어지는 변화가 가장 잘 보여요. 통통에서 탄탄으로 가는 이야기에 딱 맞아요.",
+ o:{belly:1,top:"#8FD0F0",bot:"#E2573A",shoe:"#F4F1EA",sock:"#E2573A",hairF:'<path d="M98 50 Q86 44 92 32 Q90 20 104 20 Q110 10 122 16 Q132 8 142 16 Q156 12 158 26 Q170 32 162 46 Q150 34 128 34 Q108 34 98 50Z" fill="#4A2E22" stroke="#1B1B1F" stroke-width="4" stroke-linejoin="round"/><path d="M98 42 Q128 30 162 42 L190 46 Q193 53 186 54 L160 52 Q128 42 98 52Z" fill="#fff" stroke="#1B1B1F" stroke-width="4" stroke-linejoin="round"/>',faceF:'<circle cx="118" cy="60" r="3.6" fill="#1B1B1F"/><circle cx="148" cy="60" r="3.6" fill="#1B1B1F"/><path d="M112 60 l-6 -3 M154 60 l6 -3" stroke="#1B1B1F" stroke-width="2.8" stroke-linecap="round"/><path d="M127 76 q7 6 14 0" stroke="#D2452F" stroke-width="4.5" fill="none" stroke-linecap="round"/><ellipse cx="108" cy="70" rx="6" ry="4" fill="#FF9DA8" opacity=".8"/><ellipse cx="158" cy="70" rx="6" ry="4" fill="#FF9DA8" opacity=".8"/>',
+  topExtra:'<path d="M94 92 Q116 106 138 92 L140 104 Q116 118 92 104Z" fill="#fff" stroke="#1B1B1F" stroke-width="3.5" stroke-linejoin="round"/>',
+  hair:'<path d="M98 44 Q96 30 106 28 M158 44 Q160 30 150 28" stroke="#1B1B1F" stroke-width="5" fill="none" stroke-linecap="round"/>'+L("M122 24 q2 -8 8 -6",3.5)+L("M132 23 q4 -7 9 -3",3.5),
+  face:E(118,54)+E(148,54)+L("M110 45 q8 -4 15 0",3.5)+L("M142 45 q8 -4 15 0",3.5)+'<path d="M116 70 Q124 62 134 68 Q144 62 152 70 Q144 76 134 72 Q124 76 116 70Z" fill="#1B1B1F"/>'+L("M128 80 q6 4 12 0",3.5)+'<ellipse cx="108" cy="66" rx="6" ry="4" fill="#FF9DA8" opacity=".8"/>',
+  fx:drop(90,44,-30,.85)}},
+{k:"TYPE 5",n:"커피런",bg:"linear-gradient(160deg,#F1EBDD,#E4EEF7)",
+ d:"달리는 건지 출근하는 건지. 한 손엔 아이스 아메리카노, 그래도 페이스는 지켜요.",g:"<b>성장</b> 소품이 바뀌어요. 커피 → 에너지젤 → 메달. 버킷햇과 선글라스는 끝까지 안 벗어요.",
+ o:{top:"#EDE4D0",bot:"#6E7A52",shoe:"#1B1B1F",armFar:"M132 100 Q156 116 176 104",hFar:[178,102],hairBackF:'<path d="M99 48 Q88 86 94 112 Q100 118 110 112 L112 60Z" fill="#1B1B1F" stroke="#1B1B1F" stroke-width="3" stroke-linejoin="round"/>',
+  cupS:'<g transform="scale(.58) rotate(8)"><path d="M-12 -14 h24 l-3 34 h-18Z" fill="#fff" fill-opacity=".9" stroke="#1B1B1F" stroke-width="3.5" stroke-linejoin="round"/><path d="M-10 -2 h20 l-2 20 h-16Z" fill="#6B3F22"/><path d="M-14 -14 h28" stroke="#1B1B1F" stroke-width="5" stroke-linecap="round"/><path d="M2 -14 l5 -16" stroke="#E2573A" stroke-width="3.5" stroke-linecap="round"/></g>',
+  hair:'<path d="M100 44 Q102 14 128 14 Q154 14 156 44Z" fill="#1B1B1F" stroke="#1B1B1F" stroke-width="4" stroke-linejoin="round"/><path d="M86 48 Q128 30 170 48 Q172 56 164 54 Q128 42 92 54 Q84 56 86 48Z" fill="#1B1B1F" stroke="#1B1B1F" stroke-width="4" stroke-linejoin="round"/><path d="M104 40 Q128 32 152 40" stroke="#F4F1EA" stroke-width="3" fill="none"/>',
+  face:'<circle cx="120" cy="64" r="8" fill="#1B1B1F"/><circle cx="148" cy="64" r="8" fill="#1B1B1F"/><path d="M128 63 h12 M112 62 L98 58" stroke="#1B1B1F" stroke-width="3.2" stroke-linecap="round"/><circle cx="117.5" cy="61.5" r="2.2" fill="#fff" opacity=".8"/><circle cx="145.5" cy="61.5" r="2.2" fill="#fff" opacity=".8"/>'+L("M128 80 q8 3 14 -3",3.8)}}
+];
+  var ids=["dum","pant","over","ajae","coffee"],nmF=[null,null,null,"동네 이모",null];
+  return CH.map(function(c,i){var o=c.o;o.id=ids[i];o.nm=c.n;o.nmF=nmF[i]||c.n;o.d=c.d;return o;});
+})();
+function ctypeById(id){for(var i=0;i<CTYPES.length;i++)if(CTYPES[i].id===id)return CTYPES[i];return CTYPES[0];}
+function ctypeName(id,sex){var c=ctypeById(id);return sex==="f"?c.nmF:c.nm;}
 function charSVG(o){
   var L=o.look||(o.lk!=null?lookByIdx(o.lk):lookFor(o.lv||1)),has=function(k){return L.acc.indexOf(k)>=0||!!(o.ach&&o.ach[k]);};
-  var si=Math.max(0,Math.min(2,o.skin|0)),sk=SKINS[si],hair=HAIRS[si],top=L.top,bot=L.bot,ac=L.ac,shoe=o.shoe||"#888",f=o.sex==="f",run=!!o.run;
-  var gid="au"+(++CHARN),dark="#2A2320",pink="#FF8FA3";
-  /* 성장: 단계가 오를수록 몸이 단단해진다 (머리 크기는 그대로라 귀여움 유지) */
-  var g=o.grow!=null?o.grow:Math.max(0,LOOKS.indexOf(L)),M=!f;
-  var soft=Math.max(0,2-g),tone=Math.max(0,g-1); /* soft: 통통함(1~2단계), tone: 탄탄함(3단계~) */
-  var TW=(M?11.5+tone*1.6:11.3+tone*.5)+soft*1.3,SW=(M?10.2+tone*1.15:10+tone*.45)+soft*.9,CB=tone?(M?2.6+tone*.9:1.9+tone*.4):0,UW=(M?9.2+tone*1.15:9+tone*.35)+soft*1.1,FW=(M?8.6+tone*.8:8.5+tone*.25)+soft*.7,HR=M?5+tone*.3:5+tone*.05,DX=(M?tone*1.7:tone*.35)+soft*1.2,BIC=tone?(M?2.6+tone*.8:(tone>=2?1.8:0)):0,BEL=soft?3.2+soft*2:(g===2?1.6:0);
-  function leg(cls){return '<g class="lg '+cls+'"'+(cls==="far"?' opacity=".82"':'')+'><g class="th">'+
-    '<line x1="70" y1="116" x2="70" y2="130" stroke="'+sk+'" stroke-width="'+TW+'" stroke-linecap="round"/>'+(tone?'<ellipse cx="'+(71+TW*.14)+'" cy="124.5" rx="'+(TW*.5+.8)+'" ry="5" fill="'+sk+'"/>'+(M&&g>=3?'<path d="M'+(72+TW*.2)+' 121 q1.8 3.4 .2 6.4" stroke="rgba(120,60,40,.22)" stroke-width="1.1" fill="none"/>':''):'')+
-    '<line x1="70" y1="112" x2="70" y2="'+(f?114.5:116.5)+'" stroke="'+bot+'" stroke-width="'+Math.max(16,TW+4)+'" stroke-linecap="round"/>'+
-    '<g class="sh"><line x1="70" y1="130" x2="70" y2="148" stroke="'+sk+'" stroke-width="'+SW+'" stroke-linecap="round"/>'+(CB?'<ellipse cx="'+(70-SW*.3)+'" cy="135" rx="'+CB+'" ry="'+(4.4+CB*.35)+'" fill="'+sk+'"/>'+(M&&g>=3?'<path d="M'+(68-SW*.32)+' 131.5 q-1.6 3.6 .2 7" stroke="rgba(120,60,40,.25)" stroke-width="1" fill="none"/>':''):'')+
-    '<g transform="translate(0 7)">'+    (has("socks")?'<line x1="70" y1="134.6" x2="70" y2="137" stroke="#F7F5F0" stroke-width="'+(SW+1)+'" stroke-linecap="round"/><line x1="'+(70-SW*.45)+'" y1="135" x2="'+(70+SW*.45)+'" y2="135" stroke="'+ac+'" stroke-width="1.1" opacity=".5"/>':'')+
-    '<path d="M53.5 144.3 H93 Q97.2 144.8 96 148.6 Q94.4 153 87 153 H59 Q53 153 52.8 148.4 Q52.8 145.4 53.5 144.3 Z" fill="#FBFAF6" stroke="rgba(42,35,32,.3)" stroke-width="1"/>'+
-    '<path d="M53.5 144.3 H67 L63 153 H59 Q53 153 52.8 148.4 Q52.8 145.4 53.5 144.3 Z" fill="'+shoe+'" opacity=".32"/>'+
-    '<path d="M57 152.6 H89" stroke="rgba(42,35,32,.4)" stroke-width="1.5" stroke-linecap="round"/><path d="M72 148.6 h18" stroke="rgba(42,35,32,.14)" stroke-width="1.2" stroke-linecap="round"/>'+
-    '<path class="shoe" d="M56 144.5 Q54.4 134.4 61.5 134 Q66.5 136.6 71 136 Q79 137 86.5 140 Q93.6 142 93.6 144.5 Z" fill="'+shoe+'"/>'+
-    '<path d="M84.2 139.3 Q93.6 141.8 93.6 144.5 H81.6 Q81.8 141.4 84.2 139.3 Z" fill="#fff" opacity=".38"/>'+
-    '<ellipse cx="64.5" cy="135.2" rx="4.6" ry="1.9" fill="rgba(0,0,0,.2)"/>'+
-    '<path d="M57.2 135.6 q-3.4 -3.2 -2.8 3" stroke="'+shoe+'" stroke-width="2.6" fill="none" stroke-linecap="round"/>'+
-    '<path d="M70.2 138 l2.6 -2 M74 138.8 l2.6 -2 M77.8 139.8 l2.4 -1.8" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".95"/>'+
-    '<path d="M59.5 141.2 Q67 144 77 141.4" stroke="#fff" stroke-width="1.7" fill="none" stroke-linecap="round" opacity=".7"/>'+'</g>'+'</g></g></g>';}
-  function arm(cls){var up=has("sleeves")?ac:sk;return '<g class="am '+cls+'"'+(cls==="far"?' opacity=".82"':'')+'><g class="ua">'+
-    (M&&g>=2&&!L.sleeve?'<circle cx="72" cy="90.5" r="'+(UW*.5+1.4)+'" fill="'+up+'"/>':'')+'<line x1="72" y1="90" x2="72" y2="101" stroke="'+up+'" stroke-width="'+UW+'" stroke-linecap="round"/>'+(BIC?'<ellipse cx="'+(72+UW*.22)+'" cy="96" rx="'+(UW*.5+BIC*.35)+'" ry="'+(3+BIC*.5)+'" fill="'+up+'"/>':'')+
-    (L.sleeve?'<line x1="72" y1="89" x2="72" y2="95" stroke="'+top+'" stroke-width="12" stroke-linecap="round"/>':'')+
-    '<line x1="72" y1="101" x2="79" y2="97" stroke="'+sk+'" stroke-width="'+FW+'" stroke-linecap="round"/>'+
-    '<circle cx="80.5" cy="96.5" r="'+HR+'" fill="'+sk+'"/>'+
-    (has("watch")&&cls==="near"?'<rect x="73.5" y="96" width="5.5" height="5.5" rx="1.6" fill="'+dark+'" transform="rotate(-30 76 99)"/>':'')+'</g></g>';}
-  var torso=(f?'<path d="M59 85 Q73 78 87 85 L90 114 Q73 120 56 114 Z" fill="'+top+'"/>'
-             :'<rect x="'+(57-DX)+'" y="'+(82-DX*.3)+'" width="'+(31+DX*2)+'" height="'+(36+DX*.3)+'" rx="15" fill="'+top+'"/>'+(g>=3&&!L.sleeve?'<path d="M63 93 Q67.5 96.5 72.4 93.4 M73.6 93.4 Q78.5 96.5 83 93" stroke="rgba(0,0,0,.13)" stroke-width="1.5" fill="none" stroke-linecap="round"/>':''))+
-    (BEL?'<ellipse cx="'+(80+DX*.5)+'" cy="104" rx="'+(5+BEL)+'" ry="'+(8.5+BEL*.6)+'" fill="'+top+'"/>':'')+
-    '<path d="M66 83.5 Q73 90 80 83.5" stroke="'+ac+'" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".95"/>'+
-    '<path d="M58.5 99 Q73 95 87.5 99" stroke="'+ac+'" stroke-width="3" fill="none" stroke-linecap="round" opacity=".55"/>';
-  var chest='';
-  if(has("bib")&&!(has("fullmedal")||has("halfmedal")))chest+='<rect x="64" y="92" width="17" height="12.5" rx="2.5" fill="#ffffff"/><text x="72.5" y="101.2" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="800" font-size="7" fill="'+dark+'">'+(o.lv||L.lv)+'</text>';
-  if(has("fullmedal")||has("halfmedal")){var full=has("fullmedal");chest+='<path d="M66 83 L72.5 97 L79 83" stroke="'+(full?"#E24E33":"#2DB6A1")+'" stroke-width="3" fill="none"/><circle cx="72.5" cy="100" r="5.6" fill="'+(full?"#F7C04A":"#D5DDE2")+'" stroke="'+(full?"#C98008":"#8A969E")+'" stroke-width="1.3"/><path d="M70.5 99 l1.6 1.6 l3 -3.2" stroke="#fff" stroke-width="1.3" fill="none"/>';}
-  var bandC=L.band||ac,patchC=L.patch||ac,heart=function(x,y,k){k=k||1;return '<path transform="translate('+x+' '+y+') scale('+k+')" d="M0 1.2 C-1.6 -1.4 -4.6 .6 -2.8 2.8 L0 5.4 L2.8 2.8 C4.6 .6 1.6 -1.4 0 1.2 Z" fill="'+patchC+'"/>';},hatLine="rgba(42,35,32,.16)";
-  var hatC=L.hat||ac,capped=has("cap")||has("cap5")||has("bucket");
-  var backHair=f?'<path d="M41 52 C37 76 46 90 56 92 L57 66 Z" fill="'+hair+'"/>':'';
-  var pony=f?'<g class="pt"><path d="M47 33 C27 28 16 46 23 66 C27 57 35 50 46 46 Z" fill="'+hair+'"/>'+
-     '<path d="M47 31 l-9 -8 v16 z M47 31 l9 -8 v16 z" fill="'+ac+'" stroke="'+dark+'" stroke-opacity=".15"/><circle cx="47" cy="31" r="3.2" fill="'+ac+'" stroke="'+dark+'" stroke-opacity=".2"/></g>':'';
-  var dome='<path d="M40 60 C35 28 58 14 80 16 C102 18 114 34 108 54 C104 48 100 44 95 42 C96 47 93 50 89 48 C87 42 82 40 77 41 C76 47 71 50 66 47 C63 44 60 43 57 44 C55 50 51 55 46 59 C44 62 42 64 40 64 Z" fill="'+hair+'"/>';
-  var side=f?'<path d="M42 54 C40 70 44 82 51 86 C53 76 53 66 52 57 Z" fill="'+hair+'"/>':'';
-  var shine='<path d="M58 27 Q72 19 88 22" stroke="#fff" stroke-opacity=".28" stroke-width="3.2" fill="none" stroke-linecap="round"/>';
-  var ahoge=capped?'':'<path d="M77 17 C74 7 83 3 88 8 C83 7 80 10 79.5 17 Z" fill="'+hair+'"/>';
-  var eyes='<g class="eyes"><ellipse cx="82" cy="58" rx="5.2" ry="6.8" fill="'+dark+'"/><ellipse cx="99" cy="57" rx="4.3" ry="6.2" fill="'+dark+'"/>'+
-    '<circle cx="84" cy="55.2" r="2.4" fill="#fff"/><circle cx="80.6" cy="60.8" r="1.2" fill="#fff"/><circle cx="100.6" cy="54.6" r="2" fill="#fff"/><circle cx="97.8" cy="59.8" r="1" fill="#fff"/>'+
-    '<path d="M78 62.6 q4 2 8 0" stroke="#fff" stroke-opacity=".35" stroke-width="1.2" fill="none"/>'+
-    (f?'<path d="M76.5 53 l-3.2 -2.2 M77.4 51 l-2.4 -3 M103.2 53.2 l2.6 -2.4" stroke="'+dark+'" stroke-width="1.5" stroke-linecap="round"/>':'')+'</g>';
-  var brows=g>=2?'<path d="M77 47.5 q5 -3 9.5 -.6 M95 47 q4 -2.6 8 -.2" stroke="'+hair+'" stroke-width="2.2" fill="none" stroke-linecap="round"/>':'';
-  var blush='<ellipse cx="75.5" cy="68.5" rx="7" ry="4.2" fill="'+pink+'" opacity=".6"/><ellipse cx="104" cy="67.5" rx="4.6" ry="3.4" fill="'+pink+'" opacity=".6"/>'+
-    '<path d="M72 69.5 l1.6 -2.6 M75 69.8 l1.6 -2.6 M78 69.8 l1.6 -2.6" stroke="#E8607A" stroke-width="1" stroke-linecap="round" opacity=".55"/>';
-  var mouth=run?'<path d="M86 66 q4.5 6.5 9 0 z" fill="#7A3B33"/><path d="M88.2 69.2 q2.3 1.6 4.6 0" stroke="'+pink+'" stroke-width="1.8" stroke-linecap="round" fill="none"/>'
-               :'<path d="M85.5 66 q2.2 2.6 4.4 0 q2.2 2.6 4.4 0" stroke="'+dark+'" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>';
-  var head=backHair+pony+'<circle cx="50" cy="62" r="6.5" fill="'+sk+'"/><circle cx="50" cy="62" r="3" fill="'+pink+'" opacity=".45"/>'+
-    '<circle cx="74" cy="54" r="34" fill="'+sk+'"/>'+dome+(capped?'':shine)+side+ahoge+eyes+brows+blush+mouth+
-    (run?'<path class="swt" d="M111 33 q5.5 7.5 0 11 q-5.5 -3.5 0 -11z" fill="#8FD3F7"/>':'');
-  var acc='';
-  if(has("band"))acc+='<path d="M41 45 Q74 24 108 38" stroke="'+ac+'" stroke-width="6" fill="none" stroke-linecap="round"/>';
-  if(has("cap")||has("cap5"))acc+='<path d="M39.5 50 C37 20 104 13 108.5 42 Q74 31 39.5 50 Z" fill="'+hatC+'"/><path d="M60 18.5 Q63 34 66 40 M84 17 Q86 30 86.5 36" stroke="#fff" stroke-opacity=".14" stroke-width="1.4" fill="none"/>'+
-    '<path d="M101 38.5 L128 41.5 Q129 44.6 125.5 45 L101.5 45 Z" fill="'+hatC+'"/><path d="M101.5 45 L125.5 45" stroke="rgba(0,0,0,.22)" stroke-width="1.2"/><path d="M39.5 50 C37 20 104 13 108.5 42" fill="none" stroke="'+hatLine+'" stroke-width="1"/><path d="M41 47.5 Q74 30 108 40" stroke="'+bandC+'" stroke-width="1.6" fill="none" opacity=".8"/>'+heart(89,27,1.15);
-  if(has("bucket"))acc+='<path d="M46 42 C44 14 102 10 103 40 Q74 31 46 42 Z" fill="'+hatC+'"/><path d="M58 17 Q60 28 61 36 M88 15 Q90 26 89.5 34" stroke="rgba(0,0,0,.12)" stroke-width="1.3" fill="none"/>'+
-    '<path d="M31 50 Q36 38 74 33.5 Q112 37 118 48 Q118 53 112 52 Q100 42 74 40.5 Q48 42 37 54 Q30 55 31 50 Z" fill="'+hatC+'" stroke="rgba(0,0,0,.18)" stroke-width="1"/>'+
-    '<path d="M47 40.5 Q74 31 102 38.5" stroke="'+bandC+'" stroke-width="3" fill="none" opacity=".9"/><path d="M46 42 C44 14 102 10 103 40" fill="none" stroke="'+hatLine+'" stroke-width="1"/>'+heart(88,22,1.1);
-  if(has("visor"))acc+='<path d="M41 45 Q74 27 108 38" stroke="'+hatC+'" stroke-width="4.5" fill="none" stroke-linecap="round"/><path d="M100 37.5 L127 40.5 Q128 43.6 124.5 44 L101 44 Z" fill="'+hatC+'" stroke="'+hatLine+'" stroke-width="1"/><path d="M43 43.6 Q74 26 106 36.8" stroke="'+bandC+'" stroke-width="1.3" fill="none" opacity=".9"/>'+heart(92,33.5,.8);
-  if(has("glasses")&&!capped)acc+='<g><rect x="66" y="21" width="15.5" height="10.5" rx="5" fill="'+dark+'"/><rect x="86" y="22" width="13.5" height="10.5" rx="5" fill="'+dark+'"/><path d="M81.5 26 h4.5" stroke="'+dark+'" stroke-width="2.2"/></g>';
-  if(has("shades"))acc+=(capped||has("visor"))?'<g><path d="M63.5 86.5 Q73 83.2 82.5 86.5 L82 90 Q77.8 91.8 74 89.4 Q73 88.8 72 89.4 Q68.2 91.8 64 90 Z" fill="#2A3440"/><path d="M65.5 87.2 h5" stroke="#9FD3FF" stroke-opacity=".7" stroke-width="1.2" stroke-linecap="round"/></g>'
-    :'<g><path d="M63 40.5 Q84 34.5 107 41 L106 48 Q96 52 87.5 47.6 Q84.5 46.3 81.5 47.6 Q71 52 63.6 47.4 Z" fill="#2A3440"/><path d="M67 42 Q76 39.5 84 40" stroke="#9FD3FF" stroke-opacity=".75" stroke-width="1.6" fill="none" stroke-linecap="round"/></g>';
-  if(has("goggle")){var gg="gg"+(charSVG.n=(charSVG.n||0)+1),gc=L.gog||["#FFB347","#FF5E8A"];
-    acc+='<g class="goggle"><defs><linearGradient id="'+gg+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+gc[0]+'"/><stop offset="1" stop-color="'+gc[1]+'"/></linearGradient></defs>'+
-      '<path d="M71 54 Q56 50.5 43.5 53.5" stroke="#1C1D1F" stroke-width="2.2" fill="none" stroke-linecap="round"/>'+
-      '<path d="M70.2 52.2 Q89 46.6 109 50.6 Q110.6 58 107 64 Q100 68.6 93.4 63.6 Q91.2 62 89 63.6 Q80 69.6 71.6 64.2 Q68.6 58.5 70.2 52.2 Z" fill="url(#'+gg+')" fill-opacity=".5" stroke="#1C1D1F" stroke-width="1.5" stroke-linejoin="round"/>'+
-      '<path d="M70.2 52.2 Q89 46.6 109 50.6" stroke="#1C1D1F" stroke-width="2.6" fill="none" stroke-linecap="round"/>'+
-      '<path d="M74 55.5 Q80 53.2 86 53" stroke="#fff" stroke-opacity=".8" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M96 53.2 Q100 53 103.5 53.8" stroke="#fff" stroke-opacity=".6" stroke-width="1.3" fill="none" stroke-linecap="round"/></g>';}
-  if(has("laurel"))acc+='<path d="M43 42 Q49 18 70 13" stroke="#F0B340" stroke-width="4.5" fill="none" stroke-dasharray="5 2.5" stroke-linecap="round"/><path d="M107 37 Q101 15 80 13" stroke="#F0B340" stroke-width="4.5" fill="none" stroke-dasharray="5 2.5" stroke-linecap="round"/>';
-  var auraCol=L.lv>=22?"#F0B340":"#2DB6A1";
-  var aura=has("aura")?'<defs><radialGradient id="'+gid+'"><stop offset="0" stop-color="'+auraCol+'" stop-opacity=".55"/><stop offset="1" stop-color="'+auraCol+'" stop-opacity="0"/></radialGradient></defs><circle class="aura" cx="72" cy="90" r="68" fill="url(#'+gid+')"/>':'';
+  var T=ctypeById(o.ct||(typeof S==="object"&&S&&S.ctype)||"dum"),OL=OLC,si=Math.max(0,Math.min(2,o.skin|0)),sk=SKINS[si],F=o.sex==="f",M=!F,run=!!o.run,shoeC=o.shoe&&o.shoe!=="#888"?o.shoe:T.shoe;
+  var g=o.grow!=null?o.grow:Math.max(0,LOOKS.indexOf(L)),B=[1,.62,.25,0,0,0][Math.min(5,g)],FT=[0,0,0,.34,.67,1][Math.min(5,g)],gold=g>=5,ac=gold?"#F0B340":g>=4?"#C9F24A":"#FF7A45";
+  var gid="au"+(++CHARN),glow=!!o.glow&&!run;
+  var mood=!run&&!glow&&o.mood&&o.mood!=="idle"?o.mood:null;
+  if(glow){B=B*.4;FT=Math.min(1,FT+.42);} /* 달린 직후: 배가 들어가고 근육이 선명해진 '펌핑' 상태 */
+  /* 몸통 (시안 좌표계 그대로 축소) */
+  var sw=22+B*3+FT*(M?8:0)-(F?2:0),ww=20+B*11-FT*(M?2:4)-(F?2:0),by=158+B*26,bx=116+B*20;
+  var torso='<g transform="translate(70 60) scale(.571) translate(-116 -78)">'+
+    '<path d="M'+(116-sw)+' 98 Q'+(116-sw-2)+' 80 116 78 Q'+(116+sw+2)+' 80 '+(116+sw)+' 98 L'+(116+ww)+' 148 Q'+bx+' '+by+' '+(116-ww)+' 148Z" fill="'+T.top+'" stroke="'+OL+'" stroke-width="4.5" stroke-linejoin="round"/>'+(T.topExtra||"")+
+    (B>.5?'<path d="M'+(116+ww-4)+' 132 q5 8 -1 15" stroke="'+OL+'" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".55"/>':'')+
+    (FT>.5&&M?'<path d="M104 96 q12 7 24 0" stroke="'+OL+'" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".45"/>':'')+
+    (has("vest")?'<path d="M103 84 L105 142 M129 84 L127 142" stroke="'+OL+'" stroke-width="7" stroke-linecap="round"/><rect x="98" y="106" width="13" height="16" rx="4" fill="'+OL+'"/><rect x="121" y="106" width="13" height="16" rx="4" fill="'+OL+'"/><rect x="101.5" y="101" width="6" height="6" rx="2" fill="'+ac+'"/>':'')+
+    (has("bib")&&T.id!=="dum"?'<rect x="104" y="112" width="24" height="18" rx="3" fill="#fff" stroke="'+OL+'" stroke-width="3"/><path d="M110 118 h12 M110 124 h8" stroke="'+OL+'" stroke-width="2.6" stroke-linecap="round"/>':'')+
+    (has("fullmedal")||has("halfmedal")?'<path d="M102 82 L116 112 L130 82" stroke="'+(has("fullmedal")?"#D6453A":"#3D7BFF")+'" stroke-width="5" fill="none" stroke-linejoin="round"/><circle cx="116" cy="116" r="9" fill="'+(has("fullmedal")?"#F0B340":"#C8CED4")+'" stroke="'+OL+'" stroke-width="3"/>':'')+
+    '<path d="M'+(116-ww-1)+' 142 L'+(116+ww+1)+' 142 L'+(116+ww+5)+' 166 L120 168 L116 158 L110 170 L'+(116-ww-6)+' 164Z" fill="'+T.bot+'" stroke="'+OL+'" stroke-width="4.5" stroke-linejoin="round"/>'+(T.botExtra||"")+(g>=4?'<path d="M'+(116+ww-2)+' 147 l4 14" stroke="'+ac+'" stroke-width="4" stroke-linecap="round"/>':'')+'</g>';
+  /* 팔다리: 굵은 외곽선 + 살색. 무릎은 두 번 그려 선이 끊기지 않게 */
+  var lw=7.4+B*2.2+FT*(M?1.2:.2),lw2=6.8+B*1.6+FT*(M?.8:.1),aw=6+B*1.5+FT*(M?1.1:.1),OW=4.4;
+  function ln(x1,y1,x2,y2,c,w){return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="'+c+'" stroke-width="'+w.toFixed(2)+'" stroke-linecap="round"/>';}
+  var tb=FT?lw+FT*(M?3.4:1.4):0,cb=FT?lw2+FT*(M?3:1.2):0,sock=T.sock||(has("csocks")?ac:null);
+  function shoe(){return '<path d="M57.5 151.8 Q56.2 142.5 65.5 142.5 L73.6 143.7 Q82.9 144.9 85.4 151.8 Q86.6 158.6 81 158.6 H61.8 Q56.2 158.6 57.5 151.8Z" fill="'+shoeC+'" stroke="'+OL+'" stroke-width="2.5" stroke-linejoin="round"/>'+
+    '<path d="M57.8 154.3 H85.7 Q86.6 158.6 81 158.6 H61.8 Q56.8 158.6 57.8 154.3Z" fill="'+(gold?"#F0B340":"#fff")+'" stroke="'+OL+'" stroke-width="2.5" stroke-linejoin="round"/><path d="M66.8 145 l4.3 3.7 M71.1 145 l4.3 3.7" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>';}
+  function leg(cls){return '<g class="lg '+cls+'"><g class="th">'+ln(70,106,70,130,OL,lw+OW)+(tb?ln(70.6,111,70.6,124,OL,tb+OW):'')+'<g class="sh">'+ln(70,130,70,149,OL,lw2+OW)+(cb?ln(69,134,69,142,OL,cb+OW):'')+'</g>'+
+    ln(70,106,70,130,sk,lw)+(tb?ln(70.6,111,70.6,124,sk,tb):'')+
+    '<g class="sh">'+ln(70,130,70,149,sk,lw2)+(cb?ln(69,134,69,142,sk,cb):'')+
+      (sock?(has("csocks")?ln(70,134,70,145,OL,lw2+OW)+ln(70,134,70,145,"#fff",lw2)+'<path d="M'+(70-lw2/2)+' 137 h'+lw2+'" stroke="'+sock+'" stroke-width="2"/>':'<rect x="'+(70-lw2/2-.6)+'" y="138" width="'+(lw2+1.2)+'" height="9" rx="1.6" fill="#fff" stroke="'+OL+'" stroke-width="2.2"/><path d="M'+(70-lw2/2)+' 141.4 h'+lw2+'" stroke="'+sock+'" stroke-width="1.8"/>'):'')+shoe()+'</g>'+
+    '<line x1="70" y1="105" x2="70" y2="111" stroke="'+T.bot+'" stroke-width="'+(lw+OW+1.4).toFixed(2)+'" stroke-linecap="round"/></g></g>';}
+  var pant=T.id==="pant",hx=pant?87:86,hy=pant?76:85.5,ad="M72 74 L71.4 90.5 L"+hx+" "+hy,bb=FT?aw+FT*(M?2.6:1):0;
+  function arm(cls){var far=cls==="far",HX=hx,HY=hy,AD=ad,b1=[71.8,77,71.5,87];
+    if(glow){if(far){AD="M72 74 L61 85 L68.5 93.5";HX=69;HY=94.4;b1=null;}else{AD="M72 74 L94 71 L105 55";HX=105.4;HY=53.6;b1=[78.5,73.2,88,71.8];}}
+    var bw=bb||(glow&&!far?aw+1.4:0);
+    return '<g class="am '+cls+'"><g class="ua">'+
+    '<path d="'+AD+'" fill="none" stroke="'+OL+'" stroke-width="'+(aw+OW).toFixed(2)+'" stroke-linecap="round" stroke-linejoin="round"/>'+(bw&&b1?ln(b1[0],b1[1],b1[2],b1[3],OL,bw+OW):'')+
+    '<path d="'+AD+'" fill="none" stroke="'+sk+'" stroke-width="'+aw.toFixed(2)+'" stroke-linecap="round" stroke-linejoin="round"/>'+(bw&&b1?ln(b1[0],b1[1],b1[2],b1[3],sk,bw):'')+
+    (has("sleeves")&&!glow?'<path d="M72 91.5 L'+(hx-3.4)+' '+(hy+1.4)+'" fill="none" stroke="'+(gold?"#F0B340":OL)+'" stroke-width="'+aw.toFixed(2)+'" stroke-linecap="round"/>':'')+
+    (far&&T.cupS&&!glow?'<g transform="translate('+(hx+1)+' '+(hy-13)+')">'+T.cupS+'</g>':'')+
+    '<circle cx="'+(HX+.6)+'" cy="'+(HY-.4)+'" r="'+(glow&&!far?5.4:4.7)+'" fill="'+sk+'" stroke="'+OL+'" stroke-width="2.3"/>'+
+    (glow&&!far?'<path d="M112 46 l4 -4 M114 53 l6 -1 M106 43.5 l1 -6" stroke="'+OL+'" stroke-width="1.8" stroke-linecap="round"/>':'')+
+    (!far&&has("watch")&&!glow?'<rect x="'+(hx-7.6)+'" y="'+(hy-2.2)+'" width="4.6" height="'+(aw+1.6).toFixed(1)+'" rx="1.4" fill="'+OL+'" transform="rotate(-20 '+(hx-5.3)+' '+(hy+1.5)+')"/>':'')+'</g></g>';}
+  /* 머리 (시안 좌표계 그대로 축소) */
+  var hb=(F&&T.hairBackF)||T.hairBack||"",face=(F&&T.faceF)||(!run&&T.faceIdle)||T.face||"";
+  if(glow){var arc='<path d="M111 60 q7 -9 14 0 M143 60 q7 -9 14 0" stroke="'+OL+'" stroke-width="4" fill="none" stroke-linecap="round"/>',grin='<path d="M122 72 Q136 70 150 72 Q148 90 136 90 Q124 90 122 72Z" fill="#7A2331" stroke="'+OL+'" stroke-width="4" stroke-linejoin="round"/><path d="M127 75 h18" stroke="#fff" stroke-width="5" stroke-linecap="round"/>',
+      patch='<ellipse cx="136" cy="80" rx="17" ry="11" fill="'+sk+'"/>';
+    face=T.id==="dum"?'<circle cx="120" cy="58" r="3.6" fill="'+OL+'"/><circle cx="150" cy="58" r="3.6" fill="'+OL+'"/><path d="M112 49 h12 M144 49 h12" stroke="'+OL+'" stroke-width="3.5" stroke-linecap="round"/><path d="M126 73 q9 7 18 0" stroke="'+OL+'" stroke-width="4" fill="none" stroke-linecap="round"/>'
+      :T.id==="over"||T.id==="coffee"?T.face+patch+grin
+      :T.id==="ajae"&&!F?arc+'<path d="M116 70 Q124 62 134 68 Q144 62 152 70 Q144 76 134 72 Q124 76 116 70Z" fill="'+OL+'"/><path d="M126 79 Q135 88 144 79Z" fill="#7A2331" stroke="'+OL+'" stroke-width="3.5" stroke-linejoin="round"/>'
+      :arc+grin;
+    face+='<ellipse cx="105" cy="70" rx="7.5" ry="4.8" fill="#FF8FA0" opacity=".8"/><ellipse cx="160" cy="70" rx="7" ry="4.6" fill="#FF8FA0" opacity=".8"/>';}
+  if(mood){var EW=T.id==="over"||T.id==="coffee",P=function(d,w){return '<path d="'+d+'" stroke="'+OL+'" stroke-width="'+(w||4)+'" fill="none" stroke-linecap="round" stroke-linejoin="round"/>';},D2='<circle cx="118" cy="58" r="3.6" fill="'+OL+'"/><circle cx="150" cy="58" r="3.6" fill="'+OL+'"/>';
+    var ey={lazy:P("M111 58 h14 M143 58 h14"),sleepy:P("M111 56 q7 7 14 0 M143 56 q7 7 14 0"),rain:D2+P("M110 50 l12 -4 M158 50 l-12 -4",3.5),hot:P("M112 52 l10 5 l-10 5 M156 52 l-10 5 l10 5"),cold:D2+P("M110 48 q7 -3 13 0 M145 48 q7 -3 13 0",3.2),fire:D2+P("M109 45 l15 6 M159 45 l-15 6",4)}[mood]||D2;
+    var mo={lazy:P("M126 77 q4 -4 8 0 q4 4 8 0",3.6),sleepy:'<ellipse cx="135" cy="79" rx="7" ry="8.5" fill="#7A2331" stroke="'+OL+'" stroke-width="3.6"/>',rain:P("M126 81 q9 -8 18 0",3.8),hot:'<path d="M125 72 Q136 69 147 72 Q148 88 136 88 Q124 88 125 72Z" fill="#7A2331" stroke="'+OL+'" stroke-width="3.8" stroke-linejoin="round"/><path d="M131 81 Q136 78 142 81 Q144 95 137 96 Q130 95 131 81Z" fill="#FF8FA0" stroke="'+OL+'" stroke-width="3.2"/>',cold:P("M123 79 l5 -5 l5 5 l5 -5 l5 5 l5 -5",3.4),fire:'<path d="M123 73 Q136 71 149 73 Q147 88 136 88 Q125 88 123 73Z" fill="#fff" stroke="'+OL+'" stroke-width="3.8" stroke-linejoin="round"/><path d="M124 80 h24 M132 73 v14 M140 73 v14" stroke="'+OL+'" stroke-width="2.4"/>'}[mood]||"";
+    var ms=T.id==="ajae"&&!F?'<path d="M116 70 Q124 62 134 68 Q144 62 152 70 Q144 76 134 72 Q124 76 116 70Z" fill="'+OL+'"/><g transform="translate(0 6)">'+mo+'</g>':mo;
+    face=(EW?T.face+'<ellipse cx="136" cy="80" rx="17" ry="11" fill="'+sk+'"/>':ey)+ms+
+      (mood==="hot"?'<ellipse cx="105" cy="68" rx="9" ry="6" fill="#FF6B6B" opacity=".75"/><ellipse cx="160" cy="68" rx="8.5" ry="5.6" fill="#FF6B6B" opacity=".75"/>':mood==="cold"?'<ellipse cx="105" cy="68" rx="7" ry="4.6" fill="#8FC7FF" opacity=".8"/><ellipse cx="160" cy="68" rx="7" ry="4.6" fill="#8FC7FF" opacity=".8"/>':'');}
+  var head='<g transform="translate(78 37) scale(.72) translate(-128 -54)">'+(hb?'<g class="pt">'+hb+'</g>':'')+
+    '<ellipse cx="128" cy="54" rx="'+(33+B*2.4)+'" ry="31" fill="'+sk+'" stroke="'+OL+'" stroke-width="4.5"/>'+((F&&T.hairF)||T.hair||"")+face+
+    (F&&T.lash?'<path d="M113 55 l-6 -3 M155 55 l6 -3" stroke="'+OL+'" stroke-width="2.8" stroke-linecap="round"/>':'')+
+    (B>.5?'<ellipse cx="106" cy="68" rx="6.5" ry="4.2" fill="#FF9DA8" opacity=".7"/><ellipse cx="158" cy="68" rx="6" ry="4" fill="#FF9DA8" opacity=".7"/>':'')+
+    (has("laurel")?'<path d="M98 34 Q104 6 128 2" stroke="#F0B340" stroke-width="7" fill="none" stroke-dasharray="8 4" stroke-linecap="round"/><path d="M160 34 Q154 6 132 2" stroke="#F0B340" stroke-width="7" fill="none" stroke-dasharray="8 4" stroke-linecap="round"/>':'')+
+    (run?(T.fx||""):'')+'</g>';
+  var auraCol=gold?"#F0B340":"#2DB6A1";
+  var aura=has("aura")?'<defs><radialGradient id="'+gid+'"><stop offset="0" stop-color="'+auraCol+'" stop-opacity=".55"/><stop offset="1" stop-color="'+auraCol+'" stop-opacity="0"/></radialGradient></defs><circle class="aura" cx="72" cy="88" r="70" fill="url(#'+gid+')"/>':'';
   var floor=run?'<line class="gnd" x1="0" y1="164" x2="140" y2="164" stroke="var(--faint)" stroke-width="2" stroke-dasharray="12 12" stroke-linecap="round"/>'+
-      '<line class="spd" x1="12" y1="74" x2="32" y2="74" stroke="var(--faint)" stroke-width="2.6" stroke-linecap="round"/><line class="spd" x1="6" y1="98" x2="30" y2="98" stroke="var(--faint)" stroke-width="2.6" stroke-linecap="round"/><line class="spd" x1="12" y1="122" x2="32" y2="122" stroke="var(--faint)" stroke-width="2.6" stroke-linecap="round"/>'
-    :'<ellipse cx="72" cy="162.5" rx="28" ry="4" fill="'+dark+'" opacity=".13"/>';
-  var vb=o.crop?"36 12 78 78":"0 0 140 170";
-  return '<svg class="chr '+(run?(o.walk?"run walk":"run"):"idle")+'" viewBox="'+vb+'"'+(o.st?' style="--st:'+o.st+'s"':'')+' role="img" aria-label="'+esc(L.nm)+' 캐릭터">'+
-    aura+(o.crop?'':floor)+'<g class="bob"><g class="lean">'+leg("far")+arm("far")+torso+
-    (has("vest")?'<path d="M61 84 L63 109 M85 84 L83 109" stroke="#2B2D2F" stroke-width="4.2" stroke-linecap="round"/><rect x="59.5" y="92" width="7.5" height="9.5" rx="2.4" fill="#2B2D2F"/><rect x="79" y="92" width="7.5" height="9.5" rx="2.4" fill="#2B2D2F"/><rect x="61.6" y="89" width="3.4" height="3.6" rx="1" fill="'+ac+'"/>':'')+'<rect x="'+(56-DX)+'" y="107" width="'+(33+DX*2)+'" height="11" rx="5.5" fill="'+bot+'"/><path d="M57 109.5 h31" stroke="'+ac+'" stroke-width="1.6" opacity=".7"/><path d="M'+(58.5-DX)+' 117.5 l3.5 -5 M'+(86.5+DX)+' 117.5 l-3.5 -5" stroke="'+ac+'" stroke-width="1.8" stroke-linecap="round" opacity=".85"/>'+chest+leg("near")+head+acc+arm("near")+'</g></g></svg>';
+      '<line class="spd" x1="12" y1="64" x2="32" y2="64" stroke="var(--faint)" stroke-width="2.6" stroke-linecap="round"/><line class="spd" x1="6" y1="90" x2="30" y2="90" stroke="var(--faint)" stroke-width="2.6" stroke-linecap="round"/><line class="spd" x1="12" y1="116" x2="32" y2="116" stroke="var(--faint)" stroke-width="2.6" stroke-linecap="round"/>'
+    :'<ellipse cx="72" cy="162.5" rx="'+(26+B*5)+'" ry="4" fill="'+OL+'" opacity=".13"/>';
+  function star(x,y,r,c){return '<path class="tw" d="M'+x+' '+(y-r)+' Q'+x+' '+y+' '+(x+r)+' '+y+' Q'+x+' '+y+' '+x+' '+(y+r)+' Q'+x+' '+y+' '+(x-r)+' '+y+' Q'+x+' '+y+' '+x+' '+(y-r)+'Z" fill="'+c+'" stroke="'+OL+'" stroke-width="1.6" stroke-linejoin="round"/>';}
+  var glowFx=glow?'<defs><radialGradient id="'+gid+'g"><stop offset="0" stop-color="#FFD166" stop-opacity=".6"/><stop offset="1" stop-color="#FFD166" stop-opacity="0"/></radialGradient></defs><circle cx="72" cy="84" r="72" fill="url(#'+gid+'g)"/>'+
+    star(22,46,10,"#FFD166")+star(118,22,8,"#FFD166")+star(126,100,9,"#FFD166")+star(18,106,7,"#fff")+star(112,70,5,"#fff"):'';
+  function dp(x,y,r){return '<path d="M'+x+' '+(y-r*1.5)+' Q'+(x+r)+' '+y+' '+(x+r*.8)+' '+(y+r*.7)+' Q'+x+' '+(y+r*1.7)+' '+(x-r*.8)+' '+(y+r*.7)+' Q'+(x-r)+' '+y+' '+x+' '+(y-r*1.5)+'Z" fill="#8FD6FF" stroke="'+OL+'" stroke-width="1.6"/>';}
+  function zz(x,y,sz){return '<text class="tw" x="'+x+'" y="'+y+'" font-size="'+sz+'" font-weight="900" font-family="sans-serif" fill="'+OL+'">z</text>';}
+  var mBack="",mFront="";
+  if(mood==="lazy"){mBack='<path d="M14 150 Q10 116 48 110 Q92 104 108 134 Q118 162 70 164 Q18 166 14 150Z" fill="#C3B4F5" stroke="'+OL+'" stroke-width="2.6" stroke-linejoin="round"/><path d="M30 128 q14 -10 30 -8" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>';mFront=zz(108,36,15)+zz(119,24,11)+zz(127,15,8);}
+  if(mood==="sleepy")mFront=zz(110,30,14)+zz(121,19,10)+dp(98,54,2.6);
+  if(mood==="rain"){var rn="";[[18,8],[44,2],[96,6],[122,14],[30,52],[116,60],[10,96],[128,104],[64,0]].forEach(function(q){rn+='<path class="rn" d="M'+q[0]+' '+q[1]+' l-5 15" stroke="#6FB8E8" stroke-width="2.4" stroke-linecap="round"/>';});mFront=rn+dp(60,22,3)+dp(100,30,2.6);mBack='<ellipse cx="72" cy="163" rx="46" ry="5" fill="#9AD0F2" opacity=".7"/>';}
+  if(mood==="hot"){var ry="";for(var ri=0;ri<8;ri++){var an=ri*Math.PI/4;ry+='<line x1="'+(24+Math.cos(an)*15).toFixed(1)+'" y1="'+(24+Math.sin(an)*15).toFixed(1)+'" x2="'+(24+Math.cos(an)*20).toFixed(1)+'" y2="'+(24+Math.sin(an)*20).toFixed(1)+'" stroke="'+OL+'" stroke-width="2.2" stroke-linecap="round"/>';}
+    mBack='<g class="tw"><circle cx="24" cy="24" r="11" fill="#FFB020" stroke="'+OL+'" stroke-width="2.4"/>'+ry+'</g>';mFront=dp(54,30,3.2)+dp(104,26,2.8)+dp(110,50,2.4);}
+  if(mood==="cold")mFront='<path d="M58 61 Q72 68 90 61 L91 68 Q72 76 57 68Z" fill="#E2573A" stroke="'+OL+'" stroke-width="2.2" stroke-linejoin="round"/><path d="M62 67 L58 84 L66 84 L68 69Z" fill="#E2573A" stroke="'+OL+'" stroke-width="2.2" stroke-linejoin="round"/><g class="tw"><circle cx="110" cy="50" r="5" fill="#fff" stroke="'+OL+'" stroke-width="1.6"/><circle cx="118" cy="45" r="3.4" fill="#fff" stroke="'+OL+'" stroke-width="1.4"/></g>';
+  if(mood==="fire"){var fl=function(x,y,k){return '<path class="tw" transform="translate('+x+' '+y+') scale('+k+')" d="M0 0 Q-12 -8 -6 -22 Q-2 -14 4 -16 Q0 -28 10 -36 Q10 -22 18 -18 Q24 -8 12 0Z" fill="#FF8A3D" stroke="'+OL+'" stroke-width="2.4" stroke-linejoin="round"/>';};mBack=fl(16,160,1)+fl(110,160,.8)+fl(124,122,.5);}
+  var vb=o.crop?"44 2 68 68":"0 0 140 170";
+  return '<svg class="chr '+(run?(o.walk?"run walk":"run"):glow?"idle glow":mood?"idle m-"+mood:"idle")+'" viewBox="'+vb+'"'+(o.st?' style="--st:'+o.st+'s"':'')+' role="img" aria-label="'+esc(L.nm)+' '+esc(F?T.nmF:T.nm)+' 캐릭터">'+
+    aura+glowFx+mBack+(o.crop?'':floor)+'<g class="bob"><g class="lean">'+arm("far")+leg("far")+torso+leg("near")+(glow?head+arm("near"):arm("near")+head)+(mood==="cold"?mFront:"")+'</g></g>'+(mood==="cold"?"":mFront)+'</svg>';
 }
-function myChar(o){o=o||{};if(!o.look)o.look=devLook()||myLook();if(!o.ach)o.ach=myAch();var sh=eqShoe();o.lv=o.lv||S.level;o.sex=o.sex||S.sex;if(o.skin==null)o.skin=S.skin;o.shoe=o.shoe||(sh?BRAND_COL[sh.b]:"#888");return charSVG(o);}
+function ctPickHTML(id){return '<div class="flbl" style="margin-top:14px">캐릭터 고르기</div><div class="ctpick" id="'+id+'"></div><div class="muted small" id="'+id+'D" style="margin:6px 2px 0;min-height:2.6em"></div>';}
+function ctPickPaint(root,id,st,onPick){var box=root.querySelector("#"+id);if(!box)return;
+  box.innerHTML=CTYPES.map(function(c){return '<button type="button" data-c="'+c.id+'" aria-pressed="'+(c.id===st.ct)+'">'+charSVG({ct:c.id,sex:st.sex,skin:st.skin,look:LOOKS[0],shoe:"#2F6FE0"})+'<span>'+esc(st.sex==="f"?c.nmF:c.nm)+'</span></button>';}).join("");
+  var d=root.querySelector("#"+id+"D");if(d)d.textContent=ctypeById(st.ct).d;
+  $$("button",box).forEach(function(b){b.addEventListener("click",function(){st.ct=b.dataset.c;onPick();});});}
+function myChar(o){o=o||{};if(!o.look)o.look=devLook()||myLook();if(!o.ach)o.ach=myAch();var sh=eqShoe();o.lv=o.lv||S.level;o.sex=o.sex||S.sex;o.ct=o.ct||S.ctype;if(o.skin==null)o.skin=S.skin;o.shoe=o.shoe||(sh?BRAND_COL[sh.b]:"#888");return charSVG(o);}
 
 /* ================= 반려견 ================= */
 /* run: 함께 달리기 적합도 0~3 (0 = 산책만), max: 건강한 성견 기준 권장 러닝 거리 상한(km, 참고치) */
@@ -1335,10 +1414,11 @@ function dogRunStatus(d){
   if(B.run===0)return {ok:false,max:0,why:"단두종이라 달리기 대신 산책을 추천해요"};
   if(age==null)return {ok:false,max:0,why:"나이를 입력하면 함께 달리기가 열려요"};
   if(age<MATURE[B.size])return {ok:false,max:0,why:"성장판이 닫히는 "+MATURE[B.size]+"개월까지는 산책만 해요 ("+(MATURE[B.size]-age)+"개월 남음)"};
-  if((B.heat||B.brachy)&&fl>=24)return {ok:false,max:0,why:"오늘은 더워서 털이 두꺼운 "+B.nm+"에게 무리예요. 시원한 시간에 짧은 산책만"};
-  if(fl>=27)return {ok:false,max:0,why:"오늘은 더워서 반려견과 달리기는 쉬어요. 이른 아침에 짧은 산책만"};
+  if((B.heat||B.brachy)&&fl>=20)return {ok:false,max:0,why:"오늘은 더워서 털이 두꺼운 "+B.nm+"에게 무리예요. 시원한 시간에 짧은 산책만"};
+  if(fl>=24)return {ok:false,max:0,why:"오늘은 더워서 반려견과 달리기는 쉬어요. 이른 아침에 짧은 산책만"};
   var max=B.max,why="권장 최대 약 "+max+"km";
   if(age>=SENIOR[B.size]){max=Math.round(B.max*0.6*10)/10;why="노령견이라 약 "+max+"km까지, 수의사 상담을 권해요";}
+  if(fl>=20){max=Math.round(max*0.5*10)/10;why="조금 더운 날이라 약 "+max+"km까지만, 물을 자주 줘요";}
   return {ok:true,max:max,why:why};
 }
 function bondLevel(min){return Math.min(10,1+Math.floor(Math.sqrt((min||0)/25)));}
@@ -1670,12 +1750,12 @@ var KNOW=[
   {t:"폼",q:"케이던스는 보통 분당 160~185보",a:"속도와 키에 따라 달라서 정답은 없어요. 착지 충격을 줄이고 싶다면 지금보다 5% 정도 올려 보세요. 보폭을 억지로 늘리는 것보다 효과적이에요."},
   {t:"폼",q:"착지는 몸 아래로",a:"발이 몸보다 한참 앞에 떨어지면 브레이크가 걸려요. 상체를 살짝 앞으로 기울이고 발이 골반 아래쯤 닿게 하세요."},
   {t:"영양",q:"물은 갈증에 맞춰, 너무 많이는 금물",a:"달리기 2시간 전쯤 물 한두 컵, 1시간 넘게 달릴 땐 갈증이 날 때 몇 모금씩 마시세요. 체중이 늘 만큼 마시면 혈중 나트륨이 떨어지는 저나트륨혈증이 올 수 있어요. 달리기 전후 체중을 재서 줄어든 1kg당 물 1~1.5L를 보충하고, 더운 날 1시간 넘게 달리면 이온음료로 전해질도 챙기세요."},
-  {t:"안전",q:"더위와 열질환",a:"기온과 습도가 높으면 같은 페이스도 훨씬 힘들어요. 몸이 더위에 적응하는 데 10~14일이 걸리니 처음엔 짧고 느리게 달리세요. 혼란, 구토, 비틀거림, 땀이 멈추는 증상은 열사병 신호예요. 즉시 멈추고 그늘에서 몸을 식히며 119에 연락하세요."},
+  {t:"안전",q:"더위와 열질환",a:"기온과 습도가 높으면 같은 페이스도 훨씬 힘들어요. 몸이 더위에 적응하는 데 10~14일이 걸리니 처음엔 짧고 느리게 달리세요. 말이 어눌해지거나 횡설수설함, 비틀거림, 의식이 흐려짐, 구토는 열사병 신호예요. 땀이 나고 있어도 열사병일 수 있어요. 즉시 멈추고 119에 연락한 뒤, 찬물·젖은 수건·얼음으로 몸을 계속 식히세요."},
   {t:"장비",q:"러닝화 수명은 500~800km",a:"쿠션이 꺼지면 충격이 다리로 그대로 와요. 앱이 신발별 누적 거리를 세고 있으니 교체 알림을 참고하세요. 카본 레이서는 느린 속도에선 오히려 불안정하고 수명도 짧아서, 빠른 훈련과 대회용으로 아껴 신는 게 좋아요."},
   {t:"건강",q:"WHO 권장 활동량",a:"성인은 주 150~300분의 중강도 운동, 또는 75~150분의 고강도 운동을 권장해요. 달리기는 대부분 고강도라 주 75분이면 권장량을 채워요. 근력운동도 주 2회 이상 함께 하세요."},
   {t:"대회",q:"첫 대회는 5K나 10K로",a:"훈련에서 대회 거리의 80~100%를 편하게 달릴 수 있을 때 신청하세요. 대회 날 새 신발·새 음식은 금지, 초반에 흥분해서 빨리 나가지 않는 게 완주 비결이에요. 풀코스는 최소 16주 준비와 30km 안팎의 장거리 훈련이 필요해요."},
   {t:"반려견",q:"반려견과 달리기 시작하기",a:"성장판이 닫히기 전에는 오래 뛰지 않게 해요. 대형견은 14~18개월까지 성장판이 열려 있고, 보통 1.5세 이후를 권해요. 처음엔 한두 블록부터 시작해 이틀에 한 번 약 400m씩 늘려요. 퍼그·프렌치 불독 같은 단두종과 다리가 짧은 견종은 산책 위주가 좋아요. 시작 전에 수의사 검진을 받으세요."},
-  {t:"반려견",q:"여름철 반려견 산책",a:"개는 발바닥과 코로만 땀을 흘려 더위에 약해요. 이른 아침이나 해 진 뒤에 걷고, 나가기 전에 손등을 바닥에 5초 대 보세요. 뜨거우면 산책을 미뤄요. 심한 헐떡임, 침 흘림, 붉은 잇몸, 비틀거림, 구토는 열사병 신호예요. 시원한 곳으로 옮겨 미지근한 물로 몸을 적시고 바로 동물병원에 가세요."},
+  {t:"반려견",q:"여름철 반려견 산책",a:"개는 발바닥과 코로만 땀을 흘려 더위에 약해요. 이른 아침이나 해 진 뒤에 걷고, 나가기 전에 손등을 바닥에 7초 대 보세요. 뜨거우면 산책을 미뤄요. 심한 헐떡임, 침 흘림, 붉은 잇몸, 비틀거림, 구토는 열사병 신호예요. 시원한 곳으로 옮겨 시원한 물로 몸을 적시고 바로 동물병원에 가세요."},
   {t:"반려견",q:"반려견이 지쳤다는 신호",a:"심하게 헐떡이거나 멈춰서 누우면 한계예요. 물을 주고 쉬게 하세요. 개는 스스로 멈출 줄 몰라서 보호자가 표정과 자세를 살펴야 해요. 딱딱한 바닥과 뜨거운 노면은 관절과 발바닥을 다치게 할 수 있어요. 물과 배변봉투, 목줄은 꼭 챙기세요."},
   {t:"건강",q:"여성 러너와 에너지 부족",a:"월경이 불규칙해지거나 멈추고 피로골절이 잦다면, 먹는 양에 비해 운동량이 많은 '상대적 에너지 결핍(RED-S)' 신호일 수 있어요. 진료를 받아 보세요."}
 ];
@@ -1718,10 +1798,33 @@ function emoGrid(cls,sel){return '<div class="emogrid">'+EMO.map(function(x){ret
 function cleanPath(p){if(!Array.isArray(p))return null;var o=[];p.forEach(function(q){if(Array.isArray(q)&&q.length>=2){var a=+q[0],b=+q[1];if(isFinite(a)&&isFinite(b)&&Math.abs(a)<=90&&Math.abs(b)<=180)o.push([Math.round(a*1e5)/1e5,Math.round(b*1e5)/1e5]);}});return o.length>=2?o.slice(0,260):null;}
 function cleanMoods(m){if(!Array.isArray(m))return null;var o=[];m.forEach(function(x){if(x&&EMO_BY[x.e]){var y={e:x.e,t:Math.max(0,Math.round(+x.t||0)),km:Math.round((+x.km||0)*100)/100};
   if(typeof x.n==="string"&&x.n.trim())y.n=x.n.trim().slice(0,80);if(isFinite(+x.la)&&isFinite(+x.lo)&&x.la!=null&&x.lo!=null){y.la=Math.round(+x.la*1e5)/1e5;y.lo=Math.round(+x.lo*1e5)/1e5;}o.push(y);}});return o.length?o.slice(0,40):null;}
+/* 달린 직후 기록: 몸 상태·신발 감각 */
+var AF_RPE=[[2,"아주 편함"],[4,"편함"],[6,"적당"],[8,"힘듦"],[10,"아주 힘듦"]],AF_LEG=[[2,"가벼움"],[3,"보통"],[4,"무거움"]],AF_BR=[["easy","편함"],["mid","보통"],["hard","숨참"]],
+    AF_PAIN=[["none","없음"],["knee","무릎"],["ankle","발목"],["calf","종아리"],["sole","발바닥"],["hip","골반·허리"],["etc","기타"]],
+    AF_CU=[[2,"딱딱"],[3,"적당"],[4,"푹신"]],AF_RE=[[2,"약함"],[3,"보통"],[4,"통통"]],AF_FIT=[["loose","헐렁"],["good","딱 맞음"],["tight","조임"]];
+function afLabel(list,v){for(var i=0;i<list.length;i++)if(list[i][0]===v)return list[i][1];return null;}
+function cleanAfter(a){if(!a||typeof a!=="object")return null;var o={},n=0;
+  if(afLabel(AF_RPE,+a.rpe)){o.rpe=+a.rpe;n++;}if(afLabel(AF_LEG,+a.leg)){o.leg=+a.leg;n++;}if(afLabel(AF_BR,a.br)){o.br=a.br;n++;}
+  if(Array.isArray(a.pain)){var pp=a.pain.filter(function(x){return afLabel(AF_PAIN,x);}).slice(0,6);if(pp.length){o.pain=pp;n++;}}
+  if(typeof a.sid==="string"&&a.sid)o.sid=a.sid.slice(0,40);
+  if(afLabel(AF_CU,+a.cu)){o.cu=+a.cu;n++;}if(afLabel(AF_RE,+a.re)){o.re=+a.re;n++;}if(afLabel(AF_FIT,a.fit)){o.fit=a.fit;n++;}
+  if(typeof a.snote==="string"&&a.snote.trim()){o.snote=a.snote.trim().slice(0,120);n++;}
+  return n?o:null;}
+function afterBlock(r){var a=r&&r.after;if(!a)return "";var body=[],shoe=[],sh=a.sid&&shoeById(a.sid);
+  if(a.rpe)body.push("힘든 정도 · "+afLabel(AF_RPE,a.rpe));if(a.leg)body.push("다리 · "+afLabel(AF_LEG,a.leg));if(a.br)body.push("숨 · "+afLabel(AF_BR,a.br));
+  if(a.pain)body.push("아픈 곳 · "+a.pain.map(function(x){return afLabel(AF_PAIN,x);}).join(", "));
+  if(a.cu)shoe.push("쿠션 · "+afLabel(AF_CU,a.cu));if(a.re)shoe.push("반발 · "+afLabel(AF_RE,a.re));if(a.fit)shoe.push("핏 · "+afLabel(AF_FIT,a.fit));
+  function chips(x){return '<div class="afchips">'+x.map(function(t){return '<span>'+esc(t)+'</span>';}).join("")+'</div>';}
+  var h='<div class="feelcard"><div class="lbl" style="margin-bottom:6px">달린 직후 기록</div>';
+  if(body.length)h+='<div class="afttl">🫀 몸 상태</div>'+chips(body);
+  if(shoe.length||a.snote)h+='<div class="afttl">👟 신발 감각'+(sh?' <span class="muted" style="font-weight:600">· '+esc(sh.m)+'</span>':'')+'</div>'+(shoe.length?chips(shoe):'')+(a.snote?'<div class="muted small" style="margin-top:4px">“'+esc(a.snote)+'”</div>':'');
+  if(a.pain&&a.pain.indexOf("none")<0)h+='<div class="note" style="margin:8px 0 0">아픈 곳이 있었어요. 통증이 이어지면 쉬고, 심해지면 진료를 받아 보세요.</div>';
+  return h+'</div>';}
 function addFeel(dst,src){
   var p=cleanPath(src.path),m=cleanMoods(src.moods);if(p)dst.path=p;if(m)dst.moods=m;
   if(Array.isArray(src.mins)&&src.mins.length){var mn=src.mins.slice(0,720).map(function(x){return Math.max(0,Math.round(+x)||0);});dst.mins=mn;}
-  if(EMO_BY[src.pre])dst.pre=src.pre;if(EMO_BY[src.post])dst.post=src.post;if(["fresh","ok","tired","period","pain"].indexOf(src.body)>=0)dst.body=src.body;
+  if(EMO_BY[src.pre])dst.pre=src.pre;if(EMO_BY[src.post])dst.post=src.post;
+  var af=cleanAfter(src.after);if(af)dst.after=af;if(["fresh","ok","tired","period","pain"].indexOf(src.body)>=0)dst.body=src.body;
   if(src.src==="gps")dst.src="gps";var er=cleanErrand(src.errand);if(er)dst.errand=er;if(typeof src.diary==="string"&&src.diary.trim()){dst.diary=src.diary.slice(0,1000);if(+src.diaryAt>0)dst.diaryAt=+src.diaryAt;}return dst;
 }
 /* 저장 공간 보호: 최근 40개 활동만 경로를 남긴다 */
@@ -1729,7 +1832,7 @@ function trimPaths(list){var n=0;return list.slice().reverse().map(function(r){i
 
 function defaultState(){
   return {v:3,runs:[],rests:[],races:[],closet:[{sid:"asics-nova6",km0:0,photo:null}],eq:"asics-nova6",
-    shoeLogs:[],moodLogs:[],sex:"m",std:"m",nick:"",skin:0,title:null,health:null,body:null,homeRegion:null,dogs:[],dogEq:null,walks:[],
+    shoeLogs:[],moodLogs:[],sex:"m",std:"m",nick:"",skin:0,ctype:"dum",title:null,health:null,body:null,homeRegion:null,dogs:[],dogEq:null,walks:[],
     level:1,xp:0,totalXp:0,stats:JSON.parse(JSON.stringify(BASE_STATS)),totalKm:0,best:0,quest:0,titles:[],courseDone:{}};
 }
 var INTS={easy:1,tempo:1,interval:1};
@@ -1750,11 +1853,11 @@ function cleanBody(b){
 }
 function bodyInfo(){
   var b=S.body;if(!b)return null;var age=new Date().getFullYear()-b.by,bmi=b.w/Math.pow(b.h/100,2);
-  var cat=bmi<18.5?"저체중":bmi<23?"정상":bmi<25?"비만 전단계":bmi<30?"1단계 비만":bmi<35?"2단계 비만":"3단계 비만";
+  var cat=age<19?"성장기 · 성인 기준 미적용":bmi<18.5?"저체중":bmi<23?"정상":bmi<25?"비만 전단계":bmi<30?"1단계 비만":bmi<35?"2단계 비만":"3단계 비만";
   var hrmax=Math.round(S.sex==="f"?206-0.88*age:208-0.7*age);
   var cap=5;if(bmi>=30||age>=65)cap=3;else if(bmi>=25||age>=50||bmi<18.5||age<16)cap=4;
   return {age:age,bmi:bmi,cat:cat,hrmax:hrmax,easyLo:Math.round(hrmax*.6),easyHi:Math.round(hrmax*.7),cap:cap,
-    youth:age<16,child:age<14,senior:age>=65,older:age>=50&&age<65,obese2:bmi>=30,obese1:bmi>=25&&bmi<30,under:bmi<18.5};
+    youth:age<18,child:age<14,senior:age>=65,older:age>=50&&age<65,obese2:age>=19&&bmi>=30,obese1:age>=19&&bmi>=25&&bmi<30,under:age>=19&&bmi<18.5};
 }
 function bodyCaution(){var i=bodyInfo();return !!(i&&(i.youth||i.senior||i.obese2));}
 function bodyAdvice(){
@@ -1764,7 +1867,7 @@ function bodyAdvice(){
   if(i.under)a.push({ic:"🍚",t:"충분히 먹고 달려요",d:"BMI "+fmt(i.bmi)+", 저체중이에요. 먹는 양보다 많이 달리면 에너지 부족과 피로골절 위험이 커져요. 거리를 늘리기 전에 식사량부터 챙겨요."});
   if(i.senior)a.push({ic:"🧓",t:"보수 모드로 안전하게",d:""+i.age+"세예요. 부하 경고를 더 엄격하게 보고, 한 번에 "+i.cap+"km 안쪽을 권해요. 넘어지지 않게 밝은 시간에 평탄한 길을 고르고, 시작 전에 의사와 상담해 주세요."});
   else if(i.older)a.push({ic:"🩺",t:"고강도 전에 건강검진",d:""+i.age+"세예요. 인터벌 같은 고강도 훈련 전에 건강검진을 받아 보세요. 힘든 훈련 뒤에는 하루 더 쉬어 가요."});
-  if(i.youth)a.push({ic:"🌱",t:"성장기에는 무리하지 않기",d:""+i.age+"세예요. 하프·풀코스 퀘스트는 16세 이후에 열려요. 한 번에 "+i.cap+"km 안쪽, 주 3~4회면 충분해요."+(i.child?" 만 14세 미만은 보호자와 함께 사용해 주세요.":"")});
+  if(i.youth)a.push({ic:"🌱",t:"성장기에는 무리하지 않기",d:""+i.age+"세예요. 하프·풀코스 퀘스트는 18세 이후에 열려요. 성장기에는 성인 BMI 기준을 쓰지 않아요. 체중이 걱정되면 보호자와 함께 소아청소년과에서 성장도표로 확인해 보세요. 한 번에 "+i.cap+"km 안쪽, 주 3~4회면 충분해요."+(i.child?" 만 14세 미만은 보호자와 함께 사용해 주세요.":"")});
   a.push({ic:"❤️",t:"편한 달리기 심박 약 "+i.easyLo+"~"+i.easyHi+" bpm",d:"나이로 추정한 최대 심박("+i.hrmax+" bpm)의 60~70%예요. 워치가 있다면 참고하세요. 추정치라 개인차가 커요."});
   return a;
 }
@@ -1781,10 +1884,10 @@ function normalize(s){
   var d=defaultState();
   if(!s||typeof s!=="object")return d;
   d.nick=typeof s.nick==="string"?s.nick.slice(0,12):"";d.sex=s.sex==="f"?"f":"m";d.std=s.std==="f"||s.std==="m"?s.std:d.sex;
-  d.skin=Math.max(0,Math.min(2,s.skin|0));d.title=typeof s.title==="string"?s.title:null;
+  d.skin=Math.max(0,Math.min(2,s.skin|0));d.ctype=["dum","pant","over","ajae","coffee"].indexOf(s.ctype)>=0?s.ctype:"dum";d.title=typeof s.title==="string"?s.title:null;
   d.body=cleanBody(s.body);d.homeRegion=typeof s.homeRegion==="string"?s.homeRegion.slice(0,40):null;
   d.health=s.health&&typeof s.health==="object"?{flag:!!s.health.flag,injury:!!s.health.injury,ts:Number(s.health.ts)||0}:null;
-  var runs=Array.isArray(s.runs)?s.runs:[];
+  var runs=(Array.isArray(s.runs)?s.runs:[]).filter(function(r){return r&&typeof r==="object";});
   if(s.v!==3){ /* v2 이전: 예시 기록 제거 후 이전 */
     var seeds=[[4,27,"easy"],[5.2,33,"tempo"],[6.2,41,"easy"],[5,30,"easy"]];
     runs=s.example?[]:runs.filter(function(r){return !seeds.some(function(x){return x[0]===r.km&&x[1]===r.min&&x[2]===r.int;});})
@@ -1814,12 +1917,12 @@ function normalize(s){
 }
 function persistObj(){
   return {v:3,runs:trimPaths(S.runs),rests:S.rests,races:S.races,closet:S.closet,eq:S.eq,shoeLogs:S.shoeLogs.slice(-300),moodLogs:S.moodLogs.slice(-300),
-    sex:S.sex,std:S.std,nick:S.nick,skin:S.skin,title:S.title,health:S.health,body:S.body,homeRegion:S.homeRegion,dogs:S.dogs,dogEq:S.dogEq,walks:trimPaths(S.walks),game:S.game,weekGoal:S.weekGoal,safe:S.safe};
+    sex:S.sex,std:S.std,nick:S.nick,skin:S.skin,ctype:S.ctype,title:S.title,health:S.health,body:S.body,homeRegion:S.homeRegion,dogs:S.dogs,dogEq:S.dogEq,walks:trimPaths(S.walks),game:S.game,weekGoal:S.weekGoal,safe:S.safe};
 }
 var S=null,RINFO={};
 (function(){
   var r=lsGet(KEY),old=r?null:lsGet("runquest-v2"),src=r||old,obj=null;
-  try{obj=src?JSON.parse(src):null;}catch(e){obj=null;}
+  try{obj=src?JSON.parse(src):null;}catch(e){obj=null;if(src){lsSet("rq-broken",src.slice(0,2000000));setTimeout(function(){toast("⚠️ 저장된 기록을 읽지 못해 새로 시작했어요. 원본은 따로 보관해 뒀어요");},1500);}}
   S=normalize(obj);
 })();
 
@@ -1882,7 +1985,7 @@ function zoneOf(a,careful){
   if(!a.ok)return {c:"none",t:"기록 쌓는 중",m:"3~4주 기록이 쌓이면 내 평소 훈련량과 비교해 부상 위험을 알려 드려요. 처음엔 주 3회, 짧고 천천히가 좋아요."};
   var hi=careful?1.2:1.3,danger=careful?1.4:1.5,r=a.ratio;
   if(r<0.8)return {c:"low",t:"부족 · 감 유지",m:"평소보다 적게 달리고 있어요. 쉬어 가는 주라면 괜찮아요."};
-  if(r<=hi)return {c:"good",t:"적정 · 최적 성장",m:"평소 훈련량과 잘 맞아요. 이 리듬을 유지하세요."};
+  if(r<=hi)return {c:"good",t:"적정 · 평소와 비슷",m:"평소 훈련량과 잘 맞아요. 이 리듬을 유지하세요."};
   if(r<=danger)return {c:"warn",t:"주의 · 급증",m:"최근 1주 거리가 평소보다 많아요. 이번 주는 더 늘리지 마세요."};
   return {c:"crit",t:"위험 · 휴식 권장",m:"평소보다 훨씬 많이 달렸어요. 부상 위험이 커요. 쉬거나 아주 가볍게만 달리세요. 이 구간에선 XP 보너스가 꺼져요."};
 }
@@ -1899,8 +2002,9 @@ function recommendAt(prev,restsPrev,t,careful){
   if(careful||z.c==="warn")return "easy";
   var n21=prev.filter(function(r){return r.ts>=t-21*DAY;}).length;
   var hard7=prev.some(function(r){return r.ts>=t-7*DAY&&r.int==="interval";});
-  if(n21>=6&&!hard7&&last&&last.int==="easy")return "interval";
-  if(prev.length>=3&&prev.slice(-3).every(function(r){return r.int==="easy";}))return "tempo";
+  var seasoned=prev.length&&t-prev[0].ts>=42*DAY; /* 첫 러닝 후 6주가 지나야 고강도를 추천 */
+  if(seasoned&&n21>=9&&!hard7&&last&&last.int==="easy")return "interval";
+  if(seasoned&&n21>=6&&prev.slice(-3).every(function(r){return r.int==="easy";}))return "tempo";
   return "easy";
 }
 function recommendNow(){return recommendAt(S.runs,S.rests,Date.now(),caution());}
@@ -1920,7 +2024,7 @@ function rebuild(){
     if(e.walk){var w=e.walk,wd=w.dog&&dogById(w.dog);var xw=cap(Math.round((w.km*40+w.min*1)*(wd?1.2:1)));total+=xw;walkKm+=w.km;
       var w1=st.WILL,w2=st.REC;st.WILL=grow(st.WILL,.3);st.REC=grow(st.REC,.3);if(wd)bond[w.dog]=(bond[w.dog]||0)+w.min;
       RINFO[w.id]={xp:xw,dog:!!wd,deltas:{WILL:st.WILL-w1,REC:st.REC-w2}};return;}
-    if(e.rest){var xr=cap(Math.round(150*(rec==="rest"?1.5:1)));total+=xr;
+    if(e.rest){var xr=cap(Math.round(150*(rec==="rest"?2.6:1)));total+=xr;
       var b1=st.REC,b2=st.WILL;st.REC=grow(st.REC,1.5);st.WILL=grow(st.WILL,0.5);
       RINFO[e.rest.id]={xp:xr,rec:rec,deltas:{REC:st.REC-b1,WILL:st.WILL-b2}};restsSeen.push(e.rest);return;}
     var r=e.r,sh=shoeById(r.shoe),lr30=longest30(hist,e.t);
@@ -1998,7 +2102,7 @@ function addRun(run,course){
 }
 function addWalk(walk,course){
   var before=snapshot(),bb=walk.dog?(S.bond&&S.bond[walk.dog]||0):0;walk.id=newId();if(course)walk.course=course.id;
-  var w=cleanWalk(walk);S.walks.push(w);rebuild();var res=diffSnap(before,snapshot());
+  var w=cleanWalk(walk);if(!w){w=cleanWalk(Object.assign({},walk,{km:Math.min(Math.max(+walk.km||0,0),60),min:Math.min(Math.max(+walk.min||1,1),600)}));}S.walks.push(w);rebuild();var res=diffSnap(before,snapshot());
   res.walk=w;res.info=RINFO[w.id]||{};res.dog=w.dog?dogById(w.dog):null;res.bondUp=w.dog?bondLevel(S.bond[w.dog])>bondLevel(bb):false;res.course=course||null;
   save();return res;
 }
@@ -2018,7 +2122,8 @@ function renderHome(){
   renderHomeTop();
   $("#runnerName").textContent=S.nick||CAP.myName||"이름 없는 러너";
   $("#runnerLv").textContent="LV."+S.level+" · "+levelTitle();
-  $("#heroChar").innerHTML=myChar();
+  var md=moodNow();$("#heroChar").innerHTML=md.k==="glow"?myChar({glow:true}):myChar({mood:md.k});
+  var sy=$("#heroSay");if(sy)sy.textContent="“"+charLine(md.k,md.v)+"”";
   var sp="";
   if(!S.nick)sp+='<div class="setup">닉네임과 캐릭터를 설정해 주세요<button class="btn-s solid" id="setupBtn">설정하기</button></div>';
   if(!S.health)sp+='<div class="setup">달리기 전 1분 건강 점검을 해 주세요<button class="btn-s solid" id="healthBtn">점검하기</button></div>';
@@ -2194,7 +2299,7 @@ function renderQuest(){
       else if(q.type==="race"){prog=Math.min(100,S.best/42.195*100);st='<div class="qstat">대회 기록 필요</div>';}
       else{var bm=S.runs.reduce(function(m,r){return Math.max(m,r.min);},0);prog=Math.min(100,bm/q.goal*100);st='<div class="qstat">최장 '+Math.round(bm)+'/'+q.goal+'분</div>';}}
     else st='<div class="qstat" style="color:var(--faint)">잠김</div>';
-    var biq=bodyInfo();if(biq&&biq.youth&&i>=3&&!done){st='<div class="qstat" style="color:var(--faint)">16세 이후</div>';act=false;}
+    var biq=bodyInfo();if(biq&&biq.youth&&i>=3&&!done){st='<div class="qstat" style="color:var(--faint)">18세 이후</div>';act=false;}
     var el=document.createElement("div");el.className="qrow"+(done?" done":"")+(act?" active":"");
     el.innerHTML='<div class="qn">'+(i+1)+'</div><div class="qt"><b>'+esc(q.t)+'</b><span>'+esc(q.s)+'</span>'+(act?'<div class="qp"><i style="width:'+prog+'%"></i></div>':'')+'</div>'+st;
     Q.appendChild(el);});
@@ -2463,12 +2568,12 @@ function renderWx(){
   adv.push(["👕","착장 · 실제보다 8°C 따뜻하다고 생각하고 입기",wear]);
   if(fl>=31)adv.push(["🛑","폭염 수준이에요","오늘은 실내 운동을 권해요. 꼭 달린다면 해 뜨기 전이나 해 진 뒤, 30분 이내 이지런으로만. 몸이 더위에 적응하는 데는 10~14일이 걸려요."]);
   else if(fl>=24)adv.push(["🥵","더운 날은 페이스를 늦추기","같은 노력에도 페이스가 느려지는 게 정상이에요. 기록 욕심은 내려놓고 이른 아침이나 해 진 뒤에 달리세요."]);
-  if(fl>=27)adv.push(["🚑","열사병 신호를 알아 두세요","혼란, 구토, 비틀거림, 땀이 멈추는 증상이 나타나면 즉시 멈추고 그늘에서 몸을 식히며 119에 연락하세요."]);
+  if(fl>=27)adv.push(["🚑","열사병 신호를 알아 두세요","말이 어눌해지거나 횡설수설함, 비틀거림, 의식이 흐려짐, 구토는 열사병 신호예요. 땀이 나고 있어도 열사병일 수 있어요. 즉시 멈추고 119에 연락한 뒤, 찬물·젖은 수건·얼음으로 몸을 계속 식히세요."]);
   if(t<=3)adv.push(["🥶","추운 날은 실내에서 먼저 데우기","준비운동을 집 안에서 끝내고 나가세요. 처음 10분은 아주 천천히, 바람을 안고 출발해 등지고 돌아오면 덜 추워요."+(t<=-10?" 영하 10도 아래는 동상 위험이 있어 실내 운동을 권해요.":"")]);
   if(WX.c==="rain")adv.push(["🌧️","비 오는 날","접지력이 좋은 신발을 신고 맨홀·페인트 노면은 피하세요. 모자 챙이 눈에 빗물이 들어가는 걸 막아 줘요. 끝나면 신발에 신문지를 넣어 말리세요."]);
   if(WX.c==="snow")adv.push(["❄️","눈길·빙판","미끄러짐 부상 위험이 커요. 실내 운동이나 아주 짧은 이지런으로 대신하세요."]);
   if(WX.d==="bad"||WX.d==="worst")adv.push(["😷","미세먼지 "+(WX.d==="worst"?"매우나쁨":"나쁨"),"달리면 숨을 깊고 빠르게 쉬어서 먼지를 더 많이 들이마셔요. 실내 러닝이나 근력 운동으로 바꾸는 걸 권해요."]);
-  var ad=activeDog();if(ad){var dst=dogRunStatus(ad);adv.push(["🐶",josa(ad.name,"와","과")+" 함께",(t>=22&&WX.c!=="rain"?"나가기 전 손등을 바닥에 5초 대 보세요. 뜨거우면 미뤄요. ":"")+dst.why+(fl>=24?" 물과 그늘 쉼터를 꼭 챙기세요.":"")]);}
+  var ad=activeDog();if(ad){var dst=dogRunStatus(ad);adv.push(["🐶",josa(ad.name,"와","과")+" 함께",(t>=22&&WX.c!=="rain"?"나가기 전 손등을 바닥에 7초 대 보세요. 뜨거우면 미뤄요. ":"")+dst.why+(fl>=24?" 물과 그늘 쉼터를 꼭 챙기세요.":"")]);}
   var sh=eqShoe();adv.push(["👟","오늘 신발",(WX.c==="rain"||WX.c==="snow")&&sh.c==="racer"?"카본 레이서는 젖은 노면에서 미끄럽고 수명도 짧아요. 데일리화를 추천해요.":BRAND_KO[sh.b]+" "+sh.m+"로 충분해요."]);
   adv.push(["💧","수분","달리기 2시간 전쯤 물 한두 컵, 달리는 중엔 갈증 날 때 몇 모금. 너무 많이 마시는 것도 위험해요."+(fl>=24?" 1시간 넘게 달리면 이온음료로 전해질도 챙기세요.":"")]);
   $("#wxAdvice").innerHTML=adv.map(function(a){return '<div class="adv"><div class="ai">'+a[0]+'</div><div><b>'+esc(a[1])+'</b><p>'+esc(a[2])+'</p></div></div>';}).join("");
@@ -2550,15 +2655,16 @@ function renderLog(){
   var items=[];
   S.shoeLogs.forEach(function(l){var sh=shoeById(l.sid);items.push({ts:l.ts,ic:"👟",t:(sh?sh.m:"신발")+" 느낌",s:"쿠션 "+(CU[l.cu]||"")+" · 반발 "+(RE[l.re||3]||"")+" · 피로 "+(FA[l.fa]||"")+(l.note?" — "+l.note:"")});});
   S.moodLogs.forEach(function(l){items.push({ts:l.ts,ic:l.mood||"🙂",t:"오늘 기분 · RPE "+l.rpe,s:l.note||""});});
-  S.runs.slice(-40).forEach(function(r){var i=RINFO[r.id]||{};items.push({ts:r.ts,ic:r.errand?"🛍️":"🏃",t:fmt(r.km,2)+"km · "+INT_NM[r.int]+(r.src==="sim"?" · 시뮬":r.src==="gps"?" · GPS":"")+(r.post&&emo(r.post)?" · "+emo(r.post).e:""),s:hms(r.min*60)+" · 페이스 "+hms(r.min/r.km*60)+"/km"+(i.xp!=null?" · +"+i.xp+" XP":"")});});
-  S.walks.slice(-30).forEach(function(w){var i=RINFO[w.id]||{},dd=w.dog&&dogById(w.dog);items.push({ts:w.ts,ic:w.errand?"🛍️":"🐾",t:fmt(w.km,2)+"km 산책"+(dd?" · "+dd.name:"")+(w.post&&emo(w.post)?" · "+emo(w.post).e:""),s:hms(w.min*60)+(i.xp!=null?" · +"+i.xp+" XP":"")});});
+  S.runs.slice(-40).forEach(function(r){var i=RINFO[r.id]||{};items.push({act:{r:r,run:true},ts:r.ts,ic:r.errand?"🛍️":"🏃",t:fmt(r.km,2)+"km · "+INT_NM[r.int]+(r.src==="sim"?" · 시뮬":r.src==="gps"?" · GPS":"")+(r.post&&emo(r.post)?" · "+emo(r.post).e:""),s:hms(r.min*60)+" · 페이스 "+hms(r.min/r.km*60)+"/km"+(i.xp!=null?" · +"+i.xp+" XP":"")});});
+  S.walks.slice(-30).forEach(function(w){var i=RINFO[w.id]||{},dd=w.dog&&dogById(w.dog);items.push({act:{r:w,run:false},ts:w.ts,ic:w.errand?"🛍️":"🐾",t:fmt(w.km,2)+"km 산책"+(dd?" · "+dd.name:"")+(w.post&&emo(w.post)?" · "+emo(w.post).e:""),s:hms(w.min*60)+(i.xp!=null?" · +"+i.xp+" XP":"")});});
   S.rests.slice(-20).forEach(function(x){var i=RINFO[x.id]||{};items.push({ts:x.ts,ic:"🛌",t:"휴식 체크인",s:i.xp!=null?"+"+i.xp+" XP":""});});
   S.races.forEach(function(r){items.push({ts:r.ts,ic:"🏅",t:r.k+" 대회 기록 · "+hms(r.sec),s:r.name||""});});
   items.sort(function(a,b){return b.ts-a.ts;});
   var L=$("#logList");L.innerHTML="";
   if(!items.length){L.innerHTML='<div class="empty">아직 기록이 없어요. 러닝하거나 로그를 남겨 보세요.</div>';return;}
   items.slice(0,40).forEach(function(it){var el=document.createElement("div");el.className="logitem";
-    el.innerHTML='<div class="li-ic">'+it.ic+'</div><div style="flex:1;min-width:0"><div class="li-d mono">'+daysAgo(it.ts)+'</div><div class="li-t">'+esc(it.t)+'</div>'+(it.s?'<div class="li-s">'+esc(it.s)+'</div>':"")+'</div>';L.appendChild(el);});
+    el.innerHTML='<div class="li-ic">'+it.ic+'</div><div style="flex:1;min-width:0"><div class="li-d mono">'+daysAgo(it.ts)+'</div><div class="li-t">'+esc(it.t)+'</div>'+(it.s?'<div class="li-s">'+esc(it.s)+'</div>':"")+'</div>'+(it.act?'<span style="color:var(--faint);font-size:1.1rem;align-self:center">›</span>':'');
+    if(it.act){el.style.cursor="pointer";el.setAttribute("role","button");el.tabIndex=0;el.addEventListener("click",function(){openActDetail(it.act);});}L.appendChild(el);});
 }
 function logAndToast(push,msg){
   var before=S.titles.slice();push();rebuild();save();renderLog();renderQuest();renderHome();
@@ -2682,15 +2788,38 @@ function closeSheet(){$("#scrim").hidden=true;$("#sheet").innerHTML="";}
 $("#scrim").addEventListener("click",function(e){if(e.target===this)closeSheet();});
 document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!$("#scrim").hidden)closeSheet();});
 
+/* ================= 상황별 캐릭터 반응 + 캐릭터별 말투 ================= */
+var CLINES={
+ dum:{finish:["…뛰었네요.","끝. 수고.","기록은 기록일 뿐.","땀은 났습니다."],walk:["걸었습니다. 그게 다예요.","한 바퀴. 끝."],glow:["방금 뛰었습니다. 티 나나요."],lazy:["{d}일째 안 뛰었네요. 그냥 그렇다고요.","소파가 편하긴 합니다."],rain:["비 오네요. 네."],hot:["덥습니다."],cold:["춥습니다."],fire:["{n}일 연속. 별거 아닙니다."],sleepy:["졸립니다. 그래도 눈은 떴네요."],idle:["오늘은 뛰나요.","신발은 준비됐습니다.","…갈까요."]},
+ pant:{finish:["헉… 헉… 해냈다…!","죽는 줄… 근데 또 뛸래요","물… 물 어디 있어요…","다리가… 내 다리가 아니에요…"],walk:["걷는 건… 할 만해요… 헉","산책인데 왜 숨차죠…"],glow:["아직도 심장이 뛰어요… 좋은 쪽으로요"],lazy:["{d}일 쉬었더니… 처음부터 다시 헐떡일 것 같아요","쉬는 건 좋은데… 불안해요…"],rain:["비 맞으니까… 덜 덥네요… 헉"],hot:["녹아요… 녹는다…"],cold:["입김이… 헉… 보여요"],fire:["{n}일 연속…! 저 아직 살아 있어요"],sleepy:["하암… 눈 뜨자마자 숨차요"],idle:["오늘은… 살살 뛰어요, 네?","준비운동부터… 헉… 벌써 숨차요","딱 5분만 뛰어 볼까요…?"]},
+ over:{finish:["오늘 기록, 예선 통과입니다!","이건 훈련이 아니라 역사입니다","관중석이 들썩였어요. 아무도 없었지만요","금메달 페이스였습니다. 제 기준으로요"],walk:["경보도 엄연한 올림픽 종목입니다","회복 훈련 완료. 계획대로입니다"],glow:["보십시오, 이 완성된 폼을"],lazy:["{d}일 휴식은 전략입니다. 더 쉬면 변명이고요","라이벌은 지금도 뛰고 있습니다"],rain:["우중 러닝은 챔피언의 기본기!"],hot:["폭염? 고지대 훈련이라 생각하죠"],cold:["영하는 정신력 종목입니다"],fire:["{n}일 연속! 국가대표 선발전이 코앞입니다"],sleepy:["새벽 훈련은 챔피언의 시간입니다"],idle:["오늘의 출전 준비, 끝났습니까?","장비 점검 완료. 출발 신호만 주십시오","몸은 이미 출발선에 있습니다"]},
+ ajae:{finish:["어이구, 시원하다~","이 맛에 뛰는 거지","내일도 이 시간에 봅시다","땀 한번 쫙 빼니까 살 것 같네"],walk:["걷는 게 보약이야, 보약","한 바퀴 돌고 나니 밥맛이 돌겠어"],glow:["어때, 아직 쓸 만하지?"],lazy:["{d}일째 쉬었네. 몸이 근질근질하지 않아?","한 바퀴만 돌고 와. 금방이야"],rain:["비 오는 날은 파전인데… 뛰고 먹자고"],hot:["더울 땐 새벽이 최고야, 새벽"],cold:["추울수록 땀 나면 개운해"],fire:["{n}일째네! 꾸준한 게 제일이야"],sleepy:["일찍 일어난 새가 공원을 차지하는 법이지"],idle:["날 좋네. 한 바퀴 돌까?","스트레칭부터 하고 가자고","오늘도 공원에서 봅시다"]},
+ coffee:{finish:["러닝 끝, 이제 커피 타임","페이스 좋았고, 원두도 좋았고","오운완. 사진은 찍었죠?","뛰고 마시는 첫 모금이 진짜죠"],walk:["산책엔 테이크아웃이 국룰","걷다 보니 카페 세 곳을 지났네요"],glow:["러닝 후 광채, 필터 없이 갑니다"],lazy:["{d}일째 카페만 가고 러닝은 안 가네요","커피만 마시면 그건 그냥 카페인이에요"],rain:["비 오는 날은 라테. 뛰고 나서요"],hot:["아아 없이는 못 뛰는 날씨"],cold:["따뜻한 거 한 잔 걸고 뛰죠"],fire:["{n}일 연속. 스탬프 쿠폰이면 벌써 한 잔이에요"],sleepy:["모닝 러닝 전에 모닝 커피부터"],idle:["가볍게 뛰고 커피 어때요?","오늘의 코스: 집 → 러닝 → 카페","힙하게 3km만 뛰죠"]}
+};
+function charLine(kind,vars,seed){var t=CLINES[S.ctype]||CLINES.dum,a=t[kind]||t.idle,i=Math.abs(seed==null?Math.floor(Date.now()/3600000):seed)%a.length,s=a[i];
+  if(vars)Object.keys(vars).forEach(function(k){s=s.replace("{"+k+"}",vars[k]);});return s;}
+function lastActTs(){var t=0;S.runs.concat(S.walks).forEach(function(r){var e=r.ts+(r.min||0)*60000;if(e>t)t=e;});return t;}
+/* 지금 캐릭터의 상태: 방금 달림 > 오래 쉼 > 날씨 > 연속 기록 > 시간대 */
+function moodNow(){var now=Date.now(),la=lastActTs(),h=new Date().getHours(),n=S.runs.length+S.walks.length;
+  if(la&&now-la<2*3600000&&now>=la-60000)return {k:"glow"};
+  var gap=la?Math.floor((now-la)/DAY):0;if(n&&gap>=3)return {k:"lazy",v:{d:gap}};
+  var au=typeof WXA==="object"&&WXA&&WXA.on&&now-WXA.ts<3*3600000;
+  if(au&&(WX.c==="rain"||WX.c==="snow"))return {k:"rain"};
+  if(au&&WX.t>=30)return {k:"hot"};if(au&&WX.t<=0)return {k:"cold"};
+  var st=streakDays();if(st>=3)return {k:"fire",v:{n:st}};
+  if(h<7||h>=23)return {k:"sleepy"};
+  return {k:"idle"};}
+function afterMe(km,walk){var say=charLine(walk?"walk":"finish",null,Math.floor(km*100));
+  return '<div class="afterme"><div class="am-c">'+myChar({glow:true})+'</div><div><b>“'+esc(say)+'”</b><span>'+esc(ctypeName(S.ctype,S.sex))+' · 달린 직후의 모습이에요. 스냅에 이 모습 그대로 담겨요.</span></div></div>';}
 function showWalkResult(res){
   var w=res.walk,i=res.info||{},h="";
   if(res.lu>0)h+='<div class="levelup"><div class="lu-k">LEVEL UP!</div><div class="lu-v">LV.'+S.level+'</div></div>';
   if(res.newLook)h+='<div class="card" style="text-align:center;margin-bottom:14px"><div class="lbl">새 외형 해금</div><div class="pfprev" style="margin-top:6px">'+myChar()+'</div><div style="font-weight:800;margin-top:4px">'+esc(res.newLook.nm)+'</div></div>';
-  h+='<div class="res-ttl">'+(w.errand?"심부름 완료 🛍️":"산책 완료 🐾")+'</div><div class="xpgain">+'+(i.xp||0).toLocaleString("ko-KR")+' XP</div>';var rpW=rpInline(w);h+=rpW;
+  h+='<div class="res-ttl">'+(w.errand?"심부름 완료 🛍️":"산책 완료 🐾")+'</div><div class="xpgain">+'+(i.xp||0).toLocaleString("ko-KR")+' XP</div>';h+=afterMe(w.km,true);var rpW=rpInline(w);h+=rpW;
   if(res.dog)h+='<div class="dogbox" style="width:120px;margin:6px auto 0">'+dogSVG({breed:res.dog.breed})+'</div><div class="muted small" style="text-align:center">'+esc(josa(res.dog.name,"와","과"))+' 함께 · 친밀도 <span class="hearts">'+hearts(bondLevel(S.bond[res.dog.id]))+'</span>'+(res.bondUp?' · 친밀도 레벨 업!':'')+' · XP ×1.2</div>';
   h+='<div class="res-stats"><div><div class="v">'+fmt(w.km,2)+'</div><div class="k">KM</div></div><div><div class="v">'+hms(w.min*60)+'</div><div class="k">시간</div></div><div><div class="v">'+Math.round(w.min)+'</div><div class="k">건강 활동 분</div></div>'+(kcalOf(w.km,true)?'<div><div class="v">'+kcalOf(w.km,true)+'</div><div class="k">약 KCAL</div></div>':'')+'</div>';
   res.titles.forEach(function(t){h+='<div class="gotbox">'+t.ic+' 칭호 획득: '+esc(t.nm)+'</div>';});
-  h+=minBlock(w);h+=errandSummary(w);h+=feelSummary(w,!!rpW);
+  h+=afterBlock(w);h+=minBlock(w);h+=errandSummary(w);h+=feelSummary(w,!!rpW);
   if(res.dog)h+='<div class="note" style="text-align:center">집에 오면 발바닥을 살펴보고 물을 챙겨 주세요.</div>';
   h+='<div class="snbtns" style="margin-top:16px"><button class="bigbtn ghost" data-diary="'+esc(w.id)+'">📝 '+(w.diary?"일기 고치기":"일기 쓰기")+'</button><button class="bigbtn gold" data-snap="'+esc(w.id)+'">📸 스냅</button></div><button class="bigbtn" id="resClose" style="margin-top:10px">확인</button>';
   openSheet(h,function(s){var b=s.querySelector("#resClose");b.addEventListener("click",function(){closeSheet();go("home");});b.focus();});
@@ -2699,7 +2828,7 @@ function showResult(res){
   var r=res.run,i=res.info||{},h="";
   if(res.lu>0)h+='<div class="levelup"><div class="lu-k">LEVEL UP!</div><div class="lu-v">LV.'+S.level+'</div></div>';
   if(res.newLook)h+='<div class="card" style="text-align:center;margin-bottom:14px"><div class="lbl">새 외형 해금</div><div class="pfprev" style="margin-top:6px">'+myChar()+'</div><div style="font-weight:800;margin-top:4px">'+esc(res.newLook.nm)+'</div><div class="muted small">'+esc(res.newLook.d)+'</div></div>';
-  h+='<div class="res-ttl">'+(r.errand?"심부름런 완료 🛍️":i.first?"첫 러닝 완료! 🎉":"러닝 완료 🎉")+'</div><div class="xpgain">+'+(i.xp||0).toLocaleString("ko-KR")+' XP</div>';var rpR=rpInline(r);h+=rpR;
+  h+='<div class="res-ttl">'+(r.errand?"심부름런 완료 🛍️":i.first?"첫 러닝 완료! 🎉":"러닝 완료 🎉")+'</div><div class="xpgain">+'+(i.xp||0).toLocaleString("ko-KR")+' XP</div>';h+=afterMe(r.km,false);var rpR=rpInline(r);h+=rpR;
   var why=[];if(i.first)why.push("첫 러닝 +300");if(i.plan)why.push("추천대로 ×1.5");if(i.easyB)why.push("천천히 ×1.2");if(i.safeUp)why.push("안전한 거리 늘리기 +150");if(i.risky)why.push("부하 위험 · 보너스 없음");if(i.dogMult)why.push("반려견과 함께 ×1.1");
   if(why.length)h+='<div class="muted small" style="text-align:center;margin-top:4px">'+esc(why.join(" · "))+'</div>';
   if(res.course)h+='<div class="muted small" style="text-align:center;margin-top:4px">📍 '+esc(res.course.nm)+'</div>';
@@ -2711,7 +2840,7 @@ function showResult(res){
   res.ach.forEach(function(a){h+='<div class="gotbox">✨ 업적 장식 획득: '+esc(a.nm)+'</div>';});
   if(res.qj)h+='<div class="gotbox" style="background:var(--coral-soft);color:var(--coral)">🎯 거리 퀘스트 달성! 다음 도전이 열렸어요</div>';
   res.titles.forEach(function(t){h+='<div class="gotbox">'+t.ic+' 칭호 획득: '+esc(t.nm)+'</div>';});
-  h+=minBlock(r);h+=errandSummary(r);h+=feelSummary(r,!!rpR);
+  h+=afterBlock(r);h+=minBlock(r);h+=errandSummary(r);h+=feelSummary(r,!!rpR);
   res.warns.forEach(function(w){h+='<div class="warnbox">'+esc(w)+'</div>';});
   h+='<div class="snbtns" style="margin-top:16px"><button class="bigbtn ghost" data-diary="'+esc(r.id)+'">📝 '+(r.diary?"일기 고치기":"일기 쓰기")+'</button><button class="bigbtn gold" data-snap="'+esc(r.id)+'">📸 스냅</button></div><button class="bigbtn" id="resClose" style="margin-top:10px">확인</button>';
   openSheet(h,function(s){var b=s.querySelector("#resClose");b.addEventListener("click",function(){closeSheet();go("home");});b.focus();});
@@ -2773,19 +2902,19 @@ function bodyFieldsHTML(p){var b=S.body||{},y=new Date().getFullYear();
 function readBody(p){var by=$("#"+p+"By").value,h=$("#"+p+"H").value,w=$("#"+p+"W").value;
   if(!by&&!h&&!w)return {empty:true};var b=cleanBody({by:by,h:h,w:w});return b?{body:b}:{err:"출생연도·키·몸무게를 확인해 주세요. (만 8~100세, 키 100~230cm, 몸무게 25~250kg)"};}
 function openProfile(){
-  var t={nick:S.nick||"",sex:S.sex||"m",skin:S.skin|0};
+  var t={nick:S.nick||"",sex:S.sex||"m",skin:S.skin|0,ct:S.ctype||"dum"};
   var h='<div class="sheet-h"><h2>프로필</h2><button class="iconbtn" id="pfx">닫기</button></div>'+
     '<div class="pfprev" id="pfPrev"></div>'+
     '<div class="field"><label for="pfNick">닉네임 (2~12자)</label><input id="pfNick" type="text" maxlength="12" autocomplete="nickname" style="font-family:var(--f-body)" placeholder="예: 곡교천질주"></div>'+
-    '<div class="flbl" style="margin-top:14px">성별</div><div class="seg" id="pfSex" style="margin-top:0"><button data-s="m">남</button><button data-s="f">여</button></div>'+
+    '<div class="flbl" style="margin-top:14px">성별</div><div class="seg" id="pfSex" style="margin-top:0"><button data-s="m">남</button><button data-s="f">여</button></div>'+ctPickHTML("pfCt")+
     '<div class="flbl" style="margin-top:14px">몸 정보</div>'+bodyFieldsHTML("pf")+'<div class="flbl">피부톤</div><div class="swatches" id="pfSkin">'+SKINS.map(function(c,i){return '<button class="sw" data-k="'+i+'" style="background:'+c+'" aria-label="피부톤 '+(i+1)+'"></button>';}).join("")+'</div>'+
     '<p class="note" style="margin-left:0">성별은 캐릭터 모습과 도전 탭의 기록 등급 기준에 함께 쓰여요. 닉네임은 커뮤니티에 내 이름으로 보여요.</p>'+
     '<div class="flbl" style="margin-top:14px">🛡️ 안심 연락처 <span class="muted" style="font-weight:600">(선택)</span></div><div class="row"><div class="field"><label for="pfSfN">이름</label><input id="pfSfN" type="text" maxlength="12" placeholder="예: 엄마" style="font-family:var(--f-body)" value="'+esc((S.safe&&S.safe.name)||"")+'"></div><div class="field"><label for="pfSfP">전화번호</label><input id="pfSfP" type="tel" inputmode="tel" maxlength="20" placeholder="010-0000-0000" value="'+esc((S.safe&&S.safe.phone)||"")+'"></div></div><p class="note" style="margin-left:0">달리는 중 🛡️ 안심 버튼에서 바로 전화할 수 있어요. 이 폰에만 저장돼요.</p>'+
     '<div class="muted small" id="pfErr" style="color:var(--crit);margin-top:8px" hidden></div>'+
-    '<button class="bigbtn" id="pfSave" style="margin-top:12px">저장</button><button class="bigbtn ghost" id="pfHealth" style="margin-top:10px">건강 점검 다시 하기</button><div class="flbl" style="margin-top:18px">화면 테마</div><div class="seg" id="pfTheme" style="margin-top:0"><button data-t="light">☀️ 밝게</button><button data-t="system">📱 기기 설정</button><button data-t="dark">🌙 어둡게</button></div><div class="flbl" style="margin-top:18px">기록 백업</div><div class="card" style="padding:12px 14px"><div class="muted small" id="pfBkAge"></div><p class="muted small" style="margin:4px 0 10px">기록은 이 폰에 저장돼요. 폰을 바꾸거나 브라우저 데이터를 지우기 전에 백업 파일을 저장해 두세요.</p><div class="row" style="gap:8px"><button class="btn-s solid" id="pfBkSave" style="flex:1">💾 백업 파일 저장</button><label class="btn-s filebtn" style="flex:1;text-align:center">📂 불러오기<input type="file" accept="application/json,.json" id="pfBkLoad" hidden></label></div></div><button class="bigbtn ghost" id="pfOut" style="margin-top:10px">로그아웃</button><p class="note" style="text-align:center">로그아웃해도 기록은 지워지지 않아요.</p>';
+    '<button class="bigbtn" id="pfSave" style="margin-top:12px">저장</button><button class="bigbtn ghost" id="pfHealth" style="margin-top:10px">건강 점검 다시 하기</button><div class="flbl" style="margin-top:18px">화면 테마</div><div class="seg" id="pfTheme" style="margin-top:0"><button data-t="light">☀️ 밝게</button><button data-t="system">📱 기기 설정</button><button data-t="dark">🌙 어둡게</button></div><div class="flbl" style="margin-top:18px">기록 백업</div><div class="card" style="padding:12px 14px"><div class="muted small" id="pfBkAge"></div><p class="muted small" style="margin:4px 0 10px">기록은 이 폰에 저장돼요. 폰을 바꾸거나 브라우저 데이터를 지우기 전에 백업 파일을 저장해 두세요.</p><div class="row" style="gap:8px"><button class="btn-s solid" id="pfBkSave" style="flex:1">💾 백업 파일 저장</button><label class="btn-s filebtn" style="flex:1;text-align:center">📂 불러오기<input type="file" accept="application/json,.json" id="pfBkLoad" hidden></label></div></div><div class="flbl" style="margin-top:18px">개인정보 한눈에 보기</div><div class="card" style="padding:12px 14px"><ul class="locul" style="margin:0"><li>회원가입이 없고, 기록은 이 폰 안에만 저장돼요.</li><li>날씨·지도·경로·가게 찾기를 쓸 때만 필요한 위치가 해당 서비스로 전송돼요.</li><li>건강 점검 답변과 안심 연락처도 이 폰에만 있어요.</li><li>'+APP_KO+'는 의료기기가 아니에요. 몸에 이상이 느껴지면 멈추고 의사와 상의하세요.</li></ul><div class="row" style="gap:8px;margin-top:10px"><a class="btn-s" href="privacy.html" target="_blank" rel="noopener" style="flex:1;text-align:center;text-decoration:none">처리방침 보기</a><button class="btn-s" id="pfWipe" style="flex:1;color:var(--crit)">내 기록 모두 지우기</button></div></div><button class="bigbtn ghost" id="pfOut" style="margin-top:10px">로그아웃</button><p class="note" style="text-align:center">로그아웃해도 기록은 지워지지 않아요.</p>';
   openSheet(h,function(s){
     var nick=s.querySelector("#pfNick");nick.value=t.nick;
-    function paint(){s.querySelector("#pfPrev").innerHTML=myChar({sex:t.sex,skin:t.skin});
+    function paint(){s.querySelector("#pfPrev").innerHTML=myChar({sex:t.sex,skin:t.skin,ct:t.ct});ctPickPaint(s,"pfCt",t,paint);
       $$("#pfSex button",s).forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.s===t.sex));});
       $$("#pfSkin .sw",s).forEach(function(b){b.setAttribute("aria-pressed",String(+b.dataset.k===t.skin));});}
     paint();
@@ -2798,6 +2927,7 @@ function openProfile(){
     var dg=dv.querySelector("#pfDevG");if(dg)dg.addEventListener("click",function(){closeSheet();setTimeout(openDevGallery,150);});
     var rs=document.createElement("button");rs.className="linkbtn";rs.style.cssText="display:block;margin:16px auto 0;color:var(--crit)";rs.textContent="모든 기록 지우기";rs.addEventListener("click",function(){closeSheet();setTimeout(function(){$("#resetBtn").click();},200);});s.appendChild(rs);
     s.querySelector("#pfOut").addEventListener("click",logout);
+    s.querySelector("#pfWipe").addEventListener("click",wipeAll);
     s.querySelector("#pfBkAge").textContent=inClaudePreview()?"Claude 미리보기에서는 기록이 계정에 자동 저장돼요. 백업 파일은 깃허브 주소에서 저장할 수 있어요.":backupAgeText();
     if(inClaudePreview()){s.querySelector("#pfBkSave").disabled=true;}
     s.querySelector("#pfBkSave").addEventListener("click",function(){saveBackup();setTimeout(function(){var a=$("#pfBkAge");if(a)a.textContent=backupAgeText();},600);});
@@ -2809,7 +2939,7 @@ function openProfile(){
       var n=nick.value.replace(/\s+/g," ").trim();
       if(n.length<2){var e=s.querySelector("#pfErr");e.textContent="닉네임을 2자 이상 입력해 주세요.";e.hidden=false;nick.focus();return;}
       var rb=readBody("pf");if(rb.err){var e2=s.querySelector("#pfErr");e2.textContent=rb.err;e2.hidden=false;return;}
-      S.nick=n.slice(0,12);S.sex=t.sex;S.std=t.sex;S.skin=t.skin;if(rb.body)S.body=rb.body;rebuild();save();closeSheet();renderAll();toast("프로필을 저장했어요");
+      S.nick=n.slice(0,12);S.sex=t.sex;S.std=t.sex;S.skin=t.skin;S.ctype=t.ct;if(rb.body)S.body=rb.body;rebuild();save();closeSheet();renderAll();toast("프로필을 저장했어요");
     });
     nick.focus();
   });
@@ -2883,10 +3013,30 @@ document.addEventListener("visibilitychange",function(){if(!LIVE)return;
   if(!wakeLock)requestWake();persistLive(true);
   if(hiddenAt&&!LIVE.paused&&!LIVE.ready&&Date.now()-hiddenAt>15000){var g=Math.round((Date.now()-hiddenAt)/1000);toast("화면이 꺼져 있던 "+(g>=90?Math.round(g/60)+"분":g+"초")+" 동안은 위치를 못 받았어요. 그 구간은 직선으로 이어요");}hiddenAt=0;});
 
+/* 위치정보 이용 안내·동의: 시스템 권한 창이 뜨기 전에 한 번 */
+function openLocConsent(next){
+  openSheet('<div class="sheet-h"><h2>달린 길을 그리려면 위치가 필요해요</h2><button class="iconbtn" id="lcx">닫기</button></div>'+
+    '<ul class="locul"><li><b>무엇을</b> 달리기·걷기 중의 현재 위치와 이동 경로</li><li><b>왜</b> 경로·거리·페이스 기록, 지도 표시, 주변 날씨·경로·가게 안내</li><li><b>어디에</b> 이 휴대폰 안에만 저장해요. '+APP_KO+' 서버에는 저장하지 않아요.</li>'+
+    '<li><b>밖으로 나가는 경우</b> 날씨(약 1km 단위), 주변 가게(약 100m 단위), 경로 추천(출발·도착 지점), 지도 표시(보고 있는 지역)를 쓸 때 해당 서비스로 전송돼요.</li><li><b>언제까지</b> 직접 지우거나 앱을 삭제할 때까지</li><li><b>그만두려면</b> 휴대폰 설정에서 위치 권한을 끄면 돼요.</li></ul>'+
+    '<label class="agree"><input type="checkbox" id="lcChk"> <span>위 내용을 확인했고, 위치정보 이용에 동의해요 <small>(경로 기록에 필요)</small></span></label>'+
+    '<button class="bigbtn" id="locOk" disabled style="margin-top:12px">계속</button><a class="linkbtn" href="privacy.html" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:10px">개인정보 처리방침 전체 보기</a>',function(s){
+    var c=s.querySelector("#lcChk"),b=s.querySelector("#locOk");c.addEventListener("change",function(){b.disabled=!c.checked;});
+    s.querySelector("#lcx").addEventListener("click",function(){NAVPEND=null;closeSheet();});
+    b.addEventListener("click",function(){lsSet("rq-locok","1");lsSet("rq-locokAt",String(Date.now()));closeSheet();setTimeout(next,60);});});
+}
+/* 내 기록 모두 지우기 */
+function wipeAll(){
+  openSheet('<div class="res-ttl">내 기록 모두 지우기</div><p class="muted" style="text-align:center;margin:10px 0 4px">달린 경로, 일기, 기분, 몸 정보, 캐릭터 성장까지 이 폰에 저장된 '+APP_KO+' 기록이 전부 지워져요. 되돌릴 수 없어요. 남기고 싶으면 먼저 백업 파일을 저장해 주세요.</p>'+
+    '<div class="row" style="gap:10px;margin-top:14px"><button class="bigbtn ghost" id="wpN" style="flex:1">취소</button><button class="bigbtn coral" id="wpY" style="flex:1">모두 지우기</button></div>',function(s){
+    s.querySelector("#wpN").addEventListener("click",closeSheet);
+    s.querySelector("#wpY").addEventListener("click",function(){try{if(LIVE){stopGeo();LIVE=null;}var ks=[];for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&(k.indexOf("rq-")===0||k.indexOf("runquest")===0))ks.push(k);}ks.forEach(function(k){localStorage.removeItem(k);});}catch(e){}location.reload();});});
+}
 /* 시작: 출발 전 기분 → GPS */
 function startGps(){
   if(!navigator.geolocation){toast("이 브라우저는 위치 기능을 지원하지 않아요");return;}
   if(LIVE){openLiveOverlay();return;}
+  if($("#liveOv")){toast("체험 러닝을 먼저 끝내 주세요");return;}
+  if(lsGet("rq-locok")!=="1"){openLocConsent(startGps);return;}
   var walk=isWalkMode();
   openSheet('<div class="sheet-h"><h2>'+(curMode==="errand"?"심부름":walk?"산책":"러닝")+' 출발 전 기분은?</h2><button class="iconbtn" id="pmx">닫기</button></div>'+
     '<div class="lbl" style="margin-bottom:6px">오늘 몸 상태 (선택)</div><div class="bodychips" id="bodyChips">'+BODY_ST.map(function(b){return '<button data-b="'+b[0]+'" aria-pressed="'+(BODYSEL===b[0])+'">'+b[1]+'</button>';}).join("")+'</div><div class="bodytip" id="bodyTip" hidden></div>'+
@@ -2924,25 +3074,29 @@ function watchGeo(){
 function stopGeo(){if(geoWatch!=null){navigator.geolocation.clearWatch(geoWatch);geoWatch=null;}if(liveTick){clearInterval(liveTick);liveTick=null;}if(numTick){clearInterval(numTick);numTick=null;}closePocket();if(wakeLock){try{wakeLock.release();}catch(e){}wakeLock=null;}}
 function onGeoErr(err){
   var st=$("#lvGps");if(!st)return;
-  if(err&&err.code===1){
+  if(err&&err.code===1){if(LIVE)LIVE.denied=true;
     st.innerHTML='<b style="color:var(--crit)">위치 권한이 꺼져 있어요</b><br>'+(inClaudePreview()?"Claude 미리보기 화면에서는 위치를 쓸 수 없어요. 깃허브 주소(github.io)로 열어 주세요.":"주소창 왼쪽 ⓘ(자물쇠) → 권한 → 위치를 허용한 뒤 다시 시작해 주세요.");
   }else st.textContent="GPS 신호를 찾는 중… 하늘이 보이는 곳에서 잠시 기다려 주세요";
 }
 function onFix(pos){
   if(!LIVE)return;var c=pos.coords,now=Date.now(),acc=c.accuracy||999,raw=[c.latitude,c.longitude];
-  LIVE.acc=Math.round(acc);LIVE.lastFixAt=now;
+  LIVE.acc=Math.round(acc);LIVE.lastFixAt=now;LIVE.denied=false;
   if(acc>50&&LIVE.here){paintLive();return;} /* 너무 부정확한 점은 버린다 */
   var lr=LIVE.rawLast,vmax=LIVE.mode==="walk"?4.5:9;
   if(lr){var rd=hav(lr,raw),rdt=Math.max(.5,(now-lr[2])/1000);if(rd/rdt>vmax*1.3&&rdt<20&&rd>acc){paintLive();return;}} /* 순간적으로 튀는 점 */
   LIVE.rawLast=[raw[0],raw[1],now];
   var f=kfStep(LIVE,raw[0],raw[1],acc,now);LIVE.here=[f[0],f[1]];
   if(acc<=50){if(LIVE.nav&&!LIVE.paused)navTick(LIVE.here);var EE=LIVE.errand;if(EE&&!LIVE.nav&&!EE.navTried&&EE.phase==="go"&&EE.store&&EE.store.la!=null&&!inClaudePreview()){EE.navTried=true;navForErrand([EE.store.la,EE.store.lo],EE.store.nm);}}
-  if(LIVE.paused||acc>35){paintLive();return;}
+  if(LIVE.paused||acc>50){paintLive();return;}
   var p=[f[0],f[1],now],last=LIVE.last;
   if(!last){LIVE.last=p;LIVE.pts.push([Math.round(p[0]*1e5)/1e5,Math.round(p[1]*1e5)/1e5]);paintLive();persistLive(true);return;}
   var d=hav(last,p),dt=Math.max(1,(now-last[2])/1000),v=d/dt;
   var still=typeof c.speed==="number"&&c.speed>=0&&c.speed<0.3&&dt<30;
-  if(still||d<Math.max(3,acc*0.2)){paintLive();return;} /* 제자리 흔들림 */
+  var hasSp=typeof c.speed==="number"&&c.speed>=0,gate=hasSp?Math.max(3,acc*0.25):Math.max(4,Math.min(acc*0.4,15));
+  if(!hasSp){ /* 속도를 안 주는 기기: 최근 10초 동안 거의 안 움직였으면 서 있는 것으로 본다 */
+    var W=LIVE.win||(LIVE.win=[]);W.push(p);while(W.length>2&&now-W[0][2]>12000)W.shift();
+    if(W.length>=3&&now-W[0][2]>=8000&&hav(W[0],p)<Math.max(7,Math.min(acc*0.7,20)))still=true;}
+  if(still||d<gate){paintLive();return;} /* 제자리 흔들림 */
   if(v>vmax*1.4){LIVE.last=p;paintLive();return;} /* 차량 이동 등: 거리 제외 */
   LIVE.km+=d/1000;LIVE.last=p;
   var lp=LIVE.pts[LIVE.pts.length-1];if(!lp||hav(lp,p)>=8)LIVE.pts.push([Math.round(p[0]*1e5)/1e5,Math.round(p[1]*1e5)/1e5]);
@@ -2963,7 +3117,7 @@ function paintNums(){
 }
 /* 🔒 잠금: 화면을 켠 채 주머니·암밴드에 넣어도 눌리지 않게 */
 function openPocket(){if($("#pocket")||!LIVE)return;var d=document.createElement("div");d.id="pocket";
-  d.innerHTML='<div class="pk-t">'+APP_EN+' · 기록 중</div><div class="pk-km mono"><span id="pkKm">0.00</span><small>km</small></div><div class="pk-sub mono" id="pkSub"></div><button id="pkHold"><i></i><span>길게 눌러 잠금 해제</span></button><div class="pk-n">화면은 켜 둔 채로 넣어 주세요.<br>아이폰은 화면이 꺼지면 위치 기록이 멈춰요.</div>';
+  d.innerHTML='<div class="pk-t">'+APP_EN+' · 기록 중</div><div class="pk-km mono"><span id="pkKm">0.00</span><small>km</small></div><div class="pk-sub mono" id="pkSub"></div><button id="pkHold"><i></i><span>꾹 눌러 풀기</span></button><div class="pk-n">화면은 켜 둔 채로 넣어 주세요.<br>아이폰은 화면이 꺼지면 위치 기록이 멈춰요.</div>';
   document.body.appendChild(d);var b=d.querySelector("#pkHold"),t=null;
   function up(){clearTimeout(t);t=null;b.classList.remove("on");}
   b.addEventListener("pointerdown",function(e){e.preventDefault();b.classList.add("on");t=setTimeout(closePocket,1100);});
@@ -2972,6 +3126,8 @@ function openPocket(){if($("#pocket")||!LIVE)return;var d=document.createElement
 function closePocket(){var d=$("#pocket");if(d)d.remove();}
 
 /* 라이브 화면 */
+function syncTabbar(){var t=$("#tabbar");if(t)t.style.display=$("#liveOv")?"none":"";}
+try{new MutationObserver(syncTabbar).observe($("#scrim").parentNode,{childList:true});}catch(e){}
 function openLiveOverlay(){
   var old=$("#liveOv");if(old)old.remove();if(!LIVE)return;
   var walk=LIVE.mode==="walk",d=LIVE.dog&&dogById(LIVE.dog);
@@ -2985,14 +3141,14 @@ function openLiveOverlay(){
     (LIVE.course?'<div class="prog"><i id="lvProg"></i></div>':'')+
     navLiveHTML()+'<div id="lvMap" class="lvmap"'+(LIVE.nav?' hidden':'')+'></div>'+
     errandLiveHTML()+'<div class="lvmoods" id="lvMoods"></div>'+
-    (RD?'<div class="rdbox"><b>준비되면 시작하기를 눌러요</b><span>누르는 순간부터 시간과 거리를 재요. GPS가 잡힐 때까지 잠깐 기다리면 더 정확해요.</span></div>'+
+    (RD?'<div class="rdbox"><b>준비되면, 시작</b><span>누르는 순간부터 시간과 거리를 재요. GPS가 잡힐 때까지 잠깐 기다리면 더 정확해요.</span></div>'+
       '<div class="lvbtns"><button class="bigbtn ghost" id="rdCancel">취소</button><button class="bigbtn" id="rdGo" style="flex:2.2;font-size:1.1rem">▶ 시작하기</button></div>'
-    :'<button class="feelbtn" id="feelBtn">💭 지금 이 순간 기분 남기기</button>'+
+    :'<button class="feelbtn" id="feelBtn">💭 지금 기분</button>'+
     '<div id="feelPanel" hidden></div>'+
     '<div class="lvbtns"><button class="bigbtn ghost" id="pauseBtn">⏸ 일시정지</button><button class="bigbtn coral" id="stopBtn">■ 끝내기</button></div>')+
     '<div class="mono" id="lvWake" style="font-size:.6rem;color:var(--faint);margin-top:10px;line-height:1.6"></div>'+
     '<div class="mono" style="font-size:.58rem;color:var(--faint);line-height:1.6">가슴 통증·어지럼이 느껴지면 즉시 멈추세요</div>';
-  $("#s-run").appendChild(ov);
+  var sc=$("#scrim");sc.parentNode.insertBefore(ov,sc);
   bindErrandLive();$("#safeBtn").addEventListener("click",openSafety);
   if(RD){$("#rdGo").addEventListener("click",goLive);$("#rdCancel").addEventListener("click",cancelReady);mountLiveMap();paintWake();paintLive();return;}
   $("#feelBtn").addEventListener("click",openFeelPanel);$("#lockBtn").addEventListener("click",openPocket);
@@ -3006,7 +3162,8 @@ function paintLive(){
   paintNums();
   $("#lvPace").textContent=LIVE.ready?"—":LIVE.paused?"정지":cp&&cp<40?hms(Math.round(cp*12)*5):"—";
   $("#lvAvg").textContent=LIVE.km>=0.05?hms(min/LIVE.km*60):"—";
-  var g=$("#lvGps");if(g&&LIVE.acc!=null&&!/권한/.test(g.textContent)){var age=(Date.now()-(LIVE.lastFixAt||0))/1000;
+  var g=$("#lvGps");if(g&&LIVE.denied){g.innerHTML='<b style="color:var(--crit)">위치 권한이 꺼져 있어요</b> · '+(inClaudePreview()?"미리보기에선 위치를 쓸 수 없어요":"설정에서 위치를 허용해 주세요");}
+  else if(g&&LIVE.acc!=null&&!/권한/.test(g.textContent)){var age=(Date.now()-(LIVE.lastFixAt||0))/1000;
     g.textContent=LIVE.ready?(age>20?"GPS 신호를 찾는 중… 하늘이 보이는 곳에서 기다려 주세요":LIVE.acc<=20?"✅ GPS 준비 완료 (±"+LIVE.acc+"m)":"GPS 잡는 중 (±"+LIVE.acc+"m) · 조금 기다리면 더 정확해져요"):LIVE.paused?(LIVE.resumed?"앱이 다시 열려 일시정지했어요 · ▶ 다시 시작을 눌러 이어 가요":"일시정지 중 · 거리를 세지 않아요"):age>20?"GPS 신호가 약해요 (마지막 수신 "+Math.round(age)+"초 전)":"GPS 정확도 ±"+LIVE.acc+"m"+(LIVE.acc>40?" · 신호가 약해요":"");}
   var pg=$("#lvProg");if(pg)pg.style.width=Math.min(100,LIVE.km/LIVE.course.km*100)+"%";
   if(LIVE.nav)paintNav();
@@ -3018,7 +3175,7 @@ function paintLive(){
 function togglePause(){
   if(!LIVE||(LIVE.errand&&LIVE.errand.phase==="shop"))return;var b=$("#pauseBtn");
   if(LIVE.ready)return;
-  if(LIVE.paused){LIVE.paused=false;LIVE.resumed=false;LIVE.resumeAt=Date.now();LIVE.last=null;LIVE.recent=[];LIVE.pS=null;LIVE.kf=null;requestWake();b.textContent="⏸ 일시정지";}
+  if(LIVE.paused){LIVE.paused=false;LIVE.resumed=false;LIVE.resumeAt=Date.now();LIVE.last=null;LIVE.recent=[];LIVE.pS=null;LIVE.kf=null;LIVE.rawLast=null;watchGeo();requestWake();b.textContent="⏸ 일시정지";}
   else{LIVE.activeMs=liveElapsed();LIVE.paused=true;b.textContent="▶ 다시 시작";}
   persistLive(true);paintLive();
 }
@@ -3040,36 +3197,51 @@ function openFeelPanel(){
 }
 function finishGps(){
   if(!LIVE)return;if(LIVE.ready){cancelReady();return;}paintNums();
-  if(!LIVE.paused)LIVE.activeMs=liveElapsed();LIVE.paused=true;stopGeo();persistLive(true);
+  if(!LIVE.paused)LIVE.activeMs=liveElapsed();LIVE.paused=true;stopGeo();persistLive(true);var pb0=$("#pauseBtn");if(pb0)pb0.textContent="▶ 다시 시작";paintLive();
   var walk=LIVE.mode==="walk",min=LIVE.activeMs/60000;
   if(LIVE.km<0.05||min<1){
     var ov=$("#liveOv");if(ov)ov.remove();
-    var hadMoods=LIVE.moods.length;LIVE=null;clearLive();
-    toast(hadMoods?"거리가 너무 짧아 활동은 저장하지 않았어요":"너무 짧아서 기록하지 않았어요");return;
+    var hadMoods=LIVE.moods.length,weakGps=min>=1&&(LIVE.acc==null||LIVE.acc>50||LIVE.denied);LIVE=null;clearLive();
+    toast(weakGps?"GPS 신호가 약해서 거리를 재지 못했어요. 하늘이 보이는 곳에서 다시 해 주세요":hadMoods?"거리가 너무 짧아 활동은 저장하지 않았어요":"너무 짧아서 기록하지 않았어요");return;
   }
-  openFinishRecord({kind:LIVE.errand?"심부름":walk?"산책":"러닝",km:LIVE.km,min:min,pre:LIVE.pre},function(post,diary){saveGps(post,diary);});
+  openFinishRecord({kind:LIVE.errand?"심부름":walk?"산책":"러닝",km:LIVE.km,min:min,pre:LIVE.pre},function(post,diary,af){saveGps(post,diary,af);});
 }
 /* 끝나자마자 기록하기: 기분 + 일기를 한 화면에서 */
 function openFinishRecord(o,done){
-  var sel=null,kind=o.kind||"러닝",pre=emo(o.pre);
-  openSheet('<div class="sheet-h"><h2>🏁 '+kind+' 끝! 오늘 기록하기</h2></div>'+
+  var sel=null,kind=o.kind||"러닝",pre=emo(o.pre),A={pain:[]},sh=eqShoe(),isRun=kind!=="산책";
+  function row(id,list,cur){return '<div class="bodychips afrow" data-k="'+id+'">'+list.map(function(x){return '<button type="button" data-v="'+x[0]+'" aria-pressed="false">'+x[1]+'</button>';}).join("")+'</div>';}
+  openSheet('<div class="sheet-h"><h2>🏁 '+kind+' 끝! 지금 느낌 그대로</h2></div>'+
     '<div class="finsum"><div><b class="mono">'+fmt(o.km,2)+'</b><small>km</small></div><div><b class="mono">'+hms(o.min*60)+'</b><small>시간</small></div>'+(o.km>0?'<div><b class="mono">'+hms(o.min/o.km*60)+'</b><small>/km</small></div>':'')+'</div>'+
-    '<div class="lbl" style="margin:14px 0 6px">다녀온 지금 기분은?'+(pre?' <span class="muted" style="font-weight:600">(출발 전 '+pre.e+' '+esc(pre.n)+')</span>':'')+'</div>'+emoGrid("post")+
-    '<div class="lbl" style="margin:16px 0 6px">📝 오늘의 '+kind+' 일기 <span class="muted" style="font-weight:600">(선택)</span></div>'+
+    '<p class="muted small" style="margin:10px 0 0">전부 선택이에요. 떠오르는 것만 눌러 두면 나중에 그날이 그대로 떠올라요.</p>'+
+    '<div class="afsec"><div class="lbl">💭 기분'+(pre?' <span class="muted" style="font-weight:600">(출발 전 '+pre.e+' '+esc(pre.n)+')</span>':'')+'</div>'+emoGrid("post")+'</div>'+
+    '<div class="afsec"><div class="lbl">🫀 몸 상태</div><div class="afl">힘든 정도</div>'+row("rpe",AF_RPE)+'<div class="afl">다리</div>'+row("leg",AF_LEG)+'<div class="afl">숨</div>'+row("br",AF_BR)+'<div class="afl">아픈 곳</div>'+row("pain",AF_PAIN)+'</div>'+
+    (sh?'<div class="afsec"><div class="lbl">👟 신발 감각 <span class="muted" style="font-weight:600">· '+esc(sh.m)+'</span></div><div class="afl">쿠션</div>'+row("cu",AF_CU)+'<div class="afl">반발</div>'+row("re",AF_RE)+'<div class="afl">핏</div>'+row("fit",AF_FIT)+
+      '<input id="finShoeNote" type="text" maxlength="120" placeholder="신발 한마디 (예: 5km 넘으니 발볼이 조임)" style="font-family:var(--f-body);margin-top:2px;width:100%;box-sizing:border-box;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);font-size:16px"></div>':'')+
+    '<div class="afsec"><div class="lbl">📝 한 줄 일기</div>'+
     '<div class="dqs">'+DIARY_Q.map(function(q,i){return '<button class="dq" data-q="'+i+'">'+esc(q)+'…</button>';}).join("")+'</div>'+
-    '<textarea id="finDiary" class="diarypad" maxlength="1000" style="min-height:150px" placeholder="방금 달린 느낌이 생생할 때 적어 두세요. 바람, 풍경, 다리 상태, 떠오른 생각…"></textarea>'+
-    '<button class="bigbtn" id="finSave" style="margin-top:12px">기록 저장하기</button><button class="linkbtn" id="finSkip" style="display:block;margin:10px auto 0">나중에 쓸게요</button>',function(s){
+    '<textarea id="finDiary" class="diarypad" maxlength="1000" style="min-height:110px" placeholder="바람, 풍경, 다리 상태, 떠오른 생각…"></textarea></div>'+
+    '<button class="bigbtn" id="finSave" style="margin-top:12px">저장</button><button class="linkbtn" id="finSkip" style="display:block;margin:10px auto 0">다음에</button>',function(s){
     var t=s.querySelector("#finDiary");
     $$(".emob.post",s).forEach(function(b){b.addEventListener("click",function(){sel=sel===b.dataset.e?null:b.dataset.e;$$(".emob.post",s).forEach(function(x){x.setAttribute("aria-pressed",String(x.dataset.e===sel));});});});
+    $$(".afrow",s).forEach(function(rw){var k=rw.dataset.k,num=k==="rpe"||k==="leg"||k==="cu"||k==="re";
+      $$("button",rw).forEach(function(b){b.addEventListener("click",function(){var v=num?+b.dataset.v:b.dataset.v;
+        if(k==="pain"){var ix=A.pain.indexOf(v);if(v==="none")A.pain=ix>=0?[]:["none"];else{A.pain=A.pain.filter(function(x){return x!=="none";});ix=A.pain.indexOf(v);if(ix>=0)A.pain.splice(ix,1);else A.pain.push(v);}
+          $$("button",rw).forEach(function(x){x.setAttribute("aria-pressed",String(A.pain.indexOf(x.dataset.v)>=0));});}
+        else{A[k]=A[k]===v?null:v;$$("button",rw).forEach(function(x){x.setAttribute("aria-pressed",String((num?+x.dataset.v:x.dataset.v)===A[k]));});}});});});
     $$(".dq",s).forEach(function(b){b.addEventListener("click",function(){var q=DIARY_Q[+b.dataset.q],v=t.value;t.value=(v&&!/\n$/.test(v)?v+"\n":v)+q+" ";t.focus();t.selectionStart=t.selectionEnd=t.value.length;});});
-    s.querySelector("#finSave").addEventListener("click",function(){var d=t.value.replace(/\s+$/,"").slice(0,1000);closeSheet();done(sel,d.trim()?d:null);});
-    s.querySelector("#finSkip").addEventListener("click",function(){closeSheet();done(sel,null);});
+    function pack(){var sn=s.querySelector("#finShoeNote");A.snote=sn?sn.value:"";if(sh)A.sid=S.eq;return cleanAfter(A);}
+    s.querySelector("#finSave").addEventListener("click",function(){var d=t.value.replace(/\s+$/,"").slice(0,1000),af=pack();closeSheet();done(sel,d.trim()?d:null,af);});
+    s.querySelector("#finSkip").addEventListener("click",function(){var af=pack();closeSheet();done(sel,null,af);});
   });
 }
-function saveGps(post,diary){
+/* 달린 직후 기록을 신발 로그에도 남긴다 */
+function afterToShoeLog(af,ts){if(!af||!af.sid||!(af.cu||af.re||af.snote||af.fit))return;
+  S.shoeLogs.push({ts:ts||Date.now(),sid:af.sid,cu:af.cu||3,re:af.re||3,fa:af.leg||3,note:((af.fit?"핏 "+afLabel(AF_FIT,af.fit)+(af.snote?" · ":""):"")+(af.snote||"")).slice(0,200)});if(S.shoeLogs.length>300)S.shoeLogs=S.shoeLogs.slice(-300);}
+function saveGps(post,diary,af){
   closeSheet();BODYSEL=null;var L=LIVE;if(!L)return;LIVE=null;clearLive();var ov=$("#liveOv");if(ov)ov.remove();
-  var min=L.activeMs/60000,path=simplifyPath(L.pts),c=L.course?(BUILTIN_COURSES&&findCourse(L.course.id))||L.course:null;
-  var base={ts:L.startTs,km:L.km,min:min,dog:L.dog,body:L.body,src:"gps",diary:diary||undefined,diaryAt:diary?Date.now():undefined,path:path,mins:L.mins&&L.mins.length?L.mins.slice(0,720):undefined,moods:L.moods,pre:L.pre,post:post,errand:errandForSave(L.errand)};if(L.errand){errDraft.store=null;errDraft.memo="";saveErrDraft();}
+  afterToShoeLog(af,Date.now());
+  var min=Math.min(L.activeMs/60000,L.mode==="walk"?600:1500),path=simplifyPath(L.pts),c=L.course?(BUILTIN_COURSES&&findCourse(L.course.id))||L.course:null;
+  var base={ts:L.startTs,km:Math.min(L.km,L.mode==="walk"?60:200),min:min,dog:L.dog,body:L.body,src:"gps",diary:diary||undefined,diaryAt:diary?Date.now():undefined,path:path,mins:L.mins&&L.mins.length?L.mins.slice(0,720):undefined,moods:L.moods,pre:L.pre,post:post,after:af||undefined,errand:errandForSave(L.errand)};if(L.errand){errDraft.store=null;errDraft.memo="";saveErrDraft();}
   selCourse=null;
   if(L.mode==="walk"){var wr=addWalk(base,c);renderAll();showWalkResult(wr);return;}
   base.int=L.int;base.h=new Date(L.startTs).getHours();
@@ -3085,7 +3257,7 @@ function minBlock(r){var rows=minRows(r);if(!rows||rows.length<2)return "";
   var bars=rows.map(function(x,i){var h=Math.max(2,sp[i]/mx*(H-18));return '<rect x="'+(i*bw+gap/2).toFixed(1)+'" y="'+(H-14-h).toFixed(1)+'" width="'+Math.max(1,bw-gap).toFixed(1)+'" height="'+h.toFixed(1)+'" rx="'+Math.min(3,bw/3).toFixed(1)+'" fill="'+(i===best?"#F2A900":minPace(x)==null?"#C9D2CF":"#1BA8A0")+'"/>';}).join("");
   var step=n<=12?1:n<=30?5:n<=70?10:30,lab="";for(var i=0;i<n;i++)if((i+1)%step===0||i===0)lab+='<text x="'+((i+.5)*bw).toFixed(1)+'" y="'+(H-2)+'" text-anchor="middle" font-size="9" fill="#8A9896" font-family="monospace">'+(i+1)+'</text>';
   var bp=minPace(rows[best]);
-  var h='<div class="feelcard minblk"><div class="lbl">⏱ 분 단위 기록</div><svg viewBox="0 0 '+W+' '+H+'" class="minchart" role="img" aria-label="분마다 달린 속도 막대 그래프">'+bars+lab+'</svg>'+
+  var h='<div class="feelcard minblk"><div class="lbl">⏱ 1분 기록</div><svg viewBox="0 0 '+W+' '+H+'" class="minchart" role="img" aria-label="분마다 달린 속도 막대 그래프">'+bars+lab+'</svg>'+
     '<div class="muted small" style="margin-top:4px">막대가 높을수록 빨랐어요'+(bp?' · 가장 빠른 1분은 <b style="color:var(--ink)">'+(best+1)+'분째 '+hms(bp*60)+'/km</b>':'')+'</div>'+
     '<details class="minmore"><summary>분별로 자세히 보기</summary><table class="mintbl"><thead><tr><th>분</th><th>이 1분</th><th>페이스</th><th>누적</th></tr></thead><tbody>'+
     rows.map(function(x,i){var p=minPace(x);return '<tr'+(i===best?' class="best"':'')+'><td>'+x.n+(x.part?'<small> ('+Math.round(x.s)+'초)</small>':'')+'</td><td>'+x.d+'m</td><td>'+(p?hms(p*60)+'/km':'멈춤')+'</td><td>'+fmt(x.cum/1000,2)+'km</td></tr>';}).join("")+'</tbody></table></details></div>';
@@ -3098,7 +3270,7 @@ function resumeLiveIfAny(){
   var raw=null;try{raw=localStorage.getItem("rq-live");}catch(e){}if(!raw)return;
   var o=null;try{o=JSON.parse(raw);}catch(e){}if(!o||!o.startTs||!Array.isArray(o.pts)){clearLive();return;}
   var gap=Date.now()-(o.savedAt||o.startTs);
-  if(gap>6*3600000||o.ready){clearLive();return;}
+  if(gap>6*3600000||o.ready){clearLive();if(!o.ready)setTimeout(function(){toast("6시간 넘게 멈춰 있던 진행 중 기록은 정리했어요");},1500);return;}
   o.paused=true;o.resumed=true;o.recent=[];o.last=null;LIVE=o;
   go("run");openLiveOverlay();
   var g=$("#lvGps");if(g)g.textContent="앱이 닫혀서 일시정지했어요 · 이어서 하려면 ▶ 다시 시작";
@@ -3117,13 +3289,82 @@ function feelSummary(r,noRoute){
   return h+'</div>';
 }
 
+/* ================= 돌아보기: 달린 직후 기록에서 찾은 것 ================= */
+var RVDAYS=90;
+function reviewActs(days){var from=days?Date.now()-days*DAY:0,a=[];
+  S.runs.forEach(function(r){if(r.ts>=from)a.push({r:r,run:true});});S.walks.forEach(function(w){if(w.ts>=from)a.push({r:w,run:false});});
+  return a.sort(function(x,y){return x.r.ts-y.r.ts;});}
+function rvAvg(l,f){if(!l.length)return 0;var s=0;l.forEach(function(x){s+=f(x);});return s/l.length;}
+function rvTop(l,f){var c={},best=null;l.forEach(function(x){var k=f(x);if(k==null)return;c[k]=(c[k]||0)+1;});Object.keys(c).forEach(function(k){if(!best||c[k]>c[best])best=k;});return best?{k:best,n:c[best],all:c}:null;}
+function reviewInsights(days){
+  var acts=reviewActs(days),out={n:acts.length,rec:0,mood:[],body:[],shoe:[],notes:[]};
+  var withA=acts.filter(function(x){return x.r.after;}),withPost=acts.filter(function(x){return emo(x.r.post);});
+  out.rec=acts.filter(function(x){return x.r.after||x.r.post||x.r.diary;}).length;
+  var dayset={};acts.forEach(function(x){dayset[dayKey(x.r.ts)]=1;});
+  /* ---- 기분 ---- */
+  if(withPost.length>=3){var tp=rvTop(withPost,function(x){return x.r.post;}),e=emo(tp.k);
+    out.mood.push({ic:e.e,t:"달리고 나면 가장 자주 '"+e.n+"'",d:withPost.length+"번 중 "+tp.n+"번이에요."});}
+  var both=acts.filter(function(x){return emo(x.r.pre)&&emo(x.r.post);});
+  if(both.length>=3){var up=both.filter(function(x){return emo(x.r.post).v>emo(x.r.pre).v;}).length,dn=both.filter(function(x){return emo(x.r.post).v<emo(x.r.pre).v;}).length;
+    out.mood.push({ic:"✨",t:"나가기 전보다 기분이 나아진 날이 "+up+"번",d:"출발 전·후 기분을 둘 다 남긴 "+both.length+"번 중 좋아진 날 "+up+"번, 그대로 "+(both.length-up-dn)+"번, 내려간 날 "+dn+"번이에요."});}
+  if(withPost.length>=4){var slots=[["아침",5,11],["낮",11,17],["저녁",17,22],["밤",22,29]],sc=[];
+    slots.forEach(function(sl){var l=withPost.filter(function(x){var h=new Date(x.r.ts).getHours();if(h<5)h+=24;return h>=sl[1]&&h<sl[2];});if(l.length>=2)sc.push({nm:sl[0],n:l.length,v:rvAvg(l,function(x){return emo(x.r.post).v;})});});
+    if(sc.length>=2){sc.sort(function(a,b){return b.v-a.v;});if(sc[0].v-sc[sc.length-1].v>=.4)out.mood.push({ic:"🕒",t:sc[0].nm+"에 달린 날 기분이 가장 좋았어요",d:sc.map(function(x){return x.nm+" "+x.n+"번";}).join(", ")+" 기록을 비교했어요."});}}
+  /* ---- 몸 ---- */
+  var rp=withA.filter(function(x){return x.r.after.rpe;});
+  if(rp.length>=3){var hard=rp.filter(function(x){return x.r.after.rpe>=8;}),easy=rp.filter(function(x){return x.r.after.rpe<=4;});
+    out.body.push({ic:"🫀",t:"힘들었다고 적은 날이 "+rp.length+"번 중 "+hard.length+"번",d:hard.length&&easy.length?"힘들었던 날은 평균 "+fmt(rvAvg(hard,function(x){return x.r.km;}),1)+"km, 편했던 날은 평균 "+fmt(rvAvg(easy,function(x){return x.r.km;}),1)+"km였어요.":hard.length>rp.length/2?"절반 넘게 힘들었어요. 속도를 조금 늦추거나 거리를 줄여도 괜찮아요.":"대체로 무리 없이 달리고 있어요."});}
+  var lg=withA.filter(function(x){return x.r.after.leg;});
+  if(lg.length>=4){var cons=lg.filter(function(x){return dayset[dayKey(x.r.ts)-DAY];}),rest=lg.filter(function(x){return !dayset[dayKey(x.r.ts)-DAY];});
+    var hc=cons.filter(function(x){return x.r.after.leg>=4;}).length,hr=rest.filter(function(x){return x.r.after.leg>=4;}).length;
+    if(cons.length>=2&&rest.length>=2&&hc/cons.length-hr/rest.length>=.25)out.body.push({ic:"🦵",t:"이틀 연속 달린 날에 다리가 더 무거웠어요",d:"전날도 달린 "+cons.length+"번 중 "+hc+"번, 하루 이상 쉰 뒤 "+rest.length+"번 중 "+hr+"번이 '무거움'이었어요."});
+    else{var hv=lg.filter(function(x){return x.r.after.leg>=4;}).length;if(hv)out.body.push({ic:"🦵",t:"다리가 무겁다고 적은 날 "+hv+"번",d:lg.length+"번의 기록 중이에요."});}}
+  var br=withA.filter(function(x){return x.r.after.br;});
+  if(br.length>=3){var hb=br.filter(function(x){return x.r.after.br==="hard";}).length;if(hb)out.body.push({ic:"😮‍💨",t:"숨이 찼다고 적은 날 "+hb+"번",d:br.length+"번 중이에요."+(hb>br.length/2?" 대화할 수 있는 속도까지 늦춰 보세요.":"")});}
+  var pc={},pn=0;withA.forEach(function(x){(x.r.after.pain||[]).forEach(function(p){if(p!=="none"){pc[p]=(pc[p]||0)+1;pn++;}});});
+  if(pn){var pk=Object.keys(pc).sort(function(a,b){return pc[b]-pc[a];});
+    out.body.push({ic:"🩹",warn:pc[pk[0]]>=3,t:"아픈 곳: "+pk.map(function(k){return afLabel(AF_PAIN,k)+" "+pc[k]+"번";}).join(", "),d:pc[pk[0]]>=3?"같은 곳이 3번 넘게 아팠어요. 며칠 쉬고, 계속되면 진료를 받아 보세요. 이 앱은 진단을 대신하지 않아요.":"통증이 이어지면 쉬어 주세요."});}
+  /* ---- 신발 ---- */
+  var by={};withA.forEach(function(x){var a=x.r.after;if(!a.sid||!(a.cu||a.re||a.fit||a.snote))return;(by[a.sid]=by[a.sid]||[]).push(x);});
+  Object.keys(by).forEach(function(sid){var l=by[sid],sh=shoeById(sid),nm=sh?sh.m:"신발",bits=[];
+    var cu=rvTop(l,function(x){return x.r.after.cu||null;}),re=rvTop(l,function(x){return x.r.after.re||null;}),ft=rvTop(l,function(x){return x.r.after.fit||null;});
+    if(cu)bits.push("쿠션은 주로 '"+afLabel(AF_CU,+cu.k)+"'");if(re)bits.push("반발은 '"+afLabel(AF_RE,+re.k)+"'");if(ft)bits.push("핏은 '"+afLabel(AF_FIT,ft.k)+"'");
+    var d=l.length+"번 기록. "+bits.join(", ")+(bits.length?"이었어요.":"");
+    var tight=l.filter(function(x){return x.r.after.fit==="tight";}),good=l.filter(function(x){return x.r.after.fit==="good";});
+    if(tight.length>=2&&good.length>=2){var tk=rvAvg(tight,function(x){return x.r.km;}),gk=rvAvg(good,function(x){return x.r.km;});if(Math.abs(tk-gk)>=.8)d+=" 조인다고 적은 날은 평균 "+fmt(tk,1)+"km, 딱 맞은 날은 평균 "+fmt(gk,1)+"km였어요.";}
+    else if(tight.length>=2)d+=" 조인다는 기록이 "+tight.length+"번 있어요.";
+    if(l.length>=4){var h1=l.slice(0,Math.floor(l.length/2)),h2=l.slice(Math.floor(l.length/2)),c1=h1.filter(function(x){return x.r.after.cu;}),c2=h2.filter(function(x){return x.r.after.cu;});
+      if(c1.length>=2&&c2.length>=2){var dc=rvAvg(c2,function(x){return x.r.after.cu;})-rvAvg(c1,function(x){return x.r.after.cu;});if(dc<=-.5)d+=" 최근 기록일수록 쿠션이 딱딱하게 느껴졌어요. 수명을 확인해 보세요.";}}
+    var nt=l.filter(function(x){return x.r.after.snote;}).slice(-3).reverse().map(function(x){return {ts:x.r.ts,s:x.r.after.snote};});
+    out.shoe.push({ic:"👟",t:nm,d:d,notes:nt});});
+  /* ---- 그날의 한마디 ---- */
+  out.notes=acts.filter(function(x){return x.r.diary;}).slice(-4).reverse().map(function(x){return {ts:x.r.ts,s:x.r.diary.replace(/\s+/g," ").slice(0,70)+(x.r.diary.length>70?"…":""),id:x.r.id,x:x};});
+  out.count=out.mood.length+out.body.length+out.shoe.length;
+  return out;}
+function rvItem(i){return '<div class="rvi'+(i.warn?" warn":"")+'"><div class="rv-ic">'+i.ic+'</div><div style="min-width:0"><b>'+esc(i.t)+'</b><p>'+esc(i.d)+'</p>'+(i.notes&&i.notes.length?i.notes.map(function(n){return '<div class="rv-q"><span class="mono">'+daysAgo(n.ts)+'</span> “'+esc(n.s)+'”</div>';}).join(""):'')+'</div></div>';}
+function openReview(){
+  var R=reviewInsights(RVDAYS),h='<div class="sheet-h"><h2>🔎 돌아보기</h2><button class="iconbtn" id="rvx">닫기</button></div>'+
+    '<div class="seg" id="rvSeg" style="margin:0 0 12px">'+[[30,"30일"],[90,"90일"],[0,"전체"]].map(function(x){return '<button data-d="'+x[0]+'" aria-pressed="'+(x[0]===RVDAYS)+'">'+x[1]+'</button>';}).join("")+'</div>'+
+    '<p class="muted small" style="margin:0 0 10px">달린 직후에 남긴 기록 '+R.rec+'개에서 찾은 흐름이에요. 기록이 적으면 우연일 수 있으니 참고만 해 주세요.</p>';
+  if(!R.count)h+='<div class="empty" style="padding:26px 10px">아직 찾을 만큼 기록이 쌓이지 않았어요.<br>달린 뒤 기분·몸 상태·신발 감각을 3번쯤 남기면 여기서 흐름이 보여요.</div>';
+  function sec(ttl,l){return l.length?'<div class="sec-ttl">'+ttl+'</div><div class="card rvcard">'+l.map(rvItem).join("")+'</div>':'';}
+  h+=sec("기분",R.mood)+sec("몸 상태",R.body)+sec("신발 감각",R.shoe);
+  if(R.notes.length)h+='<div class="sec-ttl">그날의 한마디</div><div class="card rvcard">'+R.notes.map(function(n,i){return '<button class="rvnote" data-i="'+i+'"><span class="mono">'+daysAgo(n.ts)+'</span> “'+esc(n.s)+'”</button>';}).join("")+'</div>';
+  openSheet(h,function(s){s.querySelector("#rvx").addEventListener("click",closeSheet);
+    $$("#rvSeg button",s).forEach(function(b){b.addEventListener("click",function(){RVDAYS=+b.dataset.d;openReview();});});
+    $$(".rvnote",s).forEach(function(b){b.addEventListener("click",function(){openActDetail(R.notes[+b.dataset.i].x);});});});
+}
+function renderReviewCard(){var c=$("#reviewCard");if(!c)return;var R=reviewInsights(90),first=R.shoe[0]||R.body[0]||R.mood[0];
+  c.innerHTML='<div class="rv-h"><div><div class="lbl" style="color:var(--teal)">REVIEW</div><b>돌아보기</b></div><span class="rv-n">'+(R.count?R.count+"가지 발견":"기록 "+R.rec+"개")+' ›</span></div>'+
+    '<div class="rv-p">'+(first?first.ic+" "+esc(first.t):"달린 뒤 기분·몸·신발 감각을 남기면 흐름을 찾아 드려요")+'</div>';}
+$("#reviewCard").addEventListener("click",openReview);
 /* 기록 탭: 감정 일기 */
 function allFeelActs(){
   var a=[];S.runs.forEach(function(r){if(r.diary||r.pre||r.post||(r.moods&&r.moods.length))a.push({ts:r.ts,r:r,run:true});});
   S.walks.forEach(function(w){if(w.diary||w.pre||w.post||(w.moods&&w.moods.length))a.push({ts:w.ts,r:w,run:false});});
   return a.sort(function(x,y){return y.ts-x.ts;});
 }
-function renderFeel(){
+function renderFeel(){renderReviewCard();
   var P=$("#feelList");if(!P)return;var acts=allFeelActs(),cut=Date.now()-30*DAY,cnt={},n=0,up=0,pairs=0;
   acts.forEach(function(x){if(x.ts<cut)return;(x.r.moods||[]).forEach(function(m){cnt[m.e]=(cnt[m.e]||0)+1;n++;});if(x.r.post){cnt[x.r.post]=(cnt[x.r.post]||0)+1;n++;}
     if(x.r.pre&&x.r.post){pairs++;if(emo(x.r.post).v>emo(x.r.pre).v)up++;}});
@@ -3141,9 +3382,11 @@ function renderFeel(){
         '<div class="li-t">'+(a?a.e:"")+(a&&b?" → ":"")+(b?b.e+" "+esc(b.n):"")+(r.moods&&r.moods.length?' <span class="muted" style="font-weight:600">· 순간 '+r.moods.map(function(m){return emo(m.e).e;}).join("")+'</span>':'')+'</div>'+
         (r.diary?'<div class="li-s diarysnip">📝 '+esc(r.diary.replace(/\s+/g," ").slice(0,60))+(r.diary.length>60?"…":"")+'</div>':r.moods&&r.moods.some(function(m){return m.n;})?'<div class="li-s">“'+esc(r.moods.filter(function(m){return m.n;})[0].n)+'”</div>':'')+'</div>'+(r.path&&r.path.length>1?'<div class="rowroute" aria-hidden="true">'+routeSVG(r.path,null,{w:60,h:60,pad:9})+'<span>▶</span></div>':'')+'</button>';});}
   P.innerHTML=h;
-  $$("#feelList .feelrow").forEach(function(b){b.addEventListener("click",function(){var x=acts[+b.dataset.fi];
+  $$("#feelList .feelrow").forEach(function(b){b.addEventListener("click",function(){openActDetail(acts[+b.dataset.fi]);});});
+}
+function openActDetail(x){if(!x||!x.r)return;
     openSheet('<div class="sheet-h"><h2>'+new Date(x.r.ts).toLocaleDateString("ko-KR",{month:"long",day:"numeric",weekday:"short"})+' '+(x.run?"러닝":"산책")+'</h2><button class="iconbtn" id="fdx">닫기</button></div>'+
-      '<div class="muted small" style="margin-bottom:10px">'+fmt(x.r.km,2)+'km · '+hms(x.r.min*60)+'</div>'+diaryBlock(x.r)+feelSummary(x.r)+minBlock(x.r)+'<div class="snbtns" style="margin-top:14px"><button class="bigbtn ghost" data-diary="'+esc(x.r.id)+'">📝 '+(x.r.diary?"일기 고치기":"일기 쓰기")+'</button><button class="bigbtn gold" data-snap="'+esc(x.r.id)+'">📸 스냅</button></div>',function(s){s.querySelector("#fdx").addEventListener("click",closeSheet);});});});
+      '<div class="muted small" style="margin-bottom:10px">'+fmt(x.r.km,2)+'km · '+hms(x.r.min*60)+'</div>'+diaryBlock(x.r)+afterBlock(x.r)+feelSummary(x.r)+minBlock(x.r)+'<div class="snbtns" style="margin-top:14px"><button class="bigbtn ghost" data-diary="'+esc(x.r.id)+'">📝 '+(x.r.diary?"일기 고치기":"일기 쓰기")+'</button><button class="bigbtn gold" data-snap="'+esc(x.r.id)+'">📸 스냅</button></div>',function(s){s.querySelector("#fdx").addEventListener("click",closeSheet);});
 }
 
 /* 백업 */
@@ -3164,7 +3407,7 @@ function loadBackup(file){
 function backupAgeText(){var t=+lsGet("rq-backupAt")||0;if(!t)return "아직 백업한 적이 없어요";var d=Math.floor((Date.now()-t)/DAY);return "마지막 백업: "+(d<1?"오늘":d+"일 전");}
 try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist();}catch(e){}
 
-/* ================= 미니게임: 다다닥 대시 ================= */
+/* ================= 미니게임: 런닝구 대시 ================= */
 /* 내 캐릭터(DOM SVG)가 캔버스 위를 달린다. 신발 종류에 따라 스킬이 달라지고, 반려견은 커플 운동화를 신고 따라온다. */
 var SHOE_SKILL={
   daily:{nm:"밸런스",d:"하트 3개 · 무난하게 오래 달려요",hearts:3,jump:1,boost:1,mult:1},
@@ -3287,11 +3530,11 @@ function flashMsg(t){var G=GAME;G.fm={t:t,l:1.4};}
 function paintHud(){var G=GAME;if(!G)return;var h="";for(var i=0;i<G.maxH;i++)h+=i<G.hearts?"❤️":"🤍";$("#gHearts").textContent=h;$("#gLeaf").textContent="🍂 "+G.leaves;}
 function paintHudLight(){var G=GAME;$("#gDist").textContent=gameScore().toLocaleString("ko-KR")+"점";}
 function cacheRig(){var G=GAME,c=$("#gChar"),d=$("#gDog"),q=function(r,sel){return r?r.querySelector(sel):null;};
-  G.rig={thN:q(c,".lg.near .th"),shN:q(c,".lg.near .sh"),thF:q(c,".lg.far .th"),shF:q(c,".lg.far .sh"),uaN:q(c,".am.near .ua"),uaF:q(c,".am.far .ua"),bob:q(c,".bob"),lean:q(c,".lean"),pt:q(c,".pt"),
+  G.rig={thN:q(c,".lg.near .th"),shN:c?c.querySelectorAll(".lg.near .sh"):null,thF:q(c,".lg.far .th"),shF:c?c.querySelectorAll(".lg.far .sh"):null,uaN:q(c,".am.near .ua"),uaF:q(c,".am.far .ua"),bob:q(c,".bob"),lean:q(c,".lean"),pt:q(c,".pt"),
     db:q(d,".db"),dla:d?d.querySelectorAll(".dl.a"):[],dlb:d?d.querySelectorAll(".dl.b"):[],dt:q(d,".dt")};}
 var SHIN_K=[35,95,15,8,35];
 function shinAt(f){f=((f%1)+1)%1;var i=Math.floor(f*4),t=f*4-i;return SHIN_K[i]+(SHIN_K[i+1]-SHIN_K[i])*t;}
-function rot(el,deg,extra){if(el)el.style.transform=(extra||"")+"rotate("+deg.toFixed(1)+"deg)";}
+function rot(el,deg,extra){if(!el)return;var t=(extra||"")+"rotate("+deg.toFixed(1)+"deg)";if(el.style)el.style.transform=t;else for(var i=0;i<el.length;i++)el[i].style.transform=t;}
 function poseRig(dt){
   var G=GAME,R=G.rig;if(!R)return;var air=G.run&&G.py<-2,sl=G.slide,speed=G.run?(G.speed*(G.boost>0?1.45:1)):230;
   var hz=Math.min(3.4,speed/125);var prev=G.ph;G.ph+=dt*hz*Math.PI*2;
@@ -3506,7 +3749,7 @@ function svgToImage(html,pose,vw,vh){
     im.onload=function(){res(im);setTimeout(function(){URL.revokeObjectURL(url);},2000);};im.onerror=function(e){URL.revokeObjectURL(url);rej(e);};im.src=url;
   });
 }
-function poseRunner(svg){function R(sel,d){var e=svg.querySelector(sel);if(e)e.style.transform="rotate("+d+"deg)";}
+function poseRunner(svg){function R(sel,d){$$(sel,svg).forEach(function(e){e.style.transform="rotate("+d+"deg)";});}
   R(".lg.near .th",28);R(".lg.near .sh",35);R(".lg.far .th",-38);R(".lg.far .sh",15);R(".am.near .ua",42);R(".am.far .ua",-38);R(".lean",9);R(".pt",14);
   var b=svg.querySelector(".bob");if(b)b.style.transform="translateY(-5px)";}
 function poseDog(svg){$$(".dl.a",svg).forEach(function(e){e.style.transform="rotate(28deg)";});$$(".dl.b",svg).forEach(function(e){e.style.transform="rotate(-26deg)";});}
@@ -3515,7 +3758,9 @@ function bakeTransforms(svg){var els=svg.querySelectorAll("*"),list=[];
   for(var i=0;i<els.length;i++){var e=els[i],cs=getComputedStyle(e),t=cs.transform;if(t&&t!=="none"){var o=(cs.transformOrigin||"0px 0px").split(" ").map(parseFloat);list.push([e,t,o[0]||0,o[1]||0]);}}
   list.forEach(function(x){var e=x[0];e.setAttribute("transform","translate("+x[2]+" "+x[3]+") "+x[1]+" translate("+(-x[2])+" "+(-x[3])+")");e.style.removeProperty("transform");e.style.removeProperty("transform-origin");e.style.removeProperty("transform-box");});
   svg.querySelectorAll("*").forEach(function(e){e.style.removeProperty("animation");});}
-function snapChar(walk){return svgToImage(myChar({run:true,walk:walk,st:.6}),poseRunner,140,170);}
+function poseGlow(svg){function R(sel,d){$$(sel,svg).forEach(function(e){e.style.transform="rotate("+d+"deg)";});}
+  R(".am.near .ua",0);R(".am.far .ua",0);R(".lg.near .th",-13);R(".lg.far .th",15);R(".lean",-4);}
+function snapChar(walk){return svgToImage(myChar({glow:true}),poseGlow,140,170);}
 function snapDog(d){return svgToImage(dogSVG({breed:d.breed,run:true}),poseDog,120,90);}
 
 function openSnap(id){
@@ -3715,7 +3960,7 @@ function openDiary(id){
 function diaryBlock(r){if(!r.diary)return "";return '<div class="diarypaper"><div class="dp-k">📝 그날의 일기</div><div class="dp-t">'+esc(r.diary)+'</div></div>';}
 
 function snapBlob(){return new Promise(function(res){var cv=$("#snCv");if(!cv)return res(null);cv.toBlob(function(b){res(b);},"image/jpeg",.92);});}
-function snapName(){var r=SNAP.act.r,d=new Date(r.ts);return "dadadak-"+d.getFullYear()+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0")+".jpg";}
+function snapName(){var r=SNAP.act.r,d=new Date(r.ts);return "runninggu-"+d.getFullYear()+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0")+".jpg";}
 function showSnapImg(b){var o=$("#snOut");if(!o||!b)return;if(SNAP.url)URL.revokeObjectURL(SNAP.url);SNAP.url=URL.createObjectURL(b);o.src=SNAP.url;o.hidden=false;
   var n=$("#snNote");if(n)n.textContent="위 이미지를 길게 눌러 사진첩에 저장할 수도 있어요.";o.scrollIntoView({block:"nearest"});}
 function shareSnap(){snapBlob().then(function(b){if(!b)return;
@@ -3734,8 +3979,15 @@ function rpDemoAct(){var c=[37.5113,127.1005],path=[],n=90,kx=Math.cos(c[0]*Math
   for(var i=0;i<=n;i++){var a=i/n*Math.PI*2-Math.PI/2,rad=.0034*(1+.22*Math.sin(a*2+.6)+.1*Math.sin(a*5));path.push([c[0]+Math.sin(a)*rad*.72,c[1]+Math.cos(a)*rad/kx]);}
   return {k:"run",demo:true,r:{id:"demo",ts:Date.now(),km:2.56,min:17.6,int:"easy",path:path,pre:"calm",post:"proud",moods:[{e:"joy",km:.8,t:330,la:path[28][0],lo:path[28][1]},{e:"free",km:1.9,t:790,la:path[67][0],lo:path[67][1]}]}};}
 function rpLatest(){var a=snapActs();for(var i=0;i<a.length;i++)if(a[i].r.path&&a[i].r.path.length>1)return a[i];return null;}
-function poseRunnerB(svg){function R(sel,d){var e=svg.querySelector(sel);if(e)e.style.transform="rotate("+d+"deg)";}
+function poseRunnerB(svg){function R(sel,d){$$(sel,svg).forEach(function(e){e.style.transform="rotate("+d+"deg)";});}
   R(".lg.far .th",28);R(".lg.far .sh",35);R(".lg.near .th",-38);R(".lg.near .sh",15);R(".am.far .ua",42);R(".am.near .ua",-38);R(".lean",9);R(".pt",14);}
+/* 리플레이용 8컷 달리기: 미니게임과 같은 다리 움직임 */
+function poseRunPhase(k,walk){return function(svg){var ph=k/8*Math.PI*2,f=k/8,c0=Math.cos(ph),c1=Math.cos(ph+Math.PI),A=walk?24:52,U=walk?28:58;
+  function Rr(sel,d){$$(sel,svg).forEach(function(e){e.style.transform="rotate("+d.toFixed(1)+"deg)";});}
+  Rr(".lg.near .th",-5+A*c0);Rr(".lg.far .th",-5+A*c1);Rr(".lg.near .sh",shinAt(f)*(walk?.55:1));Rr(".lg.far .sh",shinAt(f+.5)*(walk?.55:1));
+  Rr(".am.near .ua",2-U*c1);Rr(".am.far .ua",2-U*c0);Rr(".lean",walk?4:13);Rr(".pt",4+12*Math.sin(ph*2));
+  var b=svg.querySelector(".bob");if(b)b.style.transform="translateY("+(-(walk?3:8)*Math.abs(Math.sin(ph))).toFixed(1)+"px)";};}
+function poseDogPhase(k){return function(svg){var a=32*Math.cos(k/4*Math.PI*2);$$(".dl.a",svg).forEach(function(e){e.style.transform="rotate("+a.toFixed(1)+"deg)";});$$(".dl.b",svg).forEach(function(e){e.style.transform="rotate("+(-a).toFixed(1)+"deg)";});};}
 function poseDogB(svg){$$(".dl.a",svg).forEach(function(e){e.style.transform="rotate(-26deg)";});$$(".dl.b",svg).forEach(function(e){e.style.transform="rotate(28deg)";});}
 function openReplay(id){
   var a=(id&&id!=="demo"&&findAct(id))||null;if(a&&!(a.r.path&&a.r.path.length>1))a=null;
@@ -3789,11 +4041,11 @@ function rpBuild(cv,a,W,H,onReady,inline){
       im.onload=function(){if(!me.dead){try{bc.drawImage(im,(tx*256-wx0)*f*2,(ty*256-wy0)*f*2,256*f*2+1,256*f*2+1);me.tiles++;}catch(e){}}res();};im.onerror=function(){res();};
       im.src=TILE_URL.replace("{s}",TILE_SUBS[(xx+ty)%4]).replace("{z}",z).replace("{x}",xx).replace("{y}",ty);}));})(tx,ty);}
   var walk=a.k==="walk",dog=r.dog&&dogById(r.dog);
-  var chh=myChar({run:true,walk:walk,st:.6}),sp=[rpSprite(chh,poseRunner,140,170,"a"),rpSprite(chh,poseRunnerB,140,170,"b")];
-  if(dog){var dgh=dogSVG({breed:dog.breed,run:true});sp.push(rpSprite(dgh,poseDog,120,90,"c"));sp.push(rpSprite(dgh,poseDogB,120,90,"d"));}
+  var chh=myChar({run:true,walk:walk,st:.6}),sp=[],fi;for(fi=0;fi<8;fi++)sp.push(rpSprite(chh,poseRunPhase(fi,walk),140,170,(walk?"w":"r")+fi));
+  if(dog){var dgh=dogSVG({breed:dog.breed,run:true});for(fi=0;fi<4;fi++)sp.push(rpSprite(dgh,poseDogPhase(fi),120,90,"d"+fi));}
   var tilesDone=Promise.race([Promise.all(jobs),new Promise(function(res){setTimeout(res,5000);})]);
   Promise.all([Promise.all(sp),tilesDone,(document.fonts&&document.fonts.ready)||0]).then(function(v){if(me.dead)return;
-    me.spr=[v[0][0],v[0][1]].filter(Boolean);me.dog=[v[0][2],v[0][3]].filter(Boolean);
+    me.spr=v[0].slice(0,8).filter(Boolean);me.dog=v[0].slice(8).filter(Boolean);me.walk=walk;me.puffs=[];
     if(me.tiles){bc.fillStyle="rgba(255,255,255,.16)";bc.fillRect(0,0,W*2,H*2);}
     me.ready=true;if(onReady)onReady(me);});
   return me;
@@ -3801,7 +4053,7 @@ function rpBuild(cv,a,W,H,onReady,inline){
 function rpAt(R,d){var D=R.D,lo=0,hi=D.length-1;d=Math.max(0,Math.min(R.tot,d));while(hi-lo>1){var m=(lo+hi)>>1;if(D[m]<=d)lo=m;else hi=m;}
   var s=D[hi]-D[lo],u=s>0?(d-D[lo])/s:0,a=R.pts[lo],b=R.pts[hi];return {x:a[0]+(b[0]-a[0])*u,y:a[1]+(b[1]-a[1])*u,i:lo,u:u,dx:b[0]-a[0]};}
 function rpPlay(onEnd){if(RP&&RP.ready)rpStart(RP,onEnd);}
-function rpStart(R,onEnd){if(!R||!R.ready||R.dead)return;cancelAnimationFrame(R.raf);R.t0=performance.now();R.cam=null;R.face=1;R.onEnd=onEnd||null;R.ended=false;R.kms.forEach(function(m){m.t=null;});R.moods.forEach(function(m){m.t=null;});rpTick(R);}
+function rpStart(R,onEnd){if(!R||!R.ready||R.dead)return;cancelAnimationFrame(R.raf);R.t0=performance.now();R.cam=null;R.face=1;R.onEnd=onEnd||null;R.ended=false;R.kms.forEach(function(m){m.t=null;});R.moods.forEach(function(m){m.t=null;});R.puffs=[];R.lastStep=-1;rpTick(R);}
 function rpTick(R){if(R.dead||!document.documentElement.contains(R.cv)){R.dead=true;cancelAnimationFrame(R.raf);if(R.rec&&R.rec.state!=="inactive"){try{R.rec.stop();}catch(e){}}try{R.base.width=R.base.height=1;}catch(e){}return;}
   var t=performance.now()-R.t0,total=900+R.runMs+1200+2800;rpFrame(R,Math.min(t,total));
   if(t>=total&&!R.ended){R.ended=true;if(R.onEnd){var f=R.onEnd;R.onEnd=null;f();}}
@@ -3830,11 +4082,18 @@ function rpFrame(R,t){
   if(t>=T2){var e=R.pts[R.pts.length-1];c.fillStyle="#fff";c.beginPath();c.arc(e[0],e[1],14/k,0,7);c.fill();c.fillStyle="#FF6B57";c.beginPath();c.arc(e[0],e[1],9/k,0,7);c.fill();}
   /* 달리는 나 (+강아지) */
   if(Math.abs(hd.dx)>.4)R.face=hd.dx<0?-1:1;
-  var moving=t>=T1&&t<T2,fr=moving?Math.floor(t/150)%2:0,bob=moving?Math.abs(Math.sin(t/150*Math.PI))*5/k:0,fade=t<T2?1:1-ez((t-T2)/700);
+  var moving=t>=T1&&t<T2,ft=R.walk?120:78,fr=moving?Math.floor(t/ft)%8:2,hopU=moving?Math.abs(Math.sin(Math.PI*t/(ft*4))):0,bob=hopU*(R.walk?4:15)/k,fade=t<T2?1:1-ez((t-T2)/700);
+  /* 발 디딜 때마다 먼지 */
+  if(moving&&!R.walk){var stp=Math.floor(t/(ft*4));if(stp!==R.lastStep){R.lastStep=stp;R.puffs.push({x:hd.x-R.face*14/k,y:hd.y,t:t});if(R.puffs.length>8)R.puffs.shift();}}
+  R.puffs.forEach(function(q){var a=(t-q.t)/420;if(a<0||a>1)return;c.fillStyle="rgba(255,255,255,"+(.8*(1-a)).toFixed(2)+")";c.beginPath();c.arc(q.x-R.face*a*16/k,q.y-a*9/k,(5+12*a)/k,0,7);c.fill();c.strokeStyle="rgba(20,32,30,"+(.18*(1-a)).toFixed(2)+")";c.lineWidth=1/k;c.stroke();});
   var pr=10+4*Math.sin(t/260);c.fillStyle="rgba(255,107,87,"+(.22*fade)+")";c.beginPath();c.arc(hd.x,hd.y,(pr+12)/k,0,7);c.fill();c.fillStyle="#fff";c.beginPath();c.arc(hd.x,hd.y,9/k,0,7);c.fill();c.fillStyle="#FF6B57";c.beginPath();c.arc(hd.x,hd.y,6/k,0,7);c.fill();
   if(fade>0){c.globalAlpha=fade;
-    if(R.dog.length){var dq=rpAt(R,p*R.tot-52/k*R.mpp),dim=R.dog[fr%R.dog.length],dh=62/k,dw=dh*120/90;c.save();c.translate(dq.x,dq.y-bob*.7);c.scale(R.face,1);c.drawImage(dim,-dw/2,-dh+4/k,dw,dh);c.restore();}
-    if(R.spr.length){var im=R.spr[fr%R.spr.length],ch=128/k,cw=ch*140/170;c.save();c.translate(hd.x,hd.y-bob);c.scale(R.face,1);c.drawImage(im,-cw/2,-ch*159.5/170,cw,ch);c.restore();}
+    if(R.dog.length){var dq=rpAt(R,p*R.tot-52/k*R.mpp),dim=R.dog[(moving?Math.floor(t/70):0)%R.dog.length],dh=62/k,dw=dh*120/90;c.save();c.translate(dq.x,dq.y-bob*.7);c.scale(R.face,1);c.drawImage(dim,-dw/2,-dh+4/k,dw,dh);c.restore();}
+    if(R.spr.length){var im=R.spr[fr%R.spr.length],ch=150/k,cw=ch*140/170;
+      c.fillStyle="rgba(20,32,30,"+(.2-.1*hopU).toFixed(2)+")";c.beginPath();c.ellipse(hd.x,hd.y+2/k,(24-9*hopU)/k,(6-2*hopU)/k,0,0,7);c.fill();
+      c.save();c.translate(hd.x,hd.y-bob);c.scale(R.face,1);if(moving&&!R.walk)c.rotate(.05+.05*Math.sin(Math.PI*t/(ft*4)*2));c.drawImage(im,-cw/2,-ch*159.5/170,cw,ch);
+      if(moving&&!R.walk){c.strokeStyle="rgba(255,255,255,.9)";c.lineCap="round";c.lineWidth=3/k;for(var li=0;li<3;li++){var ly=-ch*(.28+li*.2),lx=-cw*.42-((t/6+li*37)%26)/k;c.globalAlpha=fade*(.75-li*.15);c.beginPath();c.moveTo(lx,ly);c.lineTo(lx-(16-li*3)/k,ly);c.stroke();}c.globalAlpha=fade;}
+      c.restore();}
     c.globalAlpha=1;}
   /* HUD */
   c.setTransform(1,0,0,1,0,0);
@@ -3852,7 +4111,7 @@ function rpFrame(R,t){
   /* 시작 · 끝 자막 */
   if(t<T1+250){var al=t<T1-150?Math.min(1,t/250):Math.max(0,1-(t-(T1-150))/400);c.globalAlpha=al;c.fillStyle="rgba(10,16,18,.3)";c.fillRect(0,0,W,H);T(c,"오늘의 길",W/2,H*.4,"400 96px "+FD,"#fff","center","rgba(0,0,0,.4)");T(c,APP_LINE,W/2,H*.4+64,"700 30px "+FB,"rgba(255,255,255,.92)","center","rgba(0,0,0,.4)");c.globalAlpha=1;}
   if(t>T3-300){var a2=ez((t-(T3-300))/600),yy=H*.195-18*(1-a2);c.globalAlpha=a2;
-    var msg=r.errand?"차 대신 두 발로 다녀왔어요":R.a.k==="walk"?"오늘도 한 바퀴, 잘 걸었어요":"오늘도 다다닥, 완주!";
+    var msg=r.errand?"차 대신 두 발로 다녀왔어요":R.a.k==="walk"?"오늘도 한 바퀴, 잘 걸었어요":"오늘도 런닝구, 완주!";
     c.font="400 62px "+FD;var mw=c.measureText(msg).width+72;c.fillStyle="rgba(255,255,255,.94)";rr(c,(W-mw)/2,yy-70,mw,104,52);c.fill();T(c,msg,W/2,yy+2,"400 62px "+FD,"#14201E","center");
     T(c,"#"+APP_TAG,W/2,yy+86,"800 32px "+FB,"#FFD166","center","rgba(0,0,0,.7)");
     if(r.diary){var dq2=String(r.diary).replace(/\s+/g," ").slice(0,24)+(r.diary.length>24?"…":"");T(c,"“"+dq2+"”",W/2,yy+136,"600 28px "+FB,"#fff","center","rgba(0,0,0,.6)");}
@@ -3875,7 +4134,7 @@ function rpRecord(){var R=RP;if(!R||!R.ready||R.recording)return;
   try{rec.start();}catch(e){R.recording=false;if(btn){btn.disabled=false;btn.textContent="🎬 영상으로 만들기";}if(ag)ag.disabled=false;toast("영상 만들기를 시작하지 못했어요");return;}
   rpStart(R,function(){setTimeout(function(){try{if(rec.state!=="inactive")rec.stop();}catch(e){}},250);});
 }
-function rpName(){var d=new Date(RP.r.ts);return "dadadak-"+d.getFullYear()+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0")+"."+RP.ext;}
+function rpName(){var d=new Date(RP.r.ts);return "runninggu-"+d.getFullYear()+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0")+"."+RP.ext;}
 function rpShare(){if(!RP||!RP.blob)return;
   try{var f=new File([RP.blob],rpName(),{type:RP.blob.type});if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:APP_KO+" 달린 길"}).catch(function(){});return;}}catch(e){}
   toast("이 화면에선 바로 공유가 안 돼요. 저장한 뒤 올려 주세요");}
@@ -4096,11 +4355,11 @@ var BODY_ST=[["fresh","가뿐해요"],["ok","보통이에요"],["tired","피곤�
 var BODYSEL=null;
 function weekStart(){var d=new Date();d.setHours(0,0,0,0);var w=(d.getDay()+6)%7;return d.getTime()-w*DAY;}
 function weekKm(){var t=weekStart();return S.runs.concat(S.walks).filter(function(r){return r.ts>=t;}).reduce(function(a,r){return a+r.km;},0);}
-function streakDays(){var days={};S.runs.concat(S.walks).forEach(function(r){var d=new Date(r.ts);d.setHours(0,0,0,0);days[d.getTime()]=1;});
+function streakDays(){var days={};S.runs.concat(S.walks).concat(S.rests||[]).forEach(function(r){var d=new Date(r.ts);d.setHours(0,0,0,0);days[d.getTime()]=1;});
   var d=new Date();d.setHours(0,0,0,0);var t=d.getTime();if(!days[t])t-=DAY;var n=0;while(days[t]){n++;t-=DAY;}return n;}
 function isNight(){var h=new Date().getHours();return h>=19||h<6;}
 function greet(){var h=new Date().getHours(),n=S.nick||"러너";
-  return h<6?n+"님, 아직 새벽이에요 🌙":h<11?n+"님, 좋은 아침이에요 ☀️":h<17?n+"님, 오늘도 다다닥 할까요?":h<21?n+"님, 저녁 바람 어때요? 🌇":n+"님, 오늘 하루 수고했어요 🌙";}
+  return h<6?n+"님, 아직 새벽이에요 🌙":h<11?n+"님, 좋은 아침이에요 ☀️":h<17?n+"님, 런닝구 입을 시간이에요":h<21?n+"님, 저녁 바람 어때요? 🌇":n+"님, 오늘 하루 수고했어요 🌙";}
 function renderHomeTop(){
   var hc=$(".hero-card"),db=$("#devBadge");if(hc&&!db){db=document.createElement("button");db.id="devBadge";db.className="devbadge";db.textContent="🛠 개발자 · 전체 캐릭터";db.addEventListener("click",function(e){e.stopPropagation();openDevGallery();});hc.appendChild(db);}if(db)db.hidden=!DEV;
   renderErrandHome();$("#gameArt").innerHTML=myChar({run:true,st:.55});var gb=S.game&&S.game.best;$("#gameBest").textContent=gb?"최고 기록 "+gb.toLocaleString("ko-KR")+"점 · 한 판 더?":(activeDog()?"내 신발 신고, "+josa(activeDog().name,"와","과")+" 커플 운동화로 달려요":"내 캐릭터가 내 신발 신고 달려요");
@@ -4136,6 +4395,7 @@ function openSafety(){
   openSheet('<div class="sheet-h"><h2>🛡️ 안심 도구</h2><button class="iconbtn" id="sfx2">닫기</button></div>'+
     '<button class="bigbtn" id="sfLoc">📍 지금 내 위치 보내기</button>'+
     (c.phone?'<a class="bigbtn ghost safeA" href="tel:'+esc(c.phone)+'">📞 '+esc(c.name||"안심 연락처")+'에게 전화 <small>'+esc(c.phone)+'</small></a>':'<p class="muted small" style="margin:10px 0 0">프로필에서 안심 연락처를 넣으면 여기서 바로 전화할 수 있어요.</p>')+
+    '<a class="bigbtn coral safeA" href="tel:119">🚑 119 구급 신고 <small>119</small></a>'+
     '<a class="bigbtn coral safeA" href="tel:112">🚨 112 긴급 신고 <small>112</small></a>'+
     '<p class="note" style="margin:10px 0 0">'+(link?"위치는 메신저 공유 창으로 보내요. 이 앱이 따로 저장하거나 서버로 보내지 않아요.":"GPS를 잡은 뒤에 위치를 보낼 수 있어요.")+'</p>',function(s){
     s.querySelector("#sfx2").addEventListener("click",closeSheet);
@@ -4144,30 +4404,30 @@ function openSafety(){
 function cleanSafe(o){if(!o||typeof o!=="object")return null;var p=String(o.phone||"").replace(/[^0-9+\-]/g,"").slice(0,20),n=String(o.name||"").trim().slice(0,12);return p?{name:n,phone:p}:null;}
 
 /* ================= 개발자 모드: 모든 단계 캐릭터 보기 ================= */
-var DEV=lsGet("rq-dev")==="1",DEVG={sex:null,pose:"idle",skin:null,ach:{}};
+var DEV=lsGet("rq-dev")==="1",DEVG={sex:null,pose:"idle",skin:null,ct:null,ach:{}};
 function devLook(){if(!DEV)return null;var v=lsGet("rq-devlook");return v===""||v==null?null:lookByIdx(v);}
 function setDev(on){DEV=!!on;lsSet("rq-dev",DEV?"1":"0");if(!DEV)lsSet("rq-devlook","");renderAll();toast(DEV?"🛠 개발자 모드를 켰어요":"개발자 모드를 껐어요");}
 function devTapLogo(){var n=(devTapLogo.n||0)+1,t=Date.now();if(t-(devTapLogo.t||0)>1500)n=1;devTapLogo.n=n;devTapLogo.t=t;
   if(n>=7){devTapLogo.n=0;setDev(!DEV);}else if(n>=4)toast((7-n)+"번 더 누르면 개발자 모드 "+(DEV?"끄기":"켜기"));}
 function openDevGallery(){
-  if(DEVG.sex==null)DEVG.sex=S.sex||"f";if(DEVG.skin==null)DEVG.skin=S.skin|0;
+  if(DEVG.sex==null)DEVG.sex=S.sex||"f";if(DEVG.skin==null)DEVG.skin=S.skin|0;if(DEVG.ct==null)DEVG.ct=S.ctype||"dum";
   var dl=devLook(),sh=eqShoe(),shoe=sh?BRAND_COL[sh.b]:"#888";
   function seg(id,items,cur){return '<div class="seg devseg" id="'+id+'">'+items.map(function(x){return '<button data-v="'+x[0]+'" aria-pressed="'+(String(x[0])===String(cur))+'">'+x[1]+'</button>';}).join("")+'</div>';}
   var ach=DEVG.ach;
   var h='<div class="sheet-h"><h2>🛠 캐릭터 전체 보기</h2><button class="iconbtn" id="dgx">닫기</button></div>'+
     '<p class="muted small" style="margin:0 0 10px">개발자 모드예요. 해금 조건과 상관없이 모든 단계를 보고, 홈 캐릭터에 잠깐 입혀 볼 수 있어요. 실제 기록·레벨은 바뀌지 않아요.</p>'+
-    seg("dgSex",[["f","여"],["m","남"]],DEVG.sex)+seg("dgPose",[["idle","서 있기"],["run","달리기"],["walk","걷기"]],DEVG.pose)+seg("dgSkin",[[0,"피부 1"],[1,"피부 2"],[2,"피부 3"]],DEVG.skin)+
+    seg("dgCt",CTYPES.map(function(c){return [c.id,c.nm];}),DEVG.ct)+seg("dgSex",[["f","여"],["m","남"]],DEVG.sex)+seg("dgPose",[["idle","서 있기"],["run","달리기"],["walk","걷기"],["glow","달린 직후"],["lazy","쉼"],["rain","비"],["hot","더위"],["cold","추위"],["fire","연속"],["sleepy","졸림"]],DEVG.pose)+seg("dgSkin",[[0,"피부 1"],[1,"피부 2"],[2,"피부 3"]],DEVG.skin)+
     '<div class="devach">'+ACH.map(function(a){return '<label class="check"><input type="checkbox" data-a="'+a.k+'"'+(ach[a.k]?" checked":"")+'> '+esc(a.nm)+'</label>';}).join("")+'</div>'+
     (dl?'<div class="devnow">지금 홈 캐릭터: <b>'+esc(dl.nm)+'</b> (미리 입기 중) <button class="linkbtn" id="dgReset" style="margin:0">원래대로</button></div>':'')+
     '<div class="devgrid">'+LOOKS.map(function(L,i){var acc=L.acc.map(function(k){return ACC_KO[k];}).join(" · ")||"장식 없음";
-      return '<div class="devc'+(dl===L?" on":"")+'"><div class="devart">'+charSVG({look:L,lv:L.lv,sex:DEVG.sex,skin:DEVG.skin,shoe:shoe,run:DEVG.pose!=="idle",walk:DEVG.pose==="walk",ach:ach})+'</div>'+
+      return '<div class="devc'+(dl===L?" on":"")+'"><div class="devart">'+charSVG({ct:DEVG.ct,look:L,lv:L.lv,sex:DEVG.sex,skin:DEVG.skin,shoe:shoe,run:DEVG.pose==="run"||DEVG.pose==="walk",walk:DEVG.pose==="walk",glow:DEVG.pose==="glow",mood:["lazy","rain","hot","cold","fire","sleepy"].indexOf(DEVG.pose)>=0?DEVG.pose:null,ach:ach})+'</div>'+
         '<div class="devlv mono">'+(i+1)+'단계 · LV.'+L.lv+'</div><b>'+esc(L.nm)+'</b><div class="muted" style="font-size:.66rem;line-height:1.4">'+esc(acc)+'</div>'+
         '<button class="btn-s'+(dl===L?" solid":"")+'" data-try="'+i+'" style="margin-top:6px;width:100%">'+(dl===L?"입는 중":"입혀 보기")+'</button></div>';}).join("")+'</div>'+
     '<div class="sec-ttl">반려견 '+DOGS.length+'종 · 커플 운동화</div><div class="devgrid dogs">'+DOGS.map(function(d){return '<div class="devc"><div class="devart dog">'+dogSVG({breed:d.id,run:DEVG.pose!=="idle",walk:DEVG.pose==="walk",boots:shoe})+'</div><b style="font-size:.78rem">'+esc(d.nm)+'</b></div>';}).join("")+'</div>'+
     '<button class="bigbtn ghost" id="dgOff" style="margin-top:14px">개발자 모드 끄기</button>';
   openSheet(h,function(s){
     s.querySelector("#dgx").addEventListener("click",closeSheet);
-    [["#dgSex","sex"],["#dgPose","pose"],["#dgSkin","skin"]].forEach(function(p){$$(p[0]+" button",s).forEach(function(b){b.addEventListener("click",function(){DEVG[p[1]]=p[1]==="skin"?+b.dataset.v:b.dataset.v;openDevGallery();});});});
+    [["#dgCt","ct"],["#dgSex","sex"],["#dgPose","pose"],["#dgSkin","skin"]].forEach(function(p){$$(p[0]+" button",s).forEach(function(b){b.addEventListener("click",function(){DEVG[p[1]]=p[1]==="skin"?+b.dataset.v:b.dataset.v;openDevGallery();});});});
     $$(".devach input",s).forEach(function(c){c.addEventListener("change",function(){DEVG.ach[c.dataset.a]=c.checked;openDevGallery();});});
     $$("[data-try]",s).forEach(function(b){b.addEventListener("click",function(){lsSet("rq-devlook",b.dataset.try);renderAll();toast("홈 캐릭터에 '"+LOOKS[+b.dataset.try].nm+"' 외형을 입혔어요");openDevGallery();});});
     var r=s.querySelector("#dgReset");if(r)r.addEventListener("click",function(){lsSet("rq-devlook","");renderAll();toast("원래 외형으로 돌아왔어요");openDevGallery();});
@@ -4221,7 +4481,7 @@ function stopSim(msg){
   if(!sim)return;clearInterval(sim);sim=null;var ov=$("#liveOv");if(ov)ov.remove();
   if(simKm<0.05||simMin<1){toast("너무 짧아서 기록하지 않았어요");return;}
   var c=selCourse,km=simKm,mn=simMin,wk=simWalk,dg=simDog,it=curIntent;selCourse=null;if(msg)toast(msg);
-  openFinishRecord({kind:wk?"산책":"러닝",km:km,min:mn},function(post,diary){var x={ts:Date.now(),km:km,min:mn,dog:dg?dg.id:null,src:"sim",post:post,diary:diary||undefined,diaryAt:diary?Date.now():undefined};
+  openFinishRecord({kind:wk?"산책":"러닝",km:km,min:mn},function(post,diary,af){var x={ts:Date.now(),km:km,min:mn,dog:dg?dg.id:null,src:"sim",after:af||undefined,post:post,diary:diary||undefined,diaryAt:diary?Date.now():undefined};
     if(wk){var wr=addWalk(x,c);renderAll();showWalkResult(wr);return;}x.int=it;var res=addRun(x,c);renderAll();showResult(res);});
 }
 $("#simBtn").addEventListener("click",startSim);
@@ -4296,7 +4556,7 @@ $$("#sexSeg button").forEach(function(b){b.addEventListener("click",function(){S
 $("#sosBtn").addEventListener("click",function(){
   openSheet('<div class="sheet-h"><h2>⚠ 응급 신호</h2><button class="iconbtn" id="sosx">닫기</button></div><div class="advice">'+
    '<div class="adv"><div class="ai">🫀</div><div><b>즉시 멈추고 119</b><p>가슴 통증·압박감, 심한 호흡곤란, 어지럽거나 쓰러질 것 같은 느낌, 심장이 불규칙하게 뛰는 느낌</p></div></div>'+
-   '<div class="adv"><div class="ai">🥵</div><div><b>열사병 의심 · 119</b><p>혼란, 구토, 비틀거림, 땀이 멈추고 피부가 뜨거움. 그늘로 옮겨 몸을 식히세요.</p></div></div>'+
+   '<div class="adv"><div class="ai">🥵</div><div><b>열사병 의심 · 119</b><p>말이 어눌함, 비틀거림, 의식 흐림, 구토. 땀이 나도 열사병일 수 있어요. 119에 연락하고 찬물·얼음으로 계속 식히세요.</p></div></div>'+
    '<div class="adv"><div class="ai">🦵</div><div><b>부상 신호 · 달리기 중단</b><p>날카롭게 찌르는 통증, 붓기, 절뚝거림, 다음 날까지 남는 한쪽 통증</p></div></div>'+
    '<div class="adv"><div class="ai">ℹ️</div><div><b>이 앱은 의료 조언을 대신하지 않아요</b><p>이상이 계속되면 진료를 받으세요.</p></div></div></div>',
    function(s){s.querySelector("#sosx").addEventListener("click",closeSheet);});
@@ -4332,12 +4592,12 @@ function renderAll(){renderRaces();renderHome();renderRun();renderQuest();render
 
 
 /* ================= LOGIN ================= */
-var skipBody=false,loginStep="welcome",draft={nick:"",sex:"m",skin:0},healthFromApp=false,hAns={},hDone=null;
+var skipBody=false,loginStep="welcome",draft={nick:"",sex:"m",skin:0,ct:"dum"},healthFromApp=false,hAns={},hDone=null;
 var PARQ=["의사에게 심장 질환이나 고혈압 진단을 받은 적이 있나요?","쉬고 있을 때나 운동할 때 가슴 통증을 느낀 적이 있나요?","지난 1년 사이 어지러워서 균형을 잃거나 의식을 잃은 적이 있나요?","심장·혈압 외에 다른 만성 질환 진단을 받았나요?","만성 질환 때문에 처방약을 먹고 있나요?","운동하면 더 나빠질 수 있는 뼈·관절·근육 문제가 있나요?","의사가 '의료진 감독 아래에서만 운동하라'고 한 적이 있나요?"];
 var INJQ="최근 6개월 안에 달리기 때문에 다친 적이 있나요?";
 function showLogin(){loginStep="welcome";healthFromApp=false;$("#login").hidden=false;renderLogin(true);}
 function openHealth(){closeSheet();loginStep="health";healthFromApp=true;hAns={};hDone=null;$("#login").hidden=false;renderLogin(true);}
-function afterWelcome(){if(!S.health){loginStep="health";hAns={};hDone=null;renderLogin(true);}else if(!S.nick){loginStep="create";draft={nick:"",sex:S.sex||"m",skin:S.skin|0};renderLogin(true);}else enterApp();}
+function afterWelcome(){if(!S.health){loginStep="health";hAns={};hDone=null;renderLogin(true);}else if(!S.nick){loginStep="create";draft={nick:"",sex:S.sex||"m",skin:S.skin|0,ct:S.ctype||"dum"};renderLogin(true);}else enterApp();}
 function renderLogin(force){
   var L=$("#login");if(L.hidden)return;if(loginStep!=="welcome"&&!force)return;
   var h='<div class="login-in">';
@@ -4345,7 +4605,7 @@ function renderLogin(force){
     var back=!!S.nick;
     h+='<div class="brand" style="font-family:var(--f-display);font-size:1.05rem;letter-spacing:.2em;font-weight:400">'+APP_KO+'</div><h1 class="logo" style="letter-spacing:.01em">'+APP_EN+'</h1>'+
       '<div class="tagl">'+(back?'다시 오셨네요, <b style="color:var(--ink)">'+esc(S.nick)+'</b>!':APP_LINE)+'</div>'+
-      '<div class="stage">'+(back?myChar({run:true,st:.62}):charSVG({lv:1,sex:"f",skin:0,shoe:"#1BA8C9",run:true,st:.62}))+'</div>';
+      '<div class="stage">'+(back?myChar({run:true,st:.62}):charSVG({ct:"pant",lv:1,sex:"f",skin:0,shoe:"#1BA8C9",run:true,st:.62}))+'</div>';
     if(!CAP.ready){
       h+='<div class="acct"><span class="spin" aria-hidden="true"></span><div><div class="an">계정 확인 중…</div><div class="as">잠시만 기다려 주세요</div></div></div><button class="bigbtn" disabled>시작하기</button>';
     }else if(CAP.uid){
@@ -4354,14 +4614,15 @@ function renderLogin(force){
         '<div class="fine">'+(CAP.canWrite===false?'보기 권한으로 공유받은 링크예요. 앱은 그대로 쓸 수 있지만 기록은 이 기기에만 저장되고, 커뮤니티는 읽기만 돼요.':'로그인은 지금 쓰고 있는 Claude 계정으로 이뤄져요. 따로 비밀번호를 만들 필요가 없고, 내 러닝 기록은 계정별로 저장돼 다른 기기에서도 이어져요.')+'</div>';
     }else{
       h+='<div class="acct"><span style="font-size:1.6rem">👤</span><div><div class="an">나만 쓰는 '+APP_KO+'</div><div class="as">계정 없이 이 폰에 저장</div></div></div>'+
-        '<button class="bigbtn" id="lgGo">'+(back?"이어서 달리기":"시작하기")+'</button>'+
-        '<div class="fine">계정 없이 바로 시작해요. 기록은 이 폰에 저장되고, 프로필에서 백업 파일을 저장해 둘 수 있어요.</div>';
+        (back?'':'<label class="agree"><input type="checkbox" id="lgAge"> <span>만 14세 이상이에요 <small>(필수)</small></span></label>')+
+        '<button class="bigbtn" id="lgGo"'+(back?'':' disabled')+'>'+(back?"이어서 달리기":"시작하기")+'</button>'+
+        '<div class="fine">계정 없이 바로 시작해요. 기록은 이 폰에만 저장돼요. '+APP_KO+'는 의료기기가 아니며 진단·치료를 대신하지 않아요. <a href="privacy.html" target="_blank" rel="noopener" style="color:var(--teal)">개인정보 처리방침</a></div>';
     }
   }else if(loginStep==="health"){
     if(hDone){
       h+='<div class="form"><div class="brand" style="text-align:center">건강 점검 결과</div>'+
-        '<div class="card" style="margin-top:14px;background:'+(hDone.flag?"var(--coral-soft)":"var(--gold-soft)")+';border:none"><div style="font-weight:800">'+(hDone.flag?"의사와 먼저 상담하길 권해요":"최근 부상이 있었군요")+'</div>'+
-        '<p class="muted small" style="margin:6px 0 0">'+(hDone.flag?"답변 중 '예'가 있어요. 운동을 시작하기 전에 의사와 상담해 주세요. ":"")+''+APP_KO+'는 <b>보수 모드</b>로 시작해요. 부하 경고 기준을 더 엄격하게 보고, 이지런 위주로 추천해요. 프로필에서 언제든 다시 점검할 수 있어요.</p></div>'+
+        '<div class="card" style="margin-top:14px;background:'+(hDone.flag?"var(--coral-soft)":"var(--gold-soft)")+';border:none"><div style="font-weight:800">'+(hDone.flag?"의사 확인 전에는 달리기를 쉬어요":"최근 부상이 있었군요")+'</div>'+
+        '<p class="muted small" style="margin:6px 0 0">'+(hDone.flag?"답변 중 '예'가 있어요. 의사의 확인을 받기 전에는 달리기를 시작하지 말고, 그동안은 산책 모드를 이용해 주세요. 임신 중이거나 출산 직후라면 담당 의사와 먼저 상의하세요. ":"")+''+APP_KO+'는 <b>보수 모드</b>로 시작해요. 부하 경고 기준을 더 엄격하게 보고, 이지런 위주로 추천해요. 프로필에서 언제든 다시 점검할 수 있어요.</p></div>'+
         '<button class="bigbtn" id="hOk" style="margin-top:16px">알겠어요, 계속하기</button></div>';
     }else{
       h+='<div class="form"><div class="brand" style="text-align:center">'+(healthFromApp?"건강 점검":"STEP 1 / 2")+'</div><h2 style="text-align:center;margin-top:4px">달리기 전 1분 건강 점검</h2>'+
@@ -4376,7 +4637,7 @@ function renderLogin(force){
     h+='<div class="form"><div class="brand" style="text-align:center">STEP 2 / 2</div><h2 style="text-align:center;margin-top:4px">나의 러너 만들기</h2>'+
       '<div class="stage" id="lgPrev" style="margin:10px auto 0"></div>'+
       '<div class="field"><label for="lgNick">닉네임 (2~12자)</label><input id="lgNick" type="text" maxlength="12" autocomplete="nickname" style="font-family:var(--f-body)" placeholder="예: 곡교천질주, 안양천토끼"></div>'+
-      '<div class="flbl" style="margin-top:14px">성별</div><div class="seg" id="lgSex" style="margin-top:0"><button data-s="m">남</button><button data-s="f">여</button></div>'+
+      '<div class="flbl" style="margin-top:14px">성별</div><div class="seg" id="lgSex" style="margin-top:0"><button data-s="m">남</button><button data-s="f">여</button></div>'+ctPickHTML("lgCt")+
       '<div class="flbl" style="margin-top:14px">몸 정보 · 무리하지 않게 맞춤 경고를 드려요</div>'+bodyFieldsHTML("lg")+'<div class="flbl">피부톤</div><div class="swatches" id="lgSkin">'+SKINS.map(function(c,i){return '<button class="sw" data-k="'+i+'" style="background:'+c+'" aria-label="피부톤 '+(i+1)+'"></button>';}).join("")+'</div>'+
       '<div class="muted small" id="lgErr" style="color:var(--crit);margin-top:10px" hidden></div>'+
       '<button class="bigbtn gold" id="lgStart" style="margin-top:16px">모험 시작!</button><button class="linkbtn" id="lgSkipBody" style="display:block;margin:10px auto 0">몸 정보는 나중에 입력할게요</button></div>';
@@ -4384,6 +4645,7 @@ function renderLogin(force){
   L.innerHTML=h+'</div>';L.scrollTop=0;
   var nm=$("#lgName");if(nm)nm.textContent=CAP.myName||"러너";
   var g=$("#lgGo");if(g)g.addEventListener("click",afterWelcome);
+  var ag=$("#lgAge");if(ag&&g)ag.addEventListener("change",function(){g.disabled=!ag.checked;});
   if(loginStep==="health"){
     $$("#login [data-q]").forEach(function(b){b.addEventListener("click",function(){hAns[+b.dataset.q]=b.dataset.a==="1";
       $$('#login [data-q="'+b.dataset.q+'"]').forEach(function(x){x.setAttribute("aria-pressed",String(x===b));});});});
@@ -4398,7 +4660,7 @@ function renderLogin(force){
   }
   if(loginStep==="create"){
     var ni=$("#lgNick");ni.value=draft.nick;
-    var paint=function(){$("#lgPrev").innerHTML=myChar({sex:draft.sex,skin:draft.skin});
+    var paint=function(){$("#lgPrev").innerHTML=myChar({sex:draft.sex,skin:draft.skin,ct:draft.ct});ctPickPaint(document,"lgCt",draft,paint);
       $$("#lgSex button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.s===draft.sex));});
       $$("#lgSkin .sw").forEach(function(b){b.setAttribute("aria-pressed",String(+b.dataset.k===draft.skin));});};
     paint();
@@ -4410,7 +4672,7 @@ function renderLogin(force){
       if(n.length<2){var e=$("#lgErr");e.textContent="닉네임을 2자 이상 입력해 주세요.";e.hidden=false;ni.focus();return;}
       var rb=readBody("lg");
       if(rb.err||(rb.empty&&!skipBody)){var e3=$("#lgErr");e3.textContent=rb.err||"출생연도·키·몸무게를 입력하거나 '나중에 입력할게요'를 눌러 주세요.";e3.hidden=false;return;}
-      S.nick=n.slice(0,12);S.sex=draft.sex;S.std=draft.sex;S.skin=draft.skin;if(rb.body)S.body=rb.body;rebuild();save();enterApp();
+      S.nick=n.slice(0,12);S.sex=draft.sex;S.std=draft.sex;S.skin=draft.skin;S.ctype=draft.ct;if(rb.body)S.body=rb.body;rebuild();save();enterApp();
       if(S.body&&bodyAdvice().length>1)setTimeout(openBodyGuide,350);
     });
     $("#lgSkipBody").addEventListener("click",function(){skipBody=true;$("#lgStart").click();});
@@ -4418,7 +4680,7 @@ function renderLogin(force){
 }
 function healthNext(){
   if(healthFromApp){healthFromApp=false;$("#login").hidden=true;$("#login").innerHTML="";renderAll();toast("건강 점검을 저장했어요");return;}
-  if(!S.nick){loginStep="create";draft={nick:"",sex:S.sex||"m",skin:S.skin|0};renderLogin(true);}else enterApp();
+  if(!S.nick){loginStep="create";draft={nick:"",sex:S.sex||"m",skin:S.skin|0,ct:S.ctype||"dum"};renderLogin(true);}else enterApp();
 }
 function enterApp(){lsSet("rq-session","1");$("#login").hidden=true;$("#login").innerHTML="";renderAll();go("home");toast("환영해요, "+S.nick+"!");if(!LIVE)resumeLiveIfAny();}
 function setTheme(t){lsSet("rq-theme",t);if(t==="system")document.documentElement.removeAttribute("data-theme");else document.documentElement.setAttribute("data-theme",t);}
