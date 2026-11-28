@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-0ZZcIaKdqgggTV0NN6JWD6XPYOn89tz9iYl0BqSyLJU=' 'sha256-srHV7ls+qvBhK/r868QIf818b3o3B8oG+P0GbUVZz/8='; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://tile.openstreetmap.org; media-src blob: data:; connect-src 'self' blob: data: https://api.open-meteo.com https://air-quality-api.open-meteo.com https://overpass-api.de https://overpass.kumi.systems https://nominatim.openstreetmap.org https://routing.openstreetmap.de; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-0ZZcIaKdqgggTV0NN6JWD6XPYOn89tz9iYl0BqSyLJU=' 'sha256-Q5BWRKy73my5m9qq+UXamKpCPIiOevfu1mIIINipv7E='; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://tile.openstreetmap.org; media-src blob: data:; connect-src 'self' blob: data: https://api.open-meteo.com https://air-quality-api.open-meteo.com https://overpass-api.de https://overpass.kumi.systems https://nominatim.openstreetmap.org https://routing.openstreetmap.de https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://firestore.googleapis.com; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>런닝구 RUNNING-U</title>
 <meta name="color-scheme" content="light dark">
@@ -1983,6 +1983,7 @@ var CAP={db:null,user:null,assets:null,uid:null,canEdit:false,isOwner:false,read
 var saving=false,dirty=false,fails=0;
 function save(){
   try{localStorage.setItem(KEY,JSON.stringify(persistObj()));save.failed=false;}catch(e){if(!save.failed){save.failed=true;setTimeout(function(){toast("⚠️ 폰 저장 공간에 기록을 못 썼어요. 프로필에서 백업 파일을 받아 두세요");},600);}}
+  try{syncDirty();}catch(e){}
   if(!(CAP.db&&CAP.uid&&CAP.ready))return;
   dirty=true;if(!saving)flush();
 }
@@ -3030,7 +3031,7 @@ function openProfile(){
     '<div class="flbl" style="margin-top:14px">오래 쉬면 캐릭터가</div><div class="seg" id="pfTease" style="margin-top:0"><button type="button" data-t="mild" aria-pressed="'+(t.tease==="mild")+'">순한맛 · 먼지 쌓임</button><button type="button" data-t="spicy" aria-pressed="'+(t.tease==="spicy")+'">매운맛 · 돼지 변신</button></div><p class="note" style="margin-left:0">8일부터 조금씩 변해요. 한 번 달리거나 걸으면 바로 돌아오고, 쉬는 날 체크인을 하면 변하지 않아요.</p>'+
     '<div class="flbl" style="margin-top:14px">🛡️ 안심 연락처 <span class="muted" style="font-weight:600">(선택)</span></div><div class="row"><div class="field"><label for="pfSfN">이름</label><input id="pfSfN" type="text" maxlength="12" placeholder="예: 엄마" style="font-family:var(--f-body)" value="'+esc((S.safe&&S.safe.name)||"")+'"></div><div class="field"><label for="pfSfP">전화번호</label><input id="pfSfP" type="tel" inputmode="tel" maxlength="20" placeholder="010-0000-0000" value="'+esc((S.safe&&S.safe.phone)||"")+'"></div></div><p class="note" style="margin-left:0">달리는 중 🛡️ 안심 버튼에서 바로 전화할 수 있어요. 이 폰에만 저장돼요.</p>'+
     '<div class="muted small" id="pfErr" style="color:var(--crit);margin-top:8px" hidden></div>'+
-    '<button class="bigbtn" id="pfSave" style="margin-top:12px">저장</button><button class="bigbtn ghost" id="pfHealth" style="margin-top:10px">건강 점검 다시 하기</button><div class="flbl" style="margin-top:18px">화면 테마</div><div class="seg" id="pfTheme" style="margin-top:0"><button data-t="light">☀️ 밝게</button><button data-t="system">📱 기기 설정</button><button data-t="dark">🌙 어둡게</button></div><div class="flbl" style="margin-top:18px">기록 백업</div><div class="card" style="padding:12px 14px"><div class="muted small" id="pfBkAge"></div><p class="muted small" style="margin:4px 0 10px">기록은 이 폰에 저장돼요. 폰을 바꾸거나 브라우저 데이터를 지우기 전에 백업 파일을 저장해 두세요.</p><div class="row" style="gap:8px"><button class="btn-s solid" id="pfBkSave" style="flex:1">💾 백업 파일 저장</button><label class="btn-s filebtn" style="flex:1;text-align:center">📂 불러오기<input type="file" accept="application/json,.json" id="pfBkLoad" hidden></label></div></div><div class="flbl" style="margin-top:18px">알림</div><button class="bigbtn ghost" id="pfRemind">🔔 달릴 시간 알림 받기</button><div class="flbl" style="margin-top:18px">앱 잠금</div><button class="bigbtn ghost" id="pfPin">🔒 '+(pinGet()?"앱 잠금 켜짐 · 바꾸기":"숫자 비밀번호로 앱 잠그기")+'</button><div class="flbl" style="margin-top:18px">개인정보 한눈에 보기</div><div class="card" style="padding:12px 14px"><ul class="locul" style="margin:0"><li>회원가입이 없고, 기록은 이 폰 안에만 저장돼요.</li><li>날씨·지도·경로·가게 찾기를 쓸 때만 필요한 위치가 해당 서비스로 전송돼요.</li><li>건강 점검 답변과 안심 연락처도 이 폰에만 있어요.</li><li>'+APP_KO+'는 의료기기가 아니에요. 몸에 이상이 느껴지면 멈추고 의사와 상의하세요.</li></ul><div class="row" style="gap:8px;margin-top:10px"><a class="btn-s" href="privacy.html" target="_blank" rel="noopener" style="flex:1;text-align:center;text-decoration:none">처리방침 보기</a><button class="btn-s" id="pfWipe" style="flex:1;color:var(--crit)">내 기록 모두 지우기</button></div></div><button class="bigbtn ghost" id="pfOut" style="margin-top:10px">로그아웃</button><p class="note" style="text-align:center">로그아웃해도 기록은 지워지지 않아요.</p>';
+    '<button class="bigbtn" id="pfSave" style="margin-top:12px">저장</button><button class="bigbtn ghost" id="pfHealth" style="margin-top:10px">건강 점검 다시 하기</button><div class="flbl" style="margin-top:18px">화면 테마</div><div class="seg" id="pfTheme" style="margin-top:0"><button data-t="light">☀️ 밝게</button><button data-t="system">📱 기기 설정</button><button data-t="dark">🌙 어둡게</button></div><div class="flbl" style="margin-top:18px">기록 백업</div><div class="card" style="padding:12px 14px"><div class="muted small" id="pfBkAge"></div><p class="muted small" style="margin:4px 0 10px">기록은 이 폰에 저장돼요. 폰을 바꾸거나 브라우저 데이터를 지우기 전에 백업 파일을 저장해 두세요.</p><div class="row" style="gap:8px"><button class="btn-s solid" id="pfBkSave" style="flex:1">💾 백업 파일 저장</button><label class="btn-s filebtn" style="flex:1;text-align:center">📂 불러오기<input type="file" accept="application/json,.json" id="pfBkLoad" hidden></label></div></div><div class="flbl" style="margin-top:18px">서버 저장</div><button class="bigbtn ghost" id="pfSync">☁️ '+(syncGet()?"서버 저장 켜짐 · "+esc(syncGet().email):"서버에 기록 지키기 (선택)")+'</button><div class="flbl" style="margin-top:18px">알림</div><button class="bigbtn ghost" id="pfRemind">🔔 달릴 시간 알림 받기</button><div class="flbl" style="margin-top:18px">앱 잠금</div><button class="bigbtn ghost" id="pfPin">🔒 '+(pinGet()?"앱 잠금 켜짐 · 바꾸기":"숫자 비밀번호로 앱 잠그기")+'</button><div class="flbl" style="margin-top:18px">개인정보 한눈에 보기</div><div class="card" style="padding:12px 14px"><ul class="locul" style="margin:0"><li>회원가입이 없고, 기록은 이 폰 안에만 저장돼요.</li><li>날씨·지도·경로·가게 찾기를 쓸 때만 필요한 위치가 해당 서비스로 전송돼요.</li><li>건강 점검 답변과 안심 연락처도 이 폰에만 있어요.</li><li>'+APP_KO+'는 의료기기가 아니에요. 몸에 이상이 느껴지면 멈추고 의사와 상의하세요.</li></ul><div class="row" style="gap:8px;margin-top:10px"><a class="btn-s" href="privacy.html" target="_blank" rel="noopener" style="flex:1;text-align:center;text-decoration:none">처리방침 보기</a><button class="btn-s" id="pfWipe" style="flex:1;color:var(--crit)">내 기록 모두 지우기</button></div></div><button class="bigbtn ghost" id="pfOut" style="margin-top:10px">로그아웃</button><p class="note" style="text-align:center">로그아웃해도 기록은 지워지지 않아요.</p>';
   openSheet(h,function(s){
     var nick=s.querySelector("#pfNick");nick.value=t.nick;
     function paint(){s.querySelector("#pfPrev").innerHTML=myChar({sex:t.sex,skin:t.skin,ct:t.ct});ctPickPaint(s,"pfCt",t,paint);
@@ -3053,6 +3054,7 @@ function openProfile(){
     s.querySelector("#pfBkSave").addEventListener("click",function(){saveBackup();});
     s.querySelector("#pfPin").addEventListener("click",openPinSet);
     s.querySelector("#pfRemind").addEventListener("click",openRemind);
+    s.querySelector("#pfSync").addEventListener("click",openSync);
     s.querySelector("#pfBkLoad").addEventListener("change",function(){var f=this.files&&this.files[0];if(f)loadBackup(f);});
     var paintT=function(){var cur=lsGet("rq-theme")||"light";$$("#pfTheme button",s).forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.t===cur));});};paintT();
     $$("#pfTheme button",s).forEach(function(b){b.addEventListener("click",function(){setTheme(b.dataset.t);paintT();});});
@@ -3643,6 +3645,86 @@ function loadBackup(file){
     applyBackup(o);};
   rd.readAsText(file);
 }
+/* ================= 서버 동기화 (선택) =================
+   Firebase 인증·Firestore를 REST로 직접 부른다(외부 스크립트 없음).
+   기록은 폰에서 AES-GCM으로 암호화한 뒤 올린다. 서버에는 암호문만 있다.
+   비밀번호 → PBKDF2 두 번: 하나는 로그인용(서버로 감), 하나는 암호화 열쇠(폰에만 있음). */
+var FB={key:"AIzaSyDB1HygGENyrBfo2lwCaSVtj8sQ66SvHtE",pid:"running-u"};
+var FSB="https://firestore.googleapis.com/v1/projects/"+FB.pid+"/databases/(default)/documents/users/";
+var SYNC_T=0,SYNC_BUSY=false,SYNC_TOK={t:null,exp:0},SYNC_ERR="",SYNC_CHK=0;
+function syncGet(){try{var o=JSON.parse(lsGet("rq-sync")||"null");return o&&o.uid&&o.rt&&o.k?o:null;}catch(e){return null;}}
+function syncSet(o){lsSet("rq-sync",JSON.stringify(o));}
+function syncOff(){try{localStorage.removeItem("rq-sync");}catch(e){}SYNC_TOK={t:null,exp:0};clearTimeout(SYNC_T);}
+function syncDirty(){var s=syncGet();if(!s)return;if(!s.dirty){s.dirty=1;syncSet(s);}clearTimeout(SYNC_T);SYNC_T=setTimeout(syncNow,20000);}
+function fbJson(r){return r.json().catch(function(){return {};}).then(function(j){if(!r.ok){var e=new Error((j.error&&(j.error.message||j.error.status))||("HTTP "+r.status));e.status=r.status;throw e;}return j;});}
+function fbAuth(path,body){return fetch("https://identitytoolkit.googleapis.com/v1/accounts:"+path+"?key="+FB.key,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}).then(fbJson);}
+function fbToken(){var s=syncGet();if(!s)return Promise.reject(new Error("NO_LOGIN"));if(SYNC_TOK.t&&Date.now()<SYNC_TOK.exp-60000)return Promise.resolve(SYNC_TOK.t);
+  return fetch("https://securetoken.googleapis.com/v1/token?key="+FB.key,{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"grant_type=refresh_token&refresh_token="+encodeURIComponent(s.rt)}).then(fbJson)
+    .then(function(j){SYNC_TOK={t:j.id_token,exp:Date.now()+(+j.expires_in||3600)*1000};var c=syncGet();if(c&&j.refresh_token&&j.refresh_token!==c.rt){c.rt=j.refresh_token;syncSet(c);}return SYNC_TOK.t;})
+    .catch(function(e){if(e.status===400||e.status===403){syncOff();SYNC_ERR="로그인이 풀렸어요. 다시 로그인해 주세요.";}throw e;});}
+function fsReq(method,id,body){var s=syncGet();return fbToken().then(function(tk){return fetch(FSB+s.uid+"/sync/"+id,{method:method,headers:{"Authorization":"Bearer "+tk,"Content-Type":"application/json"},body:body?JSON.stringify(body):undefined});});}
+function fsGet(id){return fsReq("GET",id).then(function(r){if(r.status===404)return null;return fbJson(r).then(function(j){return j.fields||{};});});}
+function fsPut(id,fields){return fsReq("PATCH",id,{fields:fields}).then(fbJson);}
+function fsDel(id){return fsReq("DELETE",id).then(function(r){return r.ok;});}
+function gzPack(u8){if(!window.CompressionStream)return Promise.resolve(null);try{return new Response(new Blob([u8]).stream().pipeThrough(new CompressionStream("gzip"))).arrayBuffer().then(function(b){return new Uint8Array(b);});}catch(e){return Promise.resolve(null);}}
+function gzOpen(u8){if(!window.DecompressionStream)return Promise.reject(new Error("NO_GZIP"));return new Response(new Blob([u8]).stream().pipeThrough(new DecompressionStream("gzip"))).arrayBuffer().then(function(b){return new Uint8Array(b);});}
+function b64big(u8){var s="",C=0x8000;for(var i=0;i<u8.length;i+=C)s+=String.fromCharCode.apply(null,u8.subarray(i,i+C));return btoa(s);}
+function syncKey(s,use){return crypto.subtle.importKey("raw",unb64(s.k),"AES-GCM",false,[use]);}
+function syncPush(){var s=syncGet(),iv=crypto.getRandomValues(new Uint8Array(12)),raw=new TextEncoder().encode(JSON.stringify(persistObj())),gz=0;
+  return gzPack(raw).then(function(z){if(z){gz=1;raw=z;}return syncKey(s,"encrypt");}).then(function(k){return crypto.subtle.encrypt({name:"AES-GCM",iv:iv},k,raw);})
+    .then(function(ct){var str=b64big(new Uint8Array(ct)),parts=[],CH=800000;for(var i=0;i<str.length;i+=CH)parts.push(str.slice(i,i+CH));if(parts.length>40)throw new Error("TOO_BIG");
+      var rev=(s.rev|0)+1,seq=Promise.resolve();parts.forEach(function(p,i){seq=seq.then(function(){return fsPut("c"+i,{d:{stringValue:p}});});});
+      return seq.then(function(){return fsPut("meta",{v:{integerValue:"1"},rev:{integerValue:String(rev)},n:{integerValue:String(parts.length)},iv:{stringValue:b64(iv)},gz:{integerValue:String(gz)},at:{stringValue:new Date().toISOString()}});})
+        .then(function(){var c=syncGet();if(c){c.rev=rev;c.dirty=0;c.at=Date.now();syncSet(c);}});});}
+function syncPull(meta){var s=syncGet(),n=+(meta.n&&meta.n.integerValue)||0,parts=[],seq=Promise.resolve();
+  for(var i=0;i<n;i++)(function(i){seq=seq.then(function(){return fsGet("c"+i);}).then(function(f){if(!f||!f.d)throw new Error("MISSING_PART");parts.push(f.d.stringValue||"");});})(i);
+  return seq.then(function(){return syncKey(s,"decrypt");}).then(function(k){return crypto.subtle.decrypt({name:"AES-GCM",iv:unb64(meta.iv.stringValue)},k,unb64(parts.join("")));})
+    .then(function(pt){var u=new Uint8Array(pt);return +(meta.gz&&meta.gz.integerValue)?gzOpen(u):u;})
+    .then(function(u){var st=JSON.parse(new TextDecoder().decode(u));if(!st||!Array.isArray(st.runs))throw new Error("BAD_DATA");
+      var before=S.runs.length+S.walks.length;S=mergeStates(normalize(st),S);rebuild();var c=syncGet();if(c){c.rev=+(meta.rev&&meta.rev.integerValue)||0;syncSet(c);}save();renderAll();return S.runs.length+S.walks.length-before;});}
+/* 서버와 맞추기: 서버가 더 새로우면 받아서 합치고, 내 쪽에 바뀐 게 있으면 올린다 */
+function syncNow(manual){var s=syncGet();if(!s||SYNC_BUSY||!cryptoOk())return Promise.resolve(false);if(LIVE&&!manual){SYNC_T=setTimeout(syncNow,60000);return Promise.resolve(false);}
+  SYNC_BUSY=true;SYNC_CHK=Date.now();clearTimeout(SYNC_T);var got=0;
+  return fsGet("meta").then(function(meta){var rr=meta?+(meta.rev&&meta.rev.integerValue)||0:0;if(meta&&rr!==(s.rev|0))return syncPull(meta).then(function(n){got=n;return true;});return !meta;})
+    .then(function(force){var c=syncGet();if(c&&(c.dirty||force))return syncPush();})
+    .then(function(){SYNC_BUSY=false;SYNC_ERR="";var c=syncGet();if(c){c.at=Date.now();syncSet(c);}if(manual)toast(got>0?"☁️ 서버에서 기록 "+got+"개를 받아 합쳤어요":"☁️ 서버와 맞췄어요");syncPaint();return true;})
+    .catch(function(e){SYNC_BUSY=false;var m=String(e&&e.message||"");
+      SYNC_ERR=m==="NO_GZIP"?"이 기기의 브라우저가 오래돼서 서버 기록을 열 수 없어요.":m==="TOO_BIG"?"기록이 너무 커서 올리지 못했어요.":/PERMISSION_DENIED/.test(m)||e.status===403?"서버가 접근을 막았어요. (접근 규칙을 확인해 주세요)":/OperationError/.test(String(e&&e.name))?"서버 기록을 풀지 못했어요. 비밀번호가 다른 계정일 수 있어요.":SYNC_ERR||"서버에 연결하지 못했어요. 나중에 다시 맞출게요.";
+      if(manual)toast("☁️ "+SYNC_ERR);syncPaint();return false;});}
+function syncPaint(){var el=$("#pfSyncSt");if(!el)return;var s=syncGet();el.textContent=s?(SYNC_ERR?"⚠️ "+SYNC_ERR:"☁️ "+s.email+" · "+(s.at?"마지막으로 맞춘 때 "+daysAgo(s.at)+" "+new Date(s.at).toLocaleTimeString("ko-KR",{hour:"2-digit",minute:"2-digit"}):"아직 맞추지 않음")+(s.dirty?" · 올릴 변경 있음":"")):(SYNC_ERR||"");}
+function syncErrKo(m){m=String(m||"");return /EMAIL_EXISTS/.test(m)?"이미 가입된 이메일이에요. '로그인'을 눌러 주세요.":/INVALID_LOGIN_CREDENTIALS|INVALID_PASSWORD|EMAIL_NOT_FOUND/.test(m)?"이메일이나 비밀번호가 맞지 않아요.":/INVALID_EMAIL/.test(m)?"이메일 주소를 다시 확인해 주세요.":/TOO_MANY_ATTEMPTS/.test(m)?"시도가 너무 많았어요. 잠시 뒤에 다시 해 주세요.":/OPERATION_NOT_ALLOWED|CONFIGURATION_NOT_FOUND/.test(m)?"서버에서 이메일 로그인이 아직 켜지지 않았어요. (운영자 설정 필요)":/USER_DISABLED/.test(m)?"사용이 중지된 계정이에요.":"서버에 연결하지 못했어요. 인터넷을 확인해 주세요.";}
+function openSync(){
+  if(!cryptoOk()){toast("서버 저장은 https 주소로 연 앱에서만 쓸 수 있어요");return;}var s=syncGet();
+  if(s){openSheet('<div class="sheet-h"><h2>☁️ 서버에 기록 지키기</h2><button class="iconbtn" id="syx">닫기</button></div><p class="muted small" id="pfSyncSt" style="margin:0 0 12px"></p>'+
+      '<button class="bigbtn" id="syGo">지금 서버와 맞추기</button><button class="bigbtn ghost" id="syOut" style="margin-top:10px">이 폰에서 로그아웃</button><button class="bigbtn ghost" id="syDel" style="margin-top:10px;color:var(--crit)">서버 기록 지우고 탈퇴</button>'+
+      '<p class="note" style="margin-left:0">기록이 바뀌면 20초쯤 뒤 자동으로 올라가요. 로그아웃해도 이 폰의 기록은 그대로 남아요. 스냅 사진은 서버에 올라가지 않아요.</p>',function(sh){
+      sh.querySelector("#syx").addEventListener("click",closeSheet);syncPaint();
+      sh.querySelector("#syGo").addEventListener("click",function(){toast("☁️ 서버와 맞추는 중…");syncNow(true);});
+      sh.querySelector("#syOut").addEventListener("click",function(){syncOff();closeSheet();toast("로그아웃했어요. 이 폰의 기록은 그대로예요");});
+      var del=sh.querySelector("#syDel"),arm=false;del.addEventListener("click",function(){if(!arm){arm=true;del.textContent="되돌릴 수 없어요. 한 번 더 누르면 서버 기록과 계정을 지워요";setTimeout(function(){arm=false;del.textContent="서버 기록 지우고 탈퇴";},5000);return;}
+        del.disabled=true;fsGet("meta").then(function(meta){var n=meta?(+(meta.n&&meta.n.integerValue)||0)+3:3,seq=Promise.resolve();for(var i=0;i<n;i++)(function(i){seq=seq.then(function(){return fsDel("c"+i);});})(i);return seq.then(function(){return fsDel("meta");});})
+          .then(function(){return fbToken();}).then(function(tk){return fbAuth("delete",{idToken:tk});}).then(function(){syncOff();closeSheet();toast("서버 기록과 계정을 지웠어요. 이 폰의 기록은 그대로예요");})
+          .catch(function(){del.disabled=false;toast("지우지 못했어요. 인터넷을 확인하고 다시 해 주세요");});});});
+    return;}
+  openSheet('<div class="sheet-h"><h2>☁️ 서버에 기록 지키기</h2><button class="iconbtn" id="syx">닫기</button></div>'+
+    '<p class="muted small" style="margin:0 0 10px">폰을 바꾸거나 앱을 다시 깔아도 기록이 돌아오게, 암호화한 사본을 서버(Google Firebase)에 둬요. 암호는 이 폰에서 걸기 때문에 서버에서는 운영자도 내용을 읽을 수 없어요.</p>'+
+    '<input id="syEm" type="email" autocomplete="username" inputmode="email" maxlength="120" placeholder="이메일" style="'+PWIN+'"><input id="syPw" type="password" autocomplete="current-password" maxlength="64" placeholder="비밀번호 (8자 이상)" style="'+PWIN+';margin-top:8px">'+
+    '<p class="note" style="margin-left:0"><b>비밀번호를 잊으면 서버 기록은 누구도 되살릴 수 없어요.</b> 비밀번호 찾기가 없어요. 꼭 적어 두세요.</p>'+
+    '<label class="check" style="display:flex;margin-top:8px"><input type="checkbox" id="syOk"> <span>이메일과 암호화된 기록(일기·기분·몸 상태·달린 경로 포함)을 서버에 보관하는 데 동의해요. <a href="privacy.html" target="_blank" rel="noopener">처리방침</a></span></label>'+
+    '<div class="errmsg" style="color:var(--crit);margin-top:8px;font-size:.84rem" id="syErr" hidden></div>'+
+    '<div class="snbtns" style="margin-top:12px"><button class="bigbtn" id="syIn">로그인</button><button class="bigbtn ghost" id="syUp">처음이에요 · 가입</button></div>',function(sh){
+    sh.querySelector("#syx").addEventListener("click",closeSheet);var er=sh.querySelector("#syErr");
+    function go(path){var em=sh.querySelector("#syEm").value.trim().toLowerCase(),pw=sh.querySelector("#syPw").value;er.hidden=true;
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){er.textContent="이메일 주소를 확인해 주세요.";er.hidden=false;return;}if(pw.length<8){er.textContent="비밀번호는 8자 이상으로 해 주세요.";er.hidden=false;return;}
+      if(!sh.querySelector("#syOk").checked){er.textContent="서버 보관에 동의해야 쓸 수 있어요.";er.hidden=false;return;}
+      var bs=$$("#syIn,#syUp",sh);bs.forEach(function(b){b.disabled=true;});var enc=new TextEncoder(),kb,ap;
+      pwBits(pw,enc.encode("running-u|enc|"+em),250000).then(function(b){kb=b64(b);return pwBits(pw,enc.encode("running-u|auth|"+em),250000);}).then(function(b){ap=b64(b);return fbAuth(path,{email:em,password:ap,returnSecureToken:true});})
+        .then(function(j){syncSet({email:em,uid:j.localId,rt:j.refreshToken,k:kb,rev:0,dirty:1,at:0});SYNC_TOK={t:j.idToken,exp:Date.now()+(+j.expiresIn||3600)*1000};SYNC_ERR="";closeSheet();toast("☁️ 로그인했어요. 서버와 맞추는 중…");syncNow(true);})
+        .catch(function(e){bs.forEach(function(b){b.disabled=false;});er.textContent=syncErrKo(e&&e.message);er.hidden=false;});}
+    sh.querySelector("#syIn").addEventListener("click",function(){go("signInWithPassword");});sh.querySelector("#syUp").addEventListener("click",function(){go("signUp");});});
+}
+document.addEventListener("visibilitychange",function(){var s=syncGet();if(!s)return;if(document.visibilityState==="visible"){if(Date.now()-SYNC_CHK>300000)syncNow();}else if(s.dirty)syncNow();});
+setTimeout(function(){if(syncGet())syncNow();},2500);
 /* ---- 달릴 시간 알림: 서버 없이 폰 캘린더의 반복 일정으로 알림을 건다 ---- */
 function remindICS(days,hh,mm){var BY=["SU","MO","TU","WE","TH","FR","SA"],d=new Date();d.setSeconds(0,0);d.setHours(hh,mm);
   for(var i=0;i<8;i++){if(days.indexOf(d.getDay())>=0&&d.getTime()>Date.now())break;d.setDate(d.getDate()+1);}
