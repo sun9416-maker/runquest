@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-0ZZcIaKdqgggTV0NN6JWD6XPYOn89tz9iYl0BqSyLJU=' 'sha256-kTMTpq1jtiMPj3SNd5zAM+jmt7Bs0+aBIgSaAuXqTEQ='; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://tile.openstreetmap.org; media-src blob: data:; connect-src 'self' blob: data: https://api.open-meteo.com https://air-quality-api.open-meteo.com https://overpass-api.de https://overpass.kumi.systems https://nominatim.openstreetmap.org https://routing.openstreetmap.de https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://firestore.googleapis.com; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-0ZZcIaKdqgggTV0NN6JWD6XPYOn89tz9iYl0BqSyLJU=' 'sha256-5+2GPAyAQw6NSvNYoHRWIcrEkoSgOEw40fHDawdK/s0='; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://tile.openstreetmap.org; media-src blob: data:; connect-src 'self' blob: data: https://api.open-meteo.com https://air-quality-api.open-meteo.com https://overpass-api.de https://overpass.kumi.systems https://nominatim.openstreetmap.org https://routing.openstreetmap.de https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://firestore.googleapis.com; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>런닝구 RUNNING-U</title>
 <meta name="color-scheme" content="light dark">
@@ -3649,17 +3649,17 @@ function loadBackup(file){
    Firebase 인증·Firestore를 REST로 직접 부른다(외부 스크립트 없음).
    기록은 폰에서 AES-GCM으로 암호화한 뒤 올린다. 서버에는 암호문만 있다.
    비밀번호 → PBKDF2 두 번: 하나는 로그인용(서버로 감), 하나는 암호화 열쇠(폰에만 있음). */
-var FB={key:"AIzaSyDB1HygGENyrBfo2lwCaSVtj8sQ66SvHtE",pid:"running-u"};
-var FSB="https://firestore.googleapis.com/v1/projects/"+FB.pid+"/databases/(default)/documents/users/";
+var FBASE={key:"AIzaSyDB1HygGENyrBfo2lwCaSVtj8sQ66SvHtE",pid:"running-u"};
+var FSB="https://firestore.googleapis.com/v1/projects/"+FBASE.pid+"/databases/(default)/documents/users/";
 var SYNC_T=0,SYNC_BUSY=false,SYNC_TOK={t:null,exp:0},SYNC_ERR="",SYNC_CHK=0;
 function syncGet(){try{var o=JSON.parse(lsGet("rq-sync")||"null");return o&&o.uid&&o.rt&&o.k?o:null;}catch(e){return null;}}
 function syncSet(o){lsSet("rq-sync",JSON.stringify(o));}
 function syncOff(){try{localStorage.removeItem("rq-sync");}catch(e){}SYNC_TOK={t:null,exp:0};clearTimeout(SYNC_T);}
 function syncDirty(){var s=syncGet();if(!s)return;if(!s.dirty){s.dirty=1;syncSet(s);}clearTimeout(SYNC_T);SYNC_T=setTimeout(syncNow,20000);}
 function fbJson(r){return r.json().catch(function(){return {};}).then(function(j){if(!r.ok){var e=new Error((j.error&&(j.error.message||j.error.status))||("HTTP "+r.status));e.status=r.status;throw e;}return j;});}
-function fbAuth(path,body){return fetch("https://identitytoolkit.googleapis.com/v1/accounts:"+path+"?key="+FB.key,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}).then(fbJson);}
+function fbAuth(path,body){return fetch("https://identitytoolkit.googleapis.com/v1/accounts:"+path+"?key="+FBASE.key,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}).then(fbJson);}
 function fbToken(){var s=syncGet();if(!s)return Promise.reject(new Error("NO_LOGIN"));if(SYNC_TOK.t&&Date.now()<SYNC_TOK.exp-60000)return Promise.resolve(SYNC_TOK.t);
-  return fetch("https://securetoken.googleapis.com/v1/token?key="+FB.key,{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"grant_type=refresh_token&refresh_token="+encodeURIComponent(s.rt)}).then(fbJson)
+  return fetch("https://securetoken.googleapis.com/v1/token?key="+FBASE.key,{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"grant_type=refresh_token&refresh_token="+encodeURIComponent(s.rt)}).then(fbJson)
     .then(function(j){SYNC_TOK={t:j.id_token,exp:Date.now()+(+j.expires_in||3600)*1000};var c=syncGet();if(c&&j.refresh_token&&j.refresh_token!==c.rt){c.rt=j.refresh_token;syncSet(c);}return SYNC_TOK.t;})
     .catch(function(e){if(e.status===400||e.status===403){syncOff();SYNC_ERR="로그인이 풀렸어요. 다시 로그인해 주세요.";}throw e;});}
 function fsReq(method,id,body){var s=syncGet();return fbToken().then(function(tk){return fetch(FSB+s.uid+"/sync/"+id,{method:method,headers:{"Authorization":"Bearer "+tk,"Content-Type":"application/json"},body:body?JSON.stringify(body):undefined});});}
