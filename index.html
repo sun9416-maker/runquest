@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-0ZZcIaKdqgggTV0NN6JWD6XPYOn89tz9iYl0BqSyLJU=' 'sha256-zlLLqDr1u8/E9N8Tblg48vBBCeaTw8CowQlWKdlNNq0='; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://tile.openstreetmap.org; media-src blob: data:; connect-src 'self' blob: data: https://api.open-meteo.com https://air-quality-api.open-meteo.com https://overpass-api.de https://overpass.kumi.systems https://nominatim.openstreetmap.org https://routing.openstreetmap.de; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-0ZZcIaKdqgggTV0NN6JWD6XPYOn89tz9iYl0BqSyLJU=' 'sha256-srHV7ls+qvBhK/r868QIf818b3o3B8oG+P0GbUVZz/8='; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://tile.openstreetmap.org; media-src blob: data:; connect-src 'self' blob: data: https://api.open-meteo.com https://air-quality-api.open-meteo.com https://overpass-api.de https://overpass.kumi.systems https://nominatim.openstreetmap.org https://routing.openstreetmap.de; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>런닝구 RUNNING-U</title>
 <meta name="color-scheme" content="light dark">
@@ -666,6 +666,19 @@
   .pl-in{width:100%;max-width:300px;text-align:center}.pl-t{font-family:var(--f-display);font-size:1.7rem}.pl-s{color:var(--muted);font-size:.86rem;margin-top:6px;min-height:2.6em}
   .pl-d{display:flex;gap:12px;justify-content:center;margin:10px 0 22px}.pl-d i{width:14px;height:14px;border-radius:50%;border:2px solid var(--ink);display:block}.pl-d i.on{background:var(--ink)}
   .pl-k{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.pl-k button{height:64px;border-radius:20px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:800 1.5rem var(--f-mono,monospace)}.pl-k button:active{background:var(--surface-3)}
+  .galhead{display:flex;align-items:center;justify-content:space-between;margin:6px 0 2px}.galhead b{font-family:var(--f-display);font-size:1.25rem}
+  .galnav{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:1.1rem}.galnav:disabled{opacity:.3}
+  .galstat{color:var(--muted);font-size:.8rem;font-weight:600;margin-bottom:10px;text-align:center}
+  .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}.cal-w{text-align:center;font-size:.66rem;color:var(--muted);font-weight:700;padding:2px 0}
+  .cal-d{position:relative;aspect-ratio:1;border-radius:10px;border:0;background:var(--surface-3);color:var(--muted);font:600 .66rem var(--f-mono);padding:0;overflow:hidden;background-size:cover;background-position:center}
+  .cal-d i{position:absolute;left:4px;top:3px;font-style:normal}.cal-d span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.15rem;padding-top:7px}
+  .cal-d.has{background-color:var(--teal-soft);color:var(--ink)}.cal-d.ph i{color:#fff;text-shadow:0 1px 3px #000}.cal-d.ph span{display:none}.cal-d.today{outline:2px solid var(--teal);outline-offset:-2px}.cal-d.off{background:transparent}
+  .cal-d em{position:absolute;right:3px;bottom:2px;font-style:normal;font-size:.58rem;background:var(--ink);color:var(--paper);border-radius:6px;padding:0 4px}
+  .galgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:14px}
+  .galt{position:relative;aspect-ratio:1;border-radius:14px;border:0;padding:0;overflow:hidden;background:var(--surface-3);color:var(--ink)}
+  .galt img{width:100%;height:100%;object-fit:cover;display:block}.galt svg{width:100%;height:100%;display:block}.galt .ge{font-size:2rem;display:flex;align-items:center;justify-content:center;height:100%;padding-bottom:12px}
+  .galt .gc{position:absolute;left:0;right:0;bottom:0;padding:16px 6px 5px;font:700 .62rem var(--f-mono);color:#fff;text-align:left;background:linear-gradient(transparent,rgba(0,0,0,.66))}.galt .gi{position:absolute;right:5px;top:4px;font-size:.72rem}
+  .adphoto img{width:100%;border-radius:16px;display:block}.adphoto{margin-bottom:12px}
   .qins{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:16px;padding:11px 14px;margin:10px 0 0;font:inherit;color:var(--ink)}.qins .ql{display:block;font-size:.86rem;font-weight:700;line-height:1.5;margin-top:4px}.qins .qm{display:block;font-size:.7rem;color:var(--faint);margin-top:6px}
   .rvcard-btn{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:18px;padding:13px 15px;margin:0 0 14px;font:inherit;color:var(--ink)}
   .rv-h{display:flex;align-items:flex-end;justify-content:space-between;gap:10px}.rv-h b{font-family:var(--f-display);font-weight:400;font-size:1.2rem}.rv-n{font-size:.78rem;font-weight:800;color:var(--teal);white-space:nowrap}.rv-p{margin-top:7px;font-size:.84rem;font-weight:700;color:var(--muted);line-height:1.45}
@@ -1095,7 +1108,9 @@
       <div class="topbar"><div><div class="sub">DAILY LOG</div><h1>기록</h1></div></div>
       <button class="rvcard-btn" id="reviewCard"></button>
       <div class="duo"><button class="duot" data-snap=""><span class="de">📸</span><span><b>스냅</b><small>SNAP</small></span></button><button class="duot rp" data-replay=""><span class="de">🎬</span><span><b>리플레이</b><small>REPLAY</small></span></button></div>
+      <div class="seg" id="logView" style="margin:0 0 10px"><button data-v="gal">🗓️ 한눈에 보기</button><button data-v="list">📋 목록</button></div>
       <div class="logchips" id="logFilt"></div>
+      <div id="logGal" hidden></div>
       <div id="feelPane"><div id="feelList"></div></div>
       <details class="more hm" style="margin-top:14px"><summary>✍️ 달리지 않은 날 따로 적기</summary>
       <div class="seg" id="logSeg">
@@ -3015,7 +3030,7 @@ function openProfile(){
     '<div class="flbl" style="margin-top:14px">오래 쉬면 캐릭터가</div><div class="seg" id="pfTease" style="margin-top:0"><button type="button" data-t="mild" aria-pressed="'+(t.tease==="mild")+'">순한맛 · 먼지 쌓임</button><button type="button" data-t="spicy" aria-pressed="'+(t.tease==="spicy")+'">매운맛 · 돼지 변신</button></div><p class="note" style="margin-left:0">8일부터 조금씩 변해요. 한 번 달리거나 걸으면 바로 돌아오고, 쉬는 날 체크인을 하면 변하지 않아요.</p>'+
     '<div class="flbl" style="margin-top:14px">🛡️ 안심 연락처 <span class="muted" style="font-weight:600">(선택)</span></div><div class="row"><div class="field"><label for="pfSfN">이름</label><input id="pfSfN" type="text" maxlength="12" placeholder="예: 엄마" style="font-family:var(--f-body)" value="'+esc((S.safe&&S.safe.name)||"")+'"></div><div class="field"><label for="pfSfP">전화번호</label><input id="pfSfP" type="tel" inputmode="tel" maxlength="20" placeholder="010-0000-0000" value="'+esc((S.safe&&S.safe.phone)||"")+'"></div></div><p class="note" style="margin-left:0">달리는 중 🛡️ 안심 버튼에서 바로 전화할 수 있어요. 이 폰에만 저장돼요.</p>'+
     '<div class="muted small" id="pfErr" style="color:var(--crit);margin-top:8px" hidden></div>'+
-    '<button class="bigbtn" id="pfSave" style="margin-top:12px">저장</button><button class="bigbtn ghost" id="pfHealth" style="margin-top:10px">건강 점검 다시 하기</button><div class="flbl" style="margin-top:18px">화면 테마</div><div class="seg" id="pfTheme" style="margin-top:0"><button data-t="light">☀️ 밝게</button><button data-t="system">📱 기기 설정</button><button data-t="dark">🌙 어둡게</button></div><div class="flbl" style="margin-top:18px">기록 백업</div><div class="card" style="padding:12px 14px"><div class="muted small" id="pfBkAge"></div><p class="muted small" style="margin:4px 0 10px">기록은 이 폰에 저장돼요. 폰을 바꾸거나 브라우저 데이터를 지우기 전에 백업 파일을 저장해 두세요.</p><div class="row" style="gap:8px"><button class="btn-s solid" id="pfBkSave" style="flex:1">💾 백업 파일 저장</button><label class="btn-s filebtn" style="flex:1;text-align:center">📂 불러오기<input type="file" accept="application/json,.json" id="pfBkLoad" hidden></label></div></div><div class="flbl" style="margin-top:18px">앱 잠금</div><button class="bigbtn ghost" id="pfPin">🔒 '+(pinGet()?"앱 잠금 켜짐 · 바꾸기":"숫자 비밀번호로 앱 잠그기")+'</button><div class="flbl" style="margin-top:18px">개인정보 한눈에 보기</div><div class="card" style="padding:12px 14px"><ul class="locul" style="margin:0"><li>회원가입이 없고, 기록은 이 폰 안에만 저장돼요.</li><li>날씨·지도·경로·가게 찾기를 쓸 때만 필요한 위치가 해당 서비스로 전송돼요.</li><li>건강 점검 답변과 안심 연락처도 이 폰에만 있어요.</li><li>'+APP_KO+'는 의료기기가 아니에요. 몸에 이상이 느껴지면 멈추고 의사와 상의하세요.</li></ul><div class="row" style="gap:8px;margin-top:10px"><a class="btn-s" href="privacy.html" target="_blank" rel="noopener" style="flex:1;text-align:center;text-decoration:none">처리방침 보기</a><button class="btn-s" id="pfWipe" style="flex:1;color:var(--crit)">내 기록 모두 지우기</button></div></div><button class="bigbtn ghost" id="pfOut" style="margin-top:10px">로그아웃</button><p class="note" style="text-align:center">로그아웃해도 기록은 지워지지 않아요.</p>';
+    '<button class="bigbtn" id="pfSave" style="margin-top:12px">저장</button><button class="bigbtn ghost" id="pfHealth" style="margin-top:10px">건강 점검 다시 하기</button><div class="flbl" style="margin-top:18px">화면 테마</div><div class="seg" id="pfTheme" style="margin-top:0"><button data-t="light">☀️ 밝게</button><button data-t="system">📱 기기 설정</button><button data-t="dark">🌙 어둡게</button></div><div class="flbl" style="margin-top:18px">기록 백업</div><div class="card" style="padding:12px 14px"><div class="muted small" id="pfBkAge"></div><p class="muted small" style="margin:4px 0 10px">기록은 이 폰에 저장돼요. 폰을 바꾸거나 브라우저 데이터를 지우기 전에 백업 파일을 저장해 두세요.</p><div class="row" style="gap:8px"><button class="btn-s solid" id="pfBkSave" style="flex:1">💾 백업 파일 저장</button><label class="btn-s filebtn" style="flex:1;text-align:center">📂 불러오기<input type="file" accept="application/json,.json" id="pfBkLoad" hidden></label></div></div><div class="flbl" style="margin-top:18px">알림</div><button class="bigbtn ghost" id="pfRemind">🔔 달릴 시간 알림 받기</button><div class="flbl" style="margin-top:18px">앱 잠금</div><button class="bigbtn ghost" id="pfPin">🔒 '+(pinGet()?"앱 잠금 켜짐 · 바꾸기":"숫자 비밀번호로 앱 잠그기")+'</button><div class="flbl" style="margin-top:18px">개인정보 한눈에 보기</div><div class="card" style="padding:12px 14px"><ul class="locul" style="margin:0"><li>회원가입이 없고, 기록은 이 폰 안에만 저장돼요.</li><li>날씨·지도·경로·가게 찾기를 쓸 때만 필요한 위치가 해당 서비스로 전송돼요.</li><li>건강 점검 답변과 안심 연락처도 이 폰에만 있어요.</li><li>'+APP_KO+'는 의료기기가 아니에요. 몸에 이상이 느껴지면 멈추고 의사와 상의하세요.</li></ul><div class="row" style="gap:8px;margin-top:10px"><a class="btn-s" href="privacy.html" target="_blank" rel="noopener" style="flex:1;text-align:center;text-decoration:none">처리방침 보기</a><button class="btn-s" id="pfWipe" style="flex:1;color:var(--crit)">내 기록 모두 지우기</button></div></div><button class="bigbtn ghost" id="pfOut" style="margin-top:10px">로그아웃</button><p class="note" style="text-align:center">로그아웃해도 기록은 지워지지 않아요.</p>';
   openSheet(h,function(s){
     var nick=s.querySelector("#pfNick");nick.value=t.nick;
     function paint(){s.querySelector("#pfPrev").innerHTML=myChar({sex:t.sex,skin:t.skin,ct:t.ct});ctPickPaint(s,"pfCt",t,paint);
@@ -3037,6 +3052,7 @@ function openProfile(){
     if(inClaudePreview()){s.querySelector("#pfBkSave").disabled=true;}
     s.querySelector("#pfBkSave").addEventListener("click",function(){saveBackup();});
     s.querySelector("#pfPin").addEventListener("click",openPinSet);
+    s.querySelector("#pfRemind").addEventListener("click",openRemind);
     s.querySelector("#pfBkLoad").addEventListener("change",function(){var f=this.files&&this.files[0];if(f)loadBackup(f);});
     var paintT=function(){var cur=lsGet("rq-theme")||"light";$$("#pfTheme button",s).forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.t===cur));});};paintT();
     $$("#pfTheme button",s).forEach(function(b){b.addEventListener("click",function(){setTheme(b.dataset.t);paintT();});});
@@ -3135,7 +3151,7 @@ function wipeAll(){
   openSheet('<div class="res-ttl">내 기록 모두 지우기</div><p class="muted" style="text-align:center;margin:10px 0 4px">달린 경로, 일기, 기분, 몸 정보, 캐릭터 성장까지 이 폰에 저장된 '+APP_KO+' 기록이 전부 지워져요. 되돌릴 수 없어요. 남기고 싶으면 먼저 백업 파일을 저장해 주세요.</p>'+
     '<div class="row" style="gap:10px;margin-top:14px"><button class="bigbtn ghost" id="wpN" style="flex:1">취소</button><button class="bigbtn coral" id="wpY" style="flex:1">모두 지우기</button></div>',function(s){
     s.querySelector("#wpN").addEventListener("click",closeSheet);
-    s.querySelector("#wpY").addEventListener("click",function(){try{if(LIVE){stopGeo();LIVE=null;}var ks=[];for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&(k.indexOf("rq-")===0||k.indexOf("runquest")===0))ks.push(k);}ks.forEach(function(k){localStorage.removeItem(k);});}catch(e){}location.reload();});});
+    s.querySelector("#wpY").addEventListener("click",function(){try{if(LIVE){stopGeo();LIVE=null;}var ks=[];for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&(k.indexOf("rq-")===0||k.indexOf("runquest")===0))ks.push(k);}ks.forEach(function(k){localStorage.removeItem(k);});}catch(e){}try{indexedDB.deleteDatabase("rq-photos");}catch(e){}setTimeout(function(){location.reload();},150);});});
 }
 /* 시작: 출발 전 기분 → GPS */
 function startGps(){
@@ -3515,6 +3531,8 @@ function renderFeel(){renderReviewCard();
   var fb=$("#logFilt");if(fb){fb.innerHTML=F.map(function(f){return '<button data-f="'+f[0]+'" aria-pressed="'+(f[0]===LOGF)+'">'+f[1]+'</button>';}).join("");fb.hidden=!all.length;
     $$("button",fb).forEach(function(b){b.addEventListener("click",function(){LOGF=b.dataset.f;renderFeel();});});}
   var fn=F.filter(function(f){return f[0]===LOGF;})[0]||F[0],actsAll=all.filter(fn[2]),acts=actsAll.slice(0,LOGN),la=snapActs()[0],h='';
+  var vb=$("#logView"),G=$("#logGal");if(vb){$$("button",vb).forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.v===LOGV));if(!b._w){b._w=1;b.addEventListener("click",function(){LOGV=b.dataset.v;lsSet("rq-logv",LOGV);renderFeel();});}});}
+  if(G){G.hidden=LOGV!=="gal";P.hidden=LOGV==="gal";if(LOGV==="gal"){renderGal(actsAll);return;}}
   if(LOGF==="all"&&la&&!la.r.diary&&Date.now()-la.r.ts<3*DAY)h+='<button class="tapcard diaryprompt" data-diary="'+esc(la.r.id)+'"><span style="font-size:1.8rem">📝</span><div style="text-align:left;min-width:0"><div style="font-weight:800">'+daysAgo(la.r.ts)+' '+(la.r.errand?"심부름":la.k==="run"?"러닝":"산책")+' 일기를 써 볼까요?</div><div class="muted small">'+fmt(la.r.km,2)+'km 다녀온 날의 기분을 일기처럼 남겨요</div></div></button>';
   if(!all.length)h+='<div class="empty" style="padding:26px 10px">아직 기록이 없어요.<br>달리고 나서 지금 느낌을 남기면 여기에 쌓여요.</div>';
   else if(!acts.length)h+='<div class="empty" style="padding:22px 10px">이 조건에 맞는 기록이 없어요.</div>';
@@ -3532,9 +3550,52 @@ function renderFeel(){renderReviewCard();
   $$("#feelList .feelrow").forEach(function(b){b.addEventListener("click",function(){openActDetail(acts[+b.dataset.fi]);});});
 }
 var LOGN=60;
+/* ---- 스냅 사진 보관함: 만든 스냅을 이 폰(IndexedDB)에 기록별로 한 장씩 보관 ---- */
+var PHDB=null,PHIDX={};
+function phOpen(){if(PHDB)return PHDB;PHDB=new Promise(function(res,rej){try{var q=indexedDB.open("rq-photos",1);q.onupgradeneeded=function(){q.result.createObjectStore("snap",{keyPath:"id"});};q.onsuccess=function(){res(q.result);};q.onerror=function(){rej(q.error);};}catch(e){rej(e);}});PHDB.catch(function(){PHDB=null;});return PHDB;}
+function phTx(mode,fn){return phOpen().then(function(db){return new Promise(function(res,rej){var tx=db.transaction("snap",mode),rq=fn(tx.objectStore("snap"));tx.oncomplete=function(){res(rq&&rq.result);};tx.onerror=tx.onabort=function(){rej(tx.error);};});});}
+function phGet(id){return phTx("readonly",function(s){return s.get(id);}).catch(function(){return null;});}
+function phDel(id){if(PHIDX[id]){URL.revokeObjectURL(PHIDX[id]);delete PHIDX[id];}return phTx("readwrite",function(s){return s.delete(id);}).catch(function(){});}
+function phLoadIdx(){return phTx("readonly",function(s){return s.getAll();}).then(function(a){(a||[]).forEach(function(x){if(x&&x.thumb&&!PHIDX[x.id])PHIDX[x.id]=URL.createObjectURL(x.thumb);});}).catch(function(){});}
+/* 스냅을 저장·공유할 때 호출: 완성본과 작은 미리보기를 같이 넣는다 */
+function keepSnap(b){try{var a=SNAP.act;if(!b||!a||a.demo||!a.r||!a.r.id)return;var cv=$("#snCv"),id=a.r.id;if(!cv)return;
+  var tc=document.createElement("canvas"),tw=300,th=Math.round(cv.height*tw/cv.width);tc.width=tw;tc.height=th;tc.getContext("2d").drawImage(cv,0,0,tw,th);
+  tc.toBlob(function(tb){if(!tb)return;phTx("readwrite",function(s){return s.put({id:id,ts:Date.now(),blob:b,thumb:tb});}).then(function(){if(PHIDX[id])URL.revokeObjectURL(PHIDX[id]);PHIDX[id]=URL.createObjectURL(tb);renderFeel();}).catch(function(){});},"image/jpeg",.74);}catch(e){}}
+function saveBlobFile(b,name,title){try{var f=new File([b],name,{type:b.type});if(isIOS()&&navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:title||APP_KO}).catch(function(){});return;}}catch(e){}
+  try{var u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u);},4000);toast("저장했어요");}catch(e){toast("이 화면에서는 저장이 안 돼요");}}
+/* ---- 한눈에 보기: 달력 + 그 달의 기록 타일 ---- */
+var LOGV=lsGet("rq-logv")==="list"?"list":"gal",LOGM=null,GALACTS=[];
+function actIcon(x){var b=emo(x.r.post);return b?b.e:x.r.errand?"🛍️":x.run?"🏃":"🐾";}
+function renderGal(list){var G=$("#logGal");if(!G)return;if(!LOGM){var d0=new Date(list.length?list[0].ts:Date.now());LOGM=[d0.getFullYear(),d0.getMonth()];}
+  var y=LOGM[0],m=LOGM[1],first=new Date(y,m,1),dim=new Date(y,m+1,0).getDate(),lead=(first.getDay()+6)%7,t0=first.getTime(),t1=new Date(y,m+1,1).getTime(),now=new Date(),
+    mon=list.filter(function(x){return x.ts>=t0&&x.ts<t1;}),by={},nr=0,nw=0,km=0,mn=0;GALACTS=mon;
+  mon.forEach(function(x,i){var d=new Date(x.ts).getDate();(by[d]=by[d]||[]).push(i);if(x.run)nr++;else nw++;km+=x.r.km||0;mn+=x.r.min||0;});
+  var h='<div class="galhead"><button class="galnav" id="galPrev" aria-label="이전 달">‹</button><b>'+y+'년 '+(m+1)+'월</b><button class="galnav" id="galNext" aria-label="다음 달"'+(y===now.getFullYear()&&m===now.getMonth()?" disabled":"")+'>›</button></div>'+
+    '<div class="galstat mono">'+(mon.length?(nr?'러닝 '+nr+'번 · ':'')+(nw?'산책 '+nw+'번 · ':'')+fmt(km,1)+'km · '+(mn>=60?Math.floor(mn/60)+'시간 ':'')+Math.round(mn%60)+'분':'이 달에는 기록이 없어요')+'</div><div class="cal">'+
+    ["월","화","수","목","금","토","일"].map(function(w){return '<div class="cal-w">'+w+'</div>';}).join("");
+  for(var i=0;i<lead;i++)h+='<div class="cal-d off"></div>';
+  for(var d=1;d<=dim;d++){var ix=by[d],td=y===now.getFullYear()&&m===now.getMonth()&&d===now.getDate();
+    if(!ix){h+='<div class="cal-d'+(td?" today":"")+'"><i>'+d+'</i></div>';continue;}
+    var x=mon[ix[0]],ph=null;ix.forEach(function(j){if(!ph&&PHIDX[mon[j].r.id])ph=PHIDX[mon[j].r.id];});
+    h+='<button class="cal-d has'+(ph?" ph":"")+(td?" today":"")+'" data-gi="'+ix[0]+'"'+(ph?' style="background-image:url('+ph+')"':'')+' aria-label="'+(m+1)+'월 '+d+'일 기록 '+ix.length+'개"><i>'+d+'</i><span>'+actIcon(x)+'</span>'+(ix.length>1?'<em>'+ix.length+'</em>':'')+'</button>';}
+  h+='</div>';
+  if(mon.length){h+='<div class="galgrid">'+mon.map(function(x,i){var r=x.r,ph=PHIDX[r.id],dd=new Date(r.ts);
+      return '<button class="galt" data-gi="'+i+'">'+(ph?'<img src="'+ph+'" alt="" loading="lazy">':r.path&&r.path.length>1?routeSVG(r.path,null,{w:100,h:100,pad:16}):'<div class="ge">'+actIcon(x)+'</div>')+
+        '<span class="gi">'+(r.diary?"📝":"")+(r.path&&r.path.length>1&&ph?"🎬":"")+'</span><span class="gc">'+dd.getDate()+'일 · '+fmt(r.km,1)+'km'+(ph||!(r.path&&r.path.length>1)?'':' '+actIcon(x))+'</span></button>';}).join("")+'</div>';}
+  if(!list.length)h+='<div class="empty" style="padding:22px 10px">아직 기록이 없어요.<br>달리고 나서 느낌을 남기면 달력이 채워져요.</div>';
+  h+='<p class="note" style="margin:12px 0 0;text-align:center">📸 스냅을 저장·공유하면 사진이 여기에 남아요. 🎬 경로가 있는 기록은 언제든 영상으로 다시 받을 수 있어요.</p>';
+  G.innerHTML=h;
+  G.querySelector("#galPrev").addEventListener("click",function(){LOGM=m===0?[y-1,11]:[y,m-1];renderFeel();});
+  G.querySelector("#galNext").addEventListener("click",function(){LOGM=m===11?[y+1,0]:[y,m+1];renderFeel();});
+  $$("[data-gi]",G).forEach(function(b){b.addEventListener("click",function(){openActDetail(GALACTS[+b.dataset.gi]);});});}
 function openActDetail(x){if(!x||!x.r)return;
     openSheet('<div class="sheet-h"><h2>'+new Date(x.r.ts).toLocaleDateString("ko-KR",{month:"long",day:"numeric",weekday:"short"})+' '+(x.run?"러닝":"산책")+'</h2><button class="iconbtn" id="fdx">닫기</button></div>'+
-      '<div class="muted small" style="margin-bottom:10px">'+fmt(x.r.km,2)+'km · '+hms(x.r.min*60)+'</div>'+diaryBlock(x.r)+afterBlock(x.r)+feelSummary(x.r)+minBlock(x.r)+'<div class="snbtns" style="margin-top:14px"><button class="bigbtn ghost" data-diary="'+esc(x.r.id)+'">📝 '+(x.r.diary?"일기 고치기":"일기 쓰기")+'</button><button class="bigbtn gold" data-snap="'+esc(x.r.id)+'">📸 스냅</button></div>',function(s){s.querySelector("#fdx").addEventListener("click",closeSheet);});
+      '<div class="muted small" style="margin-bottom:10px">'+fmt(x.r.km,2)+'km · '+hms(x.r.min*60)+'</div><div class="adphoto" id="adPhoto"></div>'+diaryBlock(x.r)+afterBlock(x.r)+feelSummary(x.r)+minBlock(x.r)+'<div class="snbtns" style="margin-top:14px"><button class="bigbtn ghost" data-diary="'+esc(x.r.id)+'">📝 '+(x.r.diary?"일기 고치기":"일기 쓰기")+'</button><button class="bigbtn gold" data-snap="'+esc(x.r.id)+'">📸 '+(PHIDX[x.r.id]?"스냅 다시 만들기":"스냅")+'</button></div>'+
+      (x.r.path&&x.r.path.length>1?'<button class="bigbtn" data-replay="'+esc(x.r.id)+'" style="margin-top:10px">🎬 달린 길 영상 받기</button>':'<p class="note" style="text-align:center;margin:10px 0 0">GPS 경로가 없는 기록이라 영상은 만들 수 없어요.</p>'),function(s){s.querySelector("#fdx").addEventListener("click",closeSheet);
+      if(PHIDX[x.r.id])phGet(x.r.id).then(function(p){var box=s.querySelector("#adPhoto");if(!p||!p.blob||!box)return;var u=URL.createObjectURL(p.blob),d=new Date(x.r.ts);
+        box.innerHTML='<img src="'+u+'" alt="이날의 스냅"><div class="snbtns" style="margin-top:8px"><button class="bigbtn ghost" id="adSave">⬇️ 사진 저장</button><button class="bigbtn ghost" id="adDel">사진 지우기</button></div>';
+        box.querySelector("#adSave").addEventListener("click",function(){saveBlobFile(p.blob,"running-u-"+d.getFullYear()+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0")+".jpg",APP_KO+" 스냅");});
+        var del=box.querySelector("#adDel"),arm=false;del.addEventListener("click",function(){if(!arm){arm=true;del.textContent="한 번 더 누르면 지워요";setTimeout(function(){arm=false;del.textContent="사진 지우기";},3000);return;}phDel(x.r.id).then(function(){box.innerHTML="";renderFeel();toast("사진을 지웠어요");});});});});
 }
 
 /* 백업 */
@@ -3553,7 +3614,7 @@ function backupName(){var d=new Date();return "runninggu-backup-"+d.getFullYear(
 /* 백업 저장: 비밀번호를 넣으면 암호화. 파일 보내기는 새 터치에서 해야 해서 2단계로 나눈다 */
 function saveBackup(){
   openSheet('<div class="sheet-h"><h2>💾 백업 파일</h2><button class="iconbtn" id="bkx">닫기</button></div>'+
-    '<p class="muted small" style="margin:0 0 10px">백업 파일에는 일기·기분·아픈 곳·달린 경로가 들어 있어요. '+(cryptoOk()?'비밀번호를 넣으면 암호화해서, 파일이 다른 사람 손에 들어가도 열 수 없어요.':'이 화면에서는 암호화를 쓸 수 없어요(https 주소에서 열면 돼요).')+'</p>'+
+    '<p class="muted small" style="margin:0 0 10px">백업 파일에는 일기·기분·아픈 곳·달린 경로가 들어 있어요. 스냅 사진은 용량 때문에 들어가지 않아요. '+(cryptoOk()?'비밀번호를 넣으면 암호화해서, 파일이 다른 사람 손에 들어가도 열 수 없어요.':'이 화면에서는 암호화를 쓸 수 없어요(https 주소에서 열면 돼요).')+'</p>'+
     (cryptoOk()?'<input id="bkPw" type="password" autocomplete="new-password" maxlength="64" placeholder="비밀번호 (6자 이상 · 비우면 암호화 안 함)" style="'+PWIN+'"><p class="note" style="margin-left:0">비밀번호를 잊으면 이 파일은 누구도 열 수 없어요. 저도 복구할 수 없어요.</p>':'')+
     '<div class="errmsg" style="color:var(--crit);margin-top:8px;font-size:.84rem" id="bkErr" hidden></div><button class="bigbtn" id="bkMake" style="margin-top:10px">백업 파일 만들기</button><button class="bigbtn gold" id="bkSend" style="margin-top:10px" hidden>📤 파일 저장 · 보내기</button>',function(s){
     var blob=null,er=s.querySelector("#bkErr");s.querySelector("#bkx").addEventListener("click",closeSheet);
@@ -3582,6 +3643,26 @@ function loadBackup(file){
     applyBackup(o);};
   rd.readAsText(file);
 }
+/* ---- 달릴 시간 알림: 서버 없이 폰 캘린더의 반복 일정으로 알림을 건다 ---- */
+function remindICS(days,hh,mm){var BY=["SU","MO","TU","WE","TH","FR","SA"],d=new Date();d.setSeconds(0,0);d.setHours(hh,mm);
+  for(var i=0;i<8;i++){if(days.indexOf(d.getDay())>=0&&d.getTime()>Date.now())break;d.setDate(d.getDate()+1);}
+  function p2(n){return String(n).padStart(2,"0");}var st=d.getFullYear()+p2(d.getMonth()+1)+p2(d.getDate())+"T"+p2(hh)+p2(mm)+"00",n=new Date(),
+    stamp=n.getUTCFullYear()+p2(n.getUTCMonth()+1)+p2(n.getUTCDate())+"T"+p2(n.getUTCHours())+p2(n.getUTCMinutes())+p2(n.getUTCSeconds())+"Z",url=location.protocol.indexOf("http")===0?location.origin+location.pathname:"";
+  return ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//RUNNING-U//KO","CALSCALE:GREGORIAN","BEGIN:VEVENT","UID:runningu-"+Date.now()+"@running-u","DTSTAMP:"+stamp,"DTSTART:"+st,"DURATION:PT30M",
+    "RRULE:FREQ=WEEKLY;BYDAY="+days.map(function(x){return BY[x];}).join(","),"SUMMARY:🏃 "+APP_LINE,"DESCRIPTION:"+APP_KO+" 열고 달린 뒤 느낌까지 남겨요."+(url?"\\n"+url:""),url?"URL:"+url:"",
+    "BEGIN:VALARM","ACTION:DISPLAY","DESCRIPTION:"+APP_LINE,"TRIGGER:PT0M","END:VALARM","END:VEVENT","END:VCALENDAR"].filter(Boolean).join("\r\n");}
+function openRemind(){var sel=[2,4,6],DN=["일","월","화","수","목","금","토"];
+  openSheet('<div class="sheet-h"><h2>🔔 달릴 시간 알림</h2><button class="iconbtn" id="rmx">닫기</button></div><p class="muted small" style="margin:0 0 12px">고른 요일·시간에 폰 캘린더가 알려 줘요. 서버를 쓰지 않아서 기록은 폰 밖으로 나가지 않아요. 대신 그날 이미 달렸어도 알림은 울려요.</p>'+
+    '<div class="lbl" style="margin-bottom:6px">요일</div><div class="chips" id="rmDays">'+[1,2,3,4,5,6,0].map(function(d){return '<button type="button" class="chip" data-d="'+d+'" aria-pressed="'+(sel.indexOf(d)>=0)+'">'+DN[d]+'</button>';}).join("")+'</div>'+
+    '<div class="lbl" style="margin:14px 0 6px">시간</div><input id="rmTime" type="time" value="19:00" style="'+PWIN+'">'+
+    '<div class="errmsg" style="color:var(--crit);margin-top:8px;font-size:.84rem" id="rmErr" hidden></div><button class="bigbtn" id="rmGo" style="margin-top:14px">캘린더에 알림 넣기</button><p class="note" style="margin-left:0">열리는 화면에서 "캘린더에 추가"를 누르면 끝이에요. 끄려면 캘린더에서 그 일정을 지우면 돼요.</p>',function(s){
+    s.querySelector("#rmx").addEventListener("click",closeSheet);
+    $$("#rmDays .chip",s).forEach(function(b){b.addEventListener("click",function(){var d=+b.dataset.d,i=sel.indexOf(d);if(i>=0)sel.splice(i,1);else sel.push(d);b.setAttribute("aria-pressed",String(i<0));});});
+    s.querySelector("#rmGo").addEventListener("click",function(){var er=s.querySelector("#rmErr"),tm=(s.querySelector("#rmTime").value||"").split(":");er.hidden=true;
+      if(!sel.length||tm.length<2){er.textContent="요일을 하나 이상, 시간을 골라 주세요.";er.hidden=false;return;}
+      var ics=remindICS(sel.slice().sort(),+tm[0],+tm[1]);
+      try{var blob=new Blob([ics],{type:"text/calendar;charset=utf-8"}),u=URL.createObjectURL(blob),a=document.createElement("a");a.href=u;a.download="running-u-alarm.ics";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u);},60000);
+        lsSet("rq-remind","1");closeSheet();renderHome();toast("캘린더 화면에서 추가를 눌러 주세요");}catch(e){er.textContent="이 화면에서는 캘린더 파일을 열 수 없어요.";er.hidden=false;}});});}
 /* ---- 앱 잠금: 앱을 열 때 숫자 비밀번호를 묻는 가림막 (저장 내용 암호화는 아님) ---- */
 function pinGet(){try{var o=JSON.parse(lsGet("rq-pin")||"null");return o&&o.s&&o.h?o:null;}catch(e){return null;}}
 function pinHash(pin,salt){return pwBits(pin,salt,150000).then(b64);}
@@ -3595,7 +3676,7 @@ function pinLock(){var P=pinGet();if(!P||PINLOCK||!cryptoOk())return;PINLOCK=tru
     if(k==="←")v=v.slice(0,-1);else if(v.length<P.n)v+=k;dots();
     if(v.length===P.n){var tr=v;v="";pinHash(tr,unb64(P.s)).then(function(h){if(h===P.h){PINLOCK=false;el.remove();}else{fails++;if(fails>=5){wait=Date.now()+30000;fails=0;msg("5번 틀렸어요. 30초 뒤에 다시 시도해 주세요");}else msg("맞지 않아요. 다시 입력해 주세요");dots();}}).catch(function(){msg("확인하지 못했어요");dots();});}});
   var fg=el.querySelector("#plForgot"),arm=false;fg.addEventListener("click",function(){if(!arm){arm=true;fg.textContent="되찾을 방법이 없어요. 한 번 더 누르면 기록을 모두 지우고 처음부터 시작해요";fg.style.color="var(--crit)";setTimeout(function(){arm=false;fg.textContent="비밀번호를 잊었어요";fg.style.color="";},6000);return;}
-    try{var ks=[];for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&(k.indexOf("rq-")===0||k.indexOf("runquest")===0))ks.push(k);}ks.forEach(function(k){localStorage.removeItem(k);});}catch(e){}location.reload();});}
+    try{var ks=[];for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&(k.indexOf("rq-")===0||k.indexOf("runquest")===0))ks.push(k);}ks.forEach(function(k){localStorage.removeItem(k);});}catch(e){}try{indexedDB.deleteDatabase("rq-photos");}catch(e){}setTimeout(function(){location.reload();},150);});}
 function openPinSet(){
   if(!cryptoOk()){toast("앱 잠금은 https 주소로 연 앱에서만 쓸 수 있어요");return;}var P=pinGet();
   openSheet('<div class="sheet-h"><h2>🔒 앱 잠금</h2><button class="iconbtn" id="pnx">닫기</button></div><p class="muted small" style="margin:0 0 10px">앱을 열 때와 1분 넘게 자리를 비웠다 돌아올 때 숫자 비밀번호를 물어요. 폰을 잠깐 빌려준 사람이 일기를 못 보게 하는 가림막이에요. 저장된 내용 자체를 암호화하지는 않으니 폰 잠금도 꼭 같이 쓰세요.</p>'+
@@ -3609,6 +3690,7 @@ function openPinSet(){
 }
 document.addEventListener("visibilitychange",function(){if(document.visibilityState!=="visible"){PINAWAY=Date.now();return;}if(PINAWAY&&Date.now()-PINAWAY>60000&&!LIVE)pinLock();});
 pinLock();
+phLoadIdx().then(function(){try{if(Object.keys(PHIDX).length)renderFeel();}catch(e){}});
 function backupAgeText(){var t=+lsGet("rq-backupAt")||0;if(!t)return "아직 백업한 적이 없어요";var d=Math.floor((Date.now()-t)/DAY);return "마지막 백업: "+(d<1?"오늘":d+"일 전");}
 try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist();}catch(e){}
 
@@ -4173,12 +4255,12 @@ function snapBlob(){return new Promise(function(res){var cv=$("#snCv");if(!cv)re
 function snapName(){var r=SNAP.act.r,d=new Date(r.ts);return "runninggu-"+d.getFullYear()+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0")+".jpg";}
 function showSnapImg(b){var o=$("#snOut");if(!o||!b)return;if(SNAP.url)URL.revokeObjectURL(SNAP.url);SNAP.url=URL.createObjectURL(b);o.src=SNAP.url;o.hidden=false;
   var n=$("#snNote");if(n)n.textContent="위 이미지를 길게 눌러 사진첩에 저장할 수도 있어요.";o.scrollIntoView({block:"nearest"});}
-function shareSnap(){snapBlob().then(function(b){if(!b)return;
+function shareSnap(){snapBlob().then(function(b){if(!b)return;keepSnap(b);
   try{var f=new File([b],snapName(),{type:"image/jpeg"});
     if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:APP_KO+" 스냅"}).catch(function(){});return;}}catch(e){}
   showSnapImg(b);toast("이 화면에선 바로 공유가 안 돼요. 이미지를 길게 눌러 저장해 주세요");});}
 function isIOS(){return /iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);}
-function saveSnap(){if(isIOS()&&!inClaudePreview()&&navigator.canShare){shareSnap();return;}snapBlob().then(function(b){if(!b)return;
+function saveSnap(){if(isIOS()&&!inClaudePreview()&&navigator.canShare){shareSnap();return;}snapBlob().then(function(b){if(!b)return;keepSnap(b);
   if(inClaudePreview()){showSnapImg(b);toast("이미지를 길게 눌러 저장해 주세요");return;}
   try{var u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download=snapName();document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u);},4000);toast("사진을 저장했어요 📸");}catch(e){showSnapImg(b);}});}
 
@@ -4581,6 +4663,9 @@ function renderHomeTop(){
   var hc=$(".hero-card"),db=$("#devBadge");if(hc&&!db){db=document.createElement("button");db.id="devBadge";db.className="devbadge";db.textContent="🛠 개발자 · 전체 캐릭터";db.addEventListener("click",function(e){e.stopPropagation();openDevGallery();});hc.appendChild(db);}if(db)db.hidden=!DEV;
   renderErrandHome();$("#gameArt").innerHTML=myChar({run:true,st:.55});var gb=S.game&&S.game.best;$("#gameBest").textContent=gb?"최고 기록 "+gb.toLocaleString("ko-KR")+"점 · 한 판 더?":(activeDog()?"내 신발 신고, "+josa(activeDog().name,"와","과")+" 커플 운동화로 달려요":"내 캐릭터가 내 신발 신고 달려요");
   var hi=$("#homeHi");if(hi)hi.textContent=greet();
+  var rc=$("#remindCard"),rshow=!lsGet("rq-remind")&&(S.runs.length+S.walks.length)>=1;if(!rc&&hc&&rshow){rc=document.createElement("div");rc.id="remindCard";rc.className="tapcard diaryprompt";rc.style.cursor="pointer";hc.parentNode.insertBefore(rc,hc.nextSibling);
+    rc.addEventListener("click",function(e){if(e.target.closest("#rcNo")){lsSet("rq-remind","0");rc.hidden=true;return;}openRemind();});}
+  if(rc){rc.hidden=!rshow;if(rshow)rc.innerHTML='<span style="font-size:1.8rem">🔔</span><div style="text-align:left;min-width:0;flex:1"><div style="font-weight:800">달릴 시간에 알려 드릴까요?</div><div class="muted small">요일·시간만 고르면 폰 캘린더가 알려 줘요</div></div><button type="button" class="iconbtn" id="rcNo" aria-label="알림 안내 닫기">✕</button>';}
   var lc=$("#lateCard"),lt=lateAct();if(!lc&&hc&&lt){lc=document.createElement("button");lc.id="lateCard";lc.className="tapcard diaryprompt";hc.parentNode.insertBefore(lc,hc);lc.addEventListener("click",openLate);}
   if(lc){lc.hidden=!lt;if(lt)lc.innerHTML='<span style="font-size:1.8rem">📝</span><div style="text-align:left;min-width:0"><div style="font-weight:800">'+daysAgo(lt.r.ts)+' '+(lt.r.errand?"심부름":lt.k==="run"?"러닝":"산책")+', 느낌을 안 적었어요</div><div class="muted small">'+fmt(lt.r.km,2)+'km · 10초면 돼요. 두 번만 누르면 끝</div></div>';}
   var g=S.weekGoal||10,wk=weekKm(),pct=Math.min(1,wk/g),st=streakDays(),R=34,C=2*Math.PI*R;
